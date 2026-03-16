@@ -1,0 +1,205 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "sevSegP1L[0]",
+					"strict" : false
+				},
+				{
+					"name" : "sevSegP1L[1]",
+					"strict" : false
+				},
+				{
+					"name" : "sevSegP1L[2]",
+					"strict" : false
+				},
+				{
+					"name" : "sevSegP1L[3]",
+					"strict" : false
+				},
+				{
+					"name" : "sevSegP1L[4]",
+					"strict" : false
+				},
+				{
+					"name" : "sevSegP1L[5]",
+					"strict" : false
+				},
+				{
+					"name" : "sevSegP1L[6]",
+					"strict" : false
+				},
+				{
+					"name" : "sevSegP2L[0]",
+					"strict" : false
+				},
+				{
+					"name" : "sevSegP2L[1]",
+					"strict" : false
+				},
+				{
+					"name" : "sevSegP2L[2]",
+					"strict" : false
+				},
+				{
+					"name" : "sevSegP2L[3]",
+					"strict" : false
+				},
+				{
+					"name" : "sevSegP2L[4]",
+					"strict" : false
+				},
+				{
+					"name" : "sevSegP2L[5]",
+					"strict" : false
+				},
+				{
+					"name" : "sevSegP2L[6]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaR[0]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaR[1]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaR[2]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaR[3]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaR[4]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaR[5]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaR[6]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaR[7]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaG[0]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaG[1]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaG[2]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaG[3]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaG[4]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaG[5]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaG[6]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaG[7]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaB[0]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaB[1]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaB[2]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaB[3]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaB[4]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaB[5]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaB[6]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaB[7]",
+					"strict" : false
+				},
+				{
+					"name" : "vgaHSync",
+					"strict" : false
+				},
+				{
+					"name" : "vgaVSync",
+					"strict" : false
+				},
+				{
+					"name" : "vga_clk",
+					"strict" : false
+				},
+				{
+					"name" : "led_up",
+					"strict" : false
+				},
+				{
+					"name" : "led_down",
+					"strict" : false
+				},
+				{
+					"name" : "rst",
+					"strict" : false
+				},
+				{
+					"name" : "playerOneUp",
+					"strict" : false
+				},
+				{
+					"name" : "playerOneDown",
+					"strict" : false
+				},
+				{
+					"name" : "clk50",
+					"strict" : false
+				},
+				{
+					"name" : "playerTwoUp",
+					"strict" : false
+				},
+				{
+					"name" : "playerTwoDown",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

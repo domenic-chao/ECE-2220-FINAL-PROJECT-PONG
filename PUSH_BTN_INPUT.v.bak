@@ -1,0 +1,9 @@
+module PUSH_BTN_INPUT (
+	input P1_UP,
+	input P1_DOWN,
+	input P2_UP,
+	input P2_DOWN
+	
+	inout blockerOneY,
+	inout blockerTwoY
+);

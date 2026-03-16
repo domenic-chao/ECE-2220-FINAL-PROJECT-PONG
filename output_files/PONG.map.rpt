@@ -1,0 +1,595 @@
+Analysis & Synthesis report for PONG
+Mon Mar 16 16:14:14 2026
+Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Standard Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Inverted Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: BALL_LOGIC:ballLogic
+ 13. Parameter Settings for User Entity Instance: VGA_OUTPUT:displayOutput
+ 14. Parameter Settings for Inferred Entity Instance: NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div1
+ 15. Parameter Settings for Inferred Entity Instance: NUM_TO_SEVSEG:playerTwoScore|lpm_divide:Div1
+ 16. Port Connectivity Checks: "VGA_OUTPUT:displayOutput"
+ 17. Port Connectivity Checks: "BALL_LOGIC:ballLogic"
+ 18. Port Connectivity Checks: "NUM_TO_SEVSEG:playerOneScore|SEV_SEG_OUTPUT:right"
+ 19. Post-Synthesis Netlist Statistics for Top Partition
+ 20. Elapsed Time Per Partition
+ 21. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                      ;
++---------------------------------+-------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Mon Mar 16 16:14:14 2026           ;
+; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Standard Edition ;
+; Revision Name                   ; PONG                                            ;
+; Top-level Entity Name           ; PONG                                            ;
+; Family                          ; Cyclone V                                       ;
+; Logic utilization (in ALMs)     ; N/A                                             ;
+; Total registers                 ; 104                                             ;
+; Total pins                      ; 77                                              ;
+; Total virtual pins              ; 0                                               ;
+; Total block memory bits         ; 0                                               ;
+; Total DSP Blocks                ; 0                                               ;
+; Total HSSI RX PCSs              ; 0                                               ;
+; Total HSSI PMA RX Deserializers ; 0                                               ;
+; Total HSSI TX PCSs              ; 0                                               ;
+; Total HSSI PMA TX Serializers   ; 0                                               ;
+; Total PLLs                      ; 0                                               ;
+; Total DLLs                      ; 0                                               ;
++---------------------------------+-------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSXFC6D6F31C6     ;                    ;
+; Top-level entity name                                                           ; PONG               ; PONG               ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation                ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 20          ;
+; Maximum allowed            ; 12          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 12          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processors 2-12        ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                                    ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                ; Library ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------+---------+
+; PONG.v                           ; yes             ; User Verilog HDL File        ; C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v                     ;         ;
+; BALL_LOGIC.v                     ; yes             ; User Verilog HDL File        ; C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v               ;         ;
+; VGA_OUTPUT.v                     ; yes             ; User Verilog HDL File        ; C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/VGA_OUTPUT.v               ;         ;
+; NUM_TO_SEVSEG.v                  ; yes             ; User Verilog HDL File        ; C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/NUM_TO_SEVSEG.v            ;         ;
+; PUSH_BTN_INPUT.v                 ; yes             ; User Verilog HDL File        ; C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PUSH_BTN_INPUT.v           ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga/18.0/quartus/libraries/megafunctions/lpm_divide.tdf                                            ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga/18.0/quartus/libraries/megafunctions/abs_divider.inc                                           ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga/18.0/quartus/libraries/megafunctions/sign_div_unsign.inc                                       ;         ;
+; aglobal180.inc                   ; yes             ; Megafunction                 ; c:/intelfpga/18.0/quartus/libraries/megafunctions/aglobal180.inc                                            ;         ;
+; db/lpm_divide_lbm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/db/lpm_divide_lbm.tdf      ;         ;
+; db/sign_div_unsign_rlh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/db/sign_div_unsign_rlh.tdf ;         ;
+; db/alt_u_div_sve.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/db/alt_u_div_sve.tdf       ;         ;
++----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------+---------+
+
+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+; Estimate of Logic utilization (ALMs needed) ; 287   ;
+;                                             ;       ;
+; Combinational ALUT usage for logic          ; 540   ;
+;     -- 7 input functions                    ; 0     ;
+;     -- 6 input functions                    ; 30    ;
+;     -- 5 input functions                    ; 27    ;
+;     -- 4 input functions                    ; 76    ;
+;     -- <=3 input functions                  ; 407   ;
+;                                             ;       ;
+; Dedicated logic registers                   ; 104   ;
+;                                             ;       ;
+; I/O pins                                    ; 77    ;
+;                                             ;       ;
+; Total DSP Blocks                            ; 0     ;
+;                                             ;       ;
+; Maximum fan-out node                        ; clk25 ;
+; Maximum fan-out                             ; 105   ;
+; Total fan-out                               ; 2025  ;
+; Average fan-out                             ; 2.54  ;
++---------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                                                                          ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                ; Entity Name         ; Library Name ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+; |PONG                                     ; 540 (1)             ; 104 (1)                   ; 0                 ; 0          ; 77   ; 0            ; |PONG                                                                                                                              ; PONG                ; work         ;
+;    |BALL_LOGIC:ballLogic|                 ; 78 (78)             ; 49 (49)                   ; 0                 ; 0          ; 0    ; 0            ; |PONG|BALL_LOGIC:ballLogic                                                                                                         ; BALL_LOGIC          ; work         ;
+;    |NUM_TO_SEVSEG:playerOneScore|         ; 164 (10)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerOneScore                                                                                                 ; NUM_TO_SEVSEG       ; work         ;
+;       |SEV_SEG_OUTPUT:left|               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerOneScore|SEV_SEG_OUTPUT:left                                                                             ; SEV_SEG_OUTPUT      ; work         ;
+;       |lpm_divide:Div1|                   ; 147 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div1                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_lbm:auto_generated|  ; 147 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div1|lpm_divide_lbm:auto_generated                                                   ; lpm_divide_lbm      ; work         ;
+;             |sign_div_unsign_rlh:divider| ; 147 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div1|lpm_divide_lbm:auto_generated|sign_div_unsign_rlh:divider                       ; sign_div_unsign_rlh ; work         ;
+;                |alt_u_div_sve:divider|    ; 147 (147)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div1|lpm_divide_lbm:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_sve:divider ; alt_u_div_sve       ; work         ;
+;    |NUM_TO_SEVSEG:playerTwoScore|         ; 164 (10)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerTwoScore                                                                                                 ; NUM_TO_SEVSEG       ; work         ;
+;       |SEV_SEG_OUTPUT:left|               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerTwoScore|SEV_SEG_OUTPUT:left                                                                             ; SEV_SEG_OUTPUT      ; work         ;
+;       |lpm_divide:Div1|                   ; 147 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerTwoScore|lpm_divide:Div1                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_lbm:auto_generated|  ; 147 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerTwoScore|lpm_divide:Div1|lpm_divide_lbm:auto_generated                                                   ; lpm_divide_lbm      ; work         ;
+;             |sign_div_unsign_rlh:divider| ; 147 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerTwoScore|lpm_divide:Div1|lpm_divide_lbm:auto_generated|sign_div_unsign_rlh:divider                       ; sign_div_unsign_rlh ; work         ;
+;                |alt_u_div_sve:divider|    ; 147 (147)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerTwoScore|lpm_divide:Div1|lpm_divide_lbm:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_sve:divider ; alt_u_div_sve       ; work         ;
+;    |VGA_OUTPUT:displayOutput|             ; 133 (133)           ; 54 (54)                   ; 0                 ; 0          ; 0    ; 0            ; |PONG|VGA_OUTPUT:displayOutput                                                                                                     ; VGA_OUTPUT          ; work         ;
++-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                               ;
++-----------------------------------------+----------------------------------------+
+; Register name                           ; Reason for Removal                     ;
++-----------------------------------------+----------------------------------------+
+; scoreTwo[0..6]                          ; Stuck at GND due to stuck port data_in ;
+; scoreOne[0..6]                          ; Stuck at GND due to stuck port data_in ;
+; BALL_LOGIC:ballLogic|ballY[0]~reg0      ; Stuck at GND due to stuck port data_in ;
+; BALL_LOGIC:ballLogic|ballY[1]~reg0      ; Stuck at GND due to stuck port data_in ;
+; BALL_LOGIC:ballLogic|ballY[2]~reg0      ; Stuck at GND due to stuck port data_in ;
+; BALL_LOGIC:ballLogic|ballY[3]~reg0      ; Stuck at GND due to stuck port data_in ;
+; BALL_LOGIC:ballLogic|ballY[4]~reg0      ; Stuck at VCC due to stuck port data_in ;
+; BALL_LOGIC:ballLogic|ballY[5]~reg0      ; Stuck at VCC due to stuck port data_in ;
+; BALL_LOGIC:ballLogic|ballY[6]~reg0      ; Stuck at VCC due to stuck port data_in ;
+; BALL_LOGIC:ballLogic|ballY[7]~reg0      ; Stuck at VCC due to stuck port data_in ;
+; BALL_LOGIC:ballLogic|ballY[8]~reg0      ; Stuck at GND due to stuck port data_in ;
+; BALL_LOGIC:ballLogic|ballY[9]~reg0      ; Stuck at GND due to stuck port data_in ;
+; BALL_LOGIC:ballLogic|ballY[10]~reg0     ; Stuck at GND due to stuck port data_in ;
+; BALL_LOGIC:ballLogic|ballY[11]~reg0     ; Stuck at GND due to stuck port data_in ;
+; BALL_LOGIC:ballLogic|ballX[0]~reg0      ; Stuck at GND due to stuck port data_in ;
+; BALL_LOGIC:ballLogic|ballX[1]~reg0      ; Stuck at GND due to stuck port data_in ;
+; BALL_LOGIC:ballLogic|ballX[2]~reg0      ; Stuck at VCC due to stuck port data_in ;
+; BALL_LOGIC:ballLogic|ballX[3]~reg0      ; Stuck at GND due to stuck port data_in ;
+; BALL_LOGIC:ballLogic|ballX[4]~reg0      ; Stuck at VCC due to stuck port data_in ;
+; BALL_LOGIC:ballLogic|ballX[5]~reg0      ; Stuck at GND due to stuck port data_in ;
+; BALL_LOGIC:ballLogic|ballX[6]~reg0      ; Stuck at GND due to stuck port data_in ;
+; BALL_LOGIC:ballLogic|ballX[7]~reg0      ; Stuck at GND due to stuck port data_in ;
+; BALL_LOGIC:ballLogic|ballX[8]~reg0      ; Stuck at GND due to stuck port data_in ;
+; BALL_LOGIC:ballLogic|ballX[9]~reg0      ; Stuck at GND due to stuck port data_in ;
+; BALL_LOGIC:ballLogic|ballX[10]~reg0     ; Stuck at GND due to stuck port data_in ;
+; BALL_LOGIC:ballLogic|ballX[11]~reg0     ; Stuck at GND due to stuck port data_in ;
+; VGA_OUTPUT:displayOutput|rowChange[4,5] ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 40  ;                                        ;
++-----------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 104   ;
+; Number of registers using Synchronous Clear  ; 65    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 41    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++----------------------------------------------------+
+; Inverted Register Statistics                       ;
++------------------------------------------+---------+
+; Inverted Register                        ; Fan out ;
++------------------------------------------+---------+
+; BALL_LOGIC:ballLogic|blockerOneY[7]~reg0 ; 3       ;
+; BALL_LOGIC:ballLogic|blockerOneY[6]~reg0 ; 3       ;
+; BALL_LOGIC:ballLogic|blockerOneY[5]~reg0 ; 3       ;
+; BALL_LOGIC:ballLogic|blockerOneY[4]~reg0 ; 3       ;
+; BALL_LOGIC:ballLogic|blockerTwoY[7]~reg0 ; 3       ;
+; BALL_LOGIC:ballLogic|blockerTwoY[6]~reg0 ; 3       ;
+; BALL_LOGIC:ballLogic|blockerTwoY[5]~reg0 ; 3       ;
+; BALL_LOGIC:ballLogic|blockerTwoY[4]~reg0 ; 3       ;
+; Total number of inverted registers = 8   ;         ;
++------------------------------------------+---------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
+; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |PONG|VGA_OUTPUT:displayOutput|Hpos[5]          ;
+; 3:1                ; 25 bits   ; 50 LEs        ; 0 LEs                ; 50 LEs                 ; Yes        ; |PONG|BALL_LOGIC:ballLogic|clkCount[21]         ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |PONG|VGA_OUTPUT:displayOutput|rowChange[0]     ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |PONG|BALL_LOGIC:ballLogic|blockerOneY[11]~reg0 ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |PONG|VGA_OUTPUT:displayOutput|Vpos[7]          ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |PONG|BALL_LOGIC:ballLogic|blockerTwoY[10]~reg0 ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |PONG|BALL_LOGIC:ballLogic|blockerOneY[7]~reg0  ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |PONG|BALL_LOGIC:ballLogic|blockerTwoY[5]~reg0  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: BALL_LOGIC:ballLogic ;
++-----------------+---------+---------------------------------------+
+; Parameter Name  ; Value   ; Type                                  ;
++-----------------+---------+---------------------------------------+
+; CLK_SIZE        ; 2500000 ; Signed Integer                        ;
+; BOARD_WIDTH     ; 640     ; Signed Integer                        ;
+; BOARD_HEIGHT    ; 480     ; Signed Integer                        ;
+; BALL_SIZE       ; 5       ; Signed Integer                        ;
+; BLOCKER_WIDTH   ; 5       ; Signed Integer                        ;
+; BLOCKER_SIZE    ; 20      ; Signed Integer                        ;
+; BLOCKER_PADDING ; 10      ; Signed Integer                        ;
++-----------------+---------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: VGA_OUTPUT:displayOutput ;
++--------------------+-------+------------------------------------------+
+; Parameter Name     ; Value ; Type                                     ;
++--------------------+-------+------------------------------------------+
+; BOARD_WIDTH        ; 640   ; Signed Integer                           ;
+; BOARD_HEIGHT       ; 480   ; Signed Integer                           ;
+; BALL_SIZE          ; 5     ; Signed Integer                           ;
+; BLOCKER_SIZE       ; 20    ; Signed Integer                           ;
+; BLOCKER_PADDING    ; 10    ; Signed Integer                           ;
+; BLOCKER_WIDTH      ; 5     ; Signed Integer                           ;
+; CENTRE_ROW_BETWEEN ; 10    ; Signed Integer                           ;
+; CENTRE_WIDTH       ; 5     ; Signed Integer                           ;
++--------------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div1 ;
++------------------------+----------------+-----------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                ;
++------------------------+----------------+-----------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                             ;
+; LPM_WIDTHD             ; 7              ; Untyped                                             ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                             ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                             ;
+; LPM_PIPELINE           ; 0              ; Untyped                                             ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                             ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                             ;
+; CBXI_PARAMETER         ; lpm_divide_lbm ; Untyped                                             ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                             ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                             ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                        ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                      ;
++------------------------+----------------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: NUM_TO_SEVSEG:playerTwoScore|lpm_divide:Div1 ;
++------------------------+----------------+-----------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                ;
++------------------------+----------------+-----------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                             ;
+; LPM_WIDTHD             ; 7              ; Untyped                                             ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                             ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                             ;
+; LPM_PIPELINE           ; 0              ; Untyped                                             ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                             ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                             ;
+; CBXI_PARAMETER         ; lpm_divide_lbm ; Untyped                                             ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                             ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                             ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                        ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                      ;
++------------------------+----------------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++---------------------------------------------------------+
+; Port Connectivity Checks: "VGA_OUTPUT:displayOutput"    ;
++-----------------------+-------+----------+--------------+
+; Port                  ; Type  ; Severity ; Details      ;
++-----------------------+-------+----------+--------------+
+; backgroundCol[23..17] ; Input ; Info     ; Stuck at VCC ;
+; backgroundCol[16..0]  ; Input ; Info     ; Stuck at GND ;
+; objectCol             ; Input ; Info     ; Stuck at VCC ;
++-----------------------+-------+----------+--------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "BALL_LOGIC:ballLogic"                                                                    ;
++------------+-------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                             ;
++------------+-------+----------+-------------------------------------------------------------------------------------+
+; ballXVel   ; Bidir ; Warning  ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; ballYVel   ; Bidir ; Warning  ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; launchMode ; Bidir ; Warning  ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+-------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "NUM_TO_SEVSEG:playerOneScore|SEV_SEG_OUTPUT:right"                                                                                                                                      ;
++------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port       ; Type  ; Severity ; Details                                                                                                                                                                            ;
++------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; enable     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; enable[-1] ; Input ; Info     ; Stuck at VCC                                                                                                                                                                       ;
++------------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 104                         ;
+;     ENA               ; 13                          ;
+;     ENA SCLR          ; 28                          ;
+;     SCLR              ; 37                          ;
+;     plain             ; 26                          ;
+; arriav_lcell_comb     ; 544                         ;
+;     arith             ; 273                         ;
+;         0 data inputs ; 36                          ;
+;         1 data inputs ; 101                         ;
+;         2 data inputs ; 32                          ;
+;         3 data inputs ; 62                          ;
+;         4 data inputs ; 42                          ;
+;     normal            ; 235                         ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 85                          ;
+;         3 data inputs ; 54                          ;
+;         4 data inputs ; 34                          ;
+;         5 data inputs ; 27                          ;
+;         6 data inputs ; 30                          ;
+;     shared            ; 36                          ;
+;         0 data inputs ; 28                          ;
+;         1 data inputs ; 8                           ;
+; boundary_port         ; 77                          ;
+;                       ;                             ;
+; Max LUT depth         ; 18.10                       ;
+; Average LUT depth     ; 10.51                       ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.0.0 Build 614 04/24/2018 SJ Standard Edition
+    Info: Processing started: Mon Mar 16 16:14:00 2026
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PONG -c PONG
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
+Warning (10275): Verilog HDL Module Instantiation warning at PONG.v(169): ignored dangling comma in List of Port Connections File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 169
+Info (12021): Found 1 design units, including 1 entities, in source file pong.v
+    Info (12023): Found entity 1: PONG File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 7
+Info (12021): Found 1 design units, including 1 entities, in source file ball_logic.v
+    Info (12023): Found entity 1: BALL_LOGIC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file vga_output.v
+    Info (12023): Found entity 1: VGA_OUTPUT File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/VGA_OUTPUT.v Line: 8
+Info (12021): Found 2 design units, including 2 entities, in source file num_to_sevseg.v
+    Info (12023): Found entity 1: NUM_TO_SEVSEG File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/NUM_TO_SEVSEG.v Line: 6
+    Info (12023): Found entity 2: SEV_SEG_OUTPUT File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/NUM_TO_SEVSEG.v Line: 57
+Info (12021): Found 1 design units, including 1 entities, in source file push_btn_input.v
+    Info (12023): Found entity 1: PUSH_BTN_INPUT File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PUSH_BTN_INPUT.v Line: 6
+Info (12127): Elaborating entity "PONG" for the top level hierarchy
+Info (12128): Elaborating entity "NUM_TO_SEVSEG" for hierarchy "NUM_TO_SEVSEG:playerOneScore" File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 89
+Warning (10230): Verilog HDL assignment warning at NUM_TO_SEVSEG.v(22): truncated value with size 32 to match size of target (4) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/NUM_TO_SEVSEG.v Line: 22
+Warning (10230): Verilog HDL assignment warning at NUM_TO_SEVSEG.v(23): truncated value with size 32 to match size of target (4) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/NUM_TO_SEVSEG.v Line: 23
+Warning (10230): Verilog HDL assignment warning at NUM_TO_SEVSEG.v(24): truncated value with size 32 to match size of target (4) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/NUM_TO_SEVSEG.v Line: 24
+Info (12128): Elaborating entity "SEV_SEG_OUTPUT" for hierarchy "NUM_TO_SEVSEG:playerOneScore|SEV_SEG_OUTPUT:left" File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/NUM_TO_SEVSEG.v Line: 36
+Info (12128): Elaborating entity "BALL_LOGIC" for hierarchy "BALL_LOGIC:ballLogic" File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 134
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(43): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 43
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(44): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 44
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(48): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 48
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(49): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 49
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(62): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 62
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(63): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 63
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(67): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 67
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(68): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 68
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(142): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 142
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(146): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 146
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(152): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 152
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(156): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 156
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(160): truncated value with size 32 to match size of target (25) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 160
+Info (12128): Elaborating entity "VGA_OUTPUT" for hierarchy "VGA_OUTPUT:displayOutput" File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 169
+Warning (10230): Verilog HDL assignment warning at VGA_OUTPUT.v(78): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/VGA_OUTPUT.v Line: 78
+Warning (10230): Verilog HDL assignment warning at VGA_OUTPUT.v(87): truncated value with size 32 to match size of target (6) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/VGA_OUTPUT.v Line: 87
+Warning (10230): Verilog HDL assignment warning at VGA_OUTPUT.v(92): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/VGA_OUTPUT.v Line: 92
+Info (12128): Elaborating entity "PUSH_BTN_INPUT" for hierarchy "PUSH_BTN_INPUT:p1_inputs" File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 179
+Warning (12020): Port "enable" on the entity instantiation of "right" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/NUM_TO_SEVSEG.v Line: 48
+Info (278001): Inferred 2 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "NUM_TO_SEVSEG:playerOneScore|Div1" File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/NUM_TO_SEVSEG.v Line: 24
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "NUM_TO_SEVSEG:playerTwoScore|Div1" File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/NUM_TO_SEVSEG.v Line: 24
+Info (12130): Elaborated megafunction instantiation "NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div1" File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/NUM_TO_SEVSEG.v Line: 24
+Info (12133): Instantiated megafunction "NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div1" with the following parameter: File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/NUM_TO_SEVSEG.v Line: 24
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "7"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_lbm.tdf
+    Info (12023): Found entity 1: lpm_divide_lbm File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/db/lpm_divide_lbm.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_rlh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_rlh File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/db/sign_div_unsign_rlh.tdf Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_sve.tdf
+    Info (12023): Found entity 1: alt_u_div_sve File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/db/alt_u_div_sve.tdf Line: 22
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "sevSegP1C[0]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 21
+    Warning (13410): Pin "sevSegP1C[1]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 21
+    Warning (13410): Pin "sevSegP1C[2]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 21
+    Warning (13410): Pin "sevSegP1C[3]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 21
+    Warning (13410): Pin "sevSegP1C[4]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 21
+    Warning (13410): Pin "sevSegP1C[5]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 21
+    Warning (13410): Pin "sevSegP1C[6]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 21
+    Warning (13410): Pin "sevSegP1R[0]" is stuck at GND File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 22
+    Warning (13410): Pin "sevSegP1R[1]" is stuck at GND File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 22
+    Warning (13410): Pin "sevSegP1R[2]" is stuck at GND File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 22
+    Warning (13410): Pin "sevSegP1R[3]" is stuck at GND File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 22
+    Warning (13410): Pin "sevSegP1R[4]" is stuck at GND File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 22
+    Warning (13410): Pin "sevSegP1R[5]" is stuck at GND File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 22
+    Warning (13410): Pin "sevSegP1R[6]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 22
+    Warning (13410): Pin "sevSegP2C[0]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 24
+    Warning (13410): Pin "sevSegP2C[1]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 24
+    Warning (13410): Pin "sevSegP2C[2]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 24
+    Warning (13410): Pin "sevSegP2C[3]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 24
+    Warning (13410): Pin "sevSegP2C[4]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 24
+    Warning (13410): Pin "sevSegP2C[5]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 24
+    Warning (13410): Pin "sevSegP2C[6]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 24
+    Warning (13410): Pin "sevSegP2R[0]" is stuck at GND File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 25
+    Warning (13410): Pin "sevSegP2R[1]" is stuck at GND File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 25
+    Warning (13410): Pin "sevSegP2R[2]" is stuck at GND File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 25
+    Warning (13410): Pin "sevSegP2R[3]" is stuck at GND File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 25
+    Warning (13410): Pin "sevSegP2R[4]" is stuck at GND File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 25
+    Warning (13410): Pin "sevSegP2R[5]" is stuck at GND File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 25
+    Warning (13410): Pin "sevSegP2R[6]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 25
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 641 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 6 input pins
+    Info (21059): Implemented 71 output pins
+    Info (21061): Implemented 564 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 52 warnings
+    Info: Peak virtual memory: 4905 megabytes
+    Info: Processing ended: Mon Mar 16 16:14:14 2026
+    Info: Elapsed time: 00:00:14
+    Info: Total CPU time (on all processors): 00:00:15
+
+
