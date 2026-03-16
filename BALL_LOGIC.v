@@ -78,8 +78,7 @@ module BALL_LOGIC #(
 		end else if (clkCount >= (CLK_SIZE/8)) begin	
 				clkCount <= 0;
 				
-				// ENSURING THE BALL IS NOT IN A LAUNCH MODE
-				/*if (launchMode == 0) begin
+				if (launchMode == 0) begin
 					// CHECKING IF BALL HAS HIT TOP OR BOTTOM OF BOARD
 					if ((ballY + BALL_SIZE) >= BOARD_HEIGHT) begin
 						// HIT TOP
@@ -135,26 +134,61 @@ module BALL_LOGIC #(
 						ballY <= ballY - 1;
 					end
 
-				end*/
+				end
 				
 				// MOVE BLOCKER
-				if (playerOneUp) begin
+				if (playerOneUp && playerOneDown) begin
+					if (launchMode == 1) begin
+						ballX <= 1;
+						if (ballY >= (BOARD_HEIGHT/2)) begin
+							ballYVel <= 1;
+						end else begin
+							ballYVel <= 2;
+						end
+					end
+				end else if (playerOneUp) begin
 					if ((blockerOneY + BLOCKER_SIZE) < BOARD_HEIGHT) begin
 							blockerOneY <= blockerOneY + 1;
+							
+							if (launchMode == 1) begin
+								ballY <=  ballY + 1;
+							end
 					end
 				end else if (playerOneDown) begin
 					if ((blockerOneY - BLOCKER_SIZE) > 0) begin
 						blockerOneY <= blockerOneY - 1;
+						
+						
+						if (launchMode == 1) begin
+							ballY <=  ballY - 1;
+						end
 					end
 				end
 					
-				if (playerTwoUp) begin
+				if (playerOneUp && playerOneDown) begin
+					if (launchMode == 2) begin
+						ballX <= 2;
+						if (ballY >= (BOARD_HEIGHT/2)) begin
+							ballYVel <= 1;
+						end else begin
+							ballYVel <= 2;
+						end
+					end
+				end else if (playerTwoUp) begin
 					if ((blockerTwoY + BLOCKER_SIZE) < BOARD_HEIGHT) begin
-							blockerTwoY <= blockerTwoY + 1;
+						blockerTwoY <= blockerTwoY + 1;
+							
+						if (launchMode == 2) begin
+							ballY <=  ballY + 1;
+						end
 					end
 				end else if (playerTwoDown) begin
 					if ((blockerTwoY - BLOCKER_SIZE) > 0) begin
 						blockerTwoY <= blockerTwoY - 1;
+						
+						if (launchMode == 2) begin
+								ballY <=  ballY - 1;
+						end
 					end
 				end
 		end else begin

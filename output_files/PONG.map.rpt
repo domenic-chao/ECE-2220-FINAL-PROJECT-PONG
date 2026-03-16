@@ -1,6 +1,6 @@
 Analysis & Synthesis report for PONG
-Mon Mar 16 16:14:14 2026
-Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Standard Edition
+Mon Mar 16 18:46:48 2026
+Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
 ---------------------
@@ -14,28 +14,35 @@ Quartus Prime Version 18.0.0 Build 614 04/24/2018 SJ Standard Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. Registers Removed During Synthesis
-  9. General Register Statistics
- 10. Inverted Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Parameter Settings for User Entity Instance: BALL_LOGIC:ballLogic
- 13. Parameter Settings for User Entity Instance: VGA_OUTPUT:displayOutput
- 14. Parameter Settings for Inferred Entity Instance: NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div1
- 15. Parameter Settings for Inferred Entity Instance: NUM_TO_SEVSEG:playerTwoScore|lpm_divide:Div1
- 16. Port Connectivity Checks: "VGA_OUTPUT:displayOutput"
- 17. Port Connectivity Checks: "BALL_LOGIC:ballLogic"
- 18. Port Connectivity Checks: "NUM_TO_SEVSEG:playerOneScore|SEV_SEG_OUTPUT:right"
- 19. Post-Synthesis Netlist Statistics for Top Partition
- 20. Elapsed Time Per Partition
- 21. Analysis & Synthesis Messages
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: BALL_LOGIC:ballLogic
+ 14. Parameter Settings for User Entity Instance: VGA_OUTPUT:displayOutput
+ 15. Parameter Settings for Inferred Entity Instance: NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div1
+ 16. Parameter Settings for Inferred Entity Instance: NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div0
+ 17. Parameter Settings for Inferred Entity Instance: NUM_TO_SEVSEG:playerOneScore|lpm_divide:Mod0
+ 18. Parameter Settings for Inferred Entity Instance: NUM_TO_SEVSEG:playerTwoScore|lpm_divide:Div1
+ 19. Parameter Settings for Inferred Entity Instance: NUM_TO_SEVSEG:playerTwoScore|lpm_divide:Div0
+ 20. Parameter Settings for Inferred Entity Instance: NUM_TO_SEVSEG:playerTwoScore|lpm_divide:Mod0
+ 21. Parameter Settings for Inferred Entity Instance: NUM_TO_SEVSEG:playerOneScore|lpm_divide:Mod1
+ 22. Parameter Settings for Inferred Entity Instance: NUM_TO_SEVSEG:playerTwoScore|lpm_divide:Mod1
+ 23. Port Connectivity Checks: "VGA_OUTPUT:displayOutput"
+ 24. Port Connectivity Checks: "BALL_LOGIC:ballLogic"
+ 25. Port Connectivity Checks: "NUM_TO_SEVSEG:playerOneScore|SEV_SEG_OUTPUT:right"
+ 26. Post-Synthesis Netlist Statistics for Top Partition
+ 27. Elapsed Time Per Partition
+ 28. Analysis & Synthesis Messages
 
 
 
 ----------------
 ; Legal Notice ;
 ----------------
-Copyright (C) 2018  Intel Corporation. All rights reserved.
+Copyright (C) 2024  Intel Corporation. All rights reserved.
 Your use of Intel Corporation's design tools, logic functions 
-and other software and tools, and its AMPP partner logic 
+and other software and tools, and any partner logic 
 functions, and any output files from any of the foregoing 
 (including device programming or simulation files), and any 
 associated documentation or information are expressly subject 
@@ -45,31 +52,32 @@ the Intel FPGA IP License Agreement, or other applicable license
 agreement, including, without limitation, that your use is for
 the sole purpose of programming logic devices manufactured by
 Intel and sold by Intel or its authorized distributors.  Please
-refer to the applicable agreement for further details.
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
 
 
 
-+-----------------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                                      ;
-+---------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Mar 16 16:14:14 2026           ;
-; Quartus Prime Version           ; 18.0.0 Build 614 04/24/2018 SJ Standard Edition ;
-; Revision Name                   ; PONG                                            ;
-; Top-level Entity Name           ; PONG                                            ;
-; Family                          ; Cyclone V                                       ;
-; Logic utilization (in ALMs)     ; N/A                                             ;
-; Total registers                 ; 104                                             ;
-; Total pins                      ; 77                                              ;
-; Total virtual pins              ; 0                                               ;
-; Total block memory bits         ; 0                                               ;
-; Total DSP Blocks                ; 0                                               ;
-; Total HSSI RX PCSs              ; 0                                               ;
-; Total HSSI PMA RX Deserializers ; 0                                               ;
-; Total HSSI TX PCSs              ; 0                                               ;
-; Total HSSI PMA TX Serializers   ; 0                                               ;
-; Total PLLs                      ; 0                                               ;
-; Total DLLs                      ; 0                                               ;
-+---------------------------------+-------------------------------------------------+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++---------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Mon Mar 16 18:46:48 2026          ;
+; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
+; Revision Name                   ; PONG                                           ;
+; Top-level Entity Name           ; PONG                                           ;
+; Family                          ; Cyclone V                                      ;
+; Logic utilization (in ALMs)     ; N/A                                            ;
+; Total registers                 ; 133                                            ;
+; Total pins                      ; 77                                             ;
+; Total virtual pins              ; 0                                              ;
+; Total block memory bits         ; 0                                              ;
+; Total DSP Blocks                ; 0                                              ;
+; Total HSSI RX PCSs              ; 0                                              ;
+; Total HSSI PMA RX Deserializers ; 0                                              ;
+; Total HSSI TX PCSs              ; 0                                              ;
+; Total HSSI PMA TX Serializers   ; 0                                              ;
+; Total PLLs                      ; 0                                              ;
+; Total DLLs                      ; 0                                              ;
++---------------------------------+------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -164,36 +172,45 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 20          ;
-; Maximum allowed            ; 12          ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 12          ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-12        ;   0.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                                                    ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                                ; Library ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------+---------+
-; PONG.v                           ; yes             ; User Verilog HDL File        ; C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v                     ;         ;
-; BALL_LOGIC.v                     ; yes             ; User Verilog HDL File        ; C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v               ;         ;
-; VGA_OUTPUT.v                     ; yes             ; User Verilog HDL File        ; C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/VGA_OUTPUT.v               ;         ;
-; NUM_TO_SEVSEG.v                  ; yes             ; User Verilog HDL File        ; C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/NUM_TO_SEVSEG.v            ;         ;
-; PUSH_BTN_INPUT.v                 ; yes             ; User Verilog HDL File        ; C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PUSH_BTN_INPUT.v           ;         ;
-; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga/18.0/quartus/libraries/megafunctions/lpm_divide.tdf                                            ;         ;
-; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga/18.0/quartus/libraries/megafunctions/abs_divider.inc                                           ;         ;
-; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga/18.0/quartus/libraries/megafunctions/sign_div_unsign.inc                                       ;         ;
-; aglobal180.inc                   ; yes             ; Megafunction                 ; c:/intelfpga/18.0/quartus/libraries/megafunctions/aglobal180.inc                                            ;         ;
-; db/lpm_divide_lbm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/db/lpm_divide_lbm.tdf      ;         ;
-; db/sign_div_unsign_rlh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/db/sign_div_unsign_rlh.tdf ;         ;
-; db/alt_u_div_sve.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/db/alt_u_div_sve.tdf       ;         ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                           ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                       ; Library ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------+---------+
+; PONG.v                           ; yes             ; User Verilog HDL File        ; C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v                     ;         ;
+; BALL_LOGIC.v                     ; yes             ; User Verilog HDL File        ; C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v               ;         ;
+; VGA_OUTPUT.v                     ; yes             ; User Verilog HDL File        ; C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/VGA_OUTPUT.v               ;         ;
+; NUM_TO_SEVSEG.v                  ; yes             ; User Verilog HDL File        ; C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v            ;         ;
+; PUSH_BTN_INPUT.v                 ; yes             ; User Verilog HDL File        ; C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PUSH_BTN_INPUT.v           ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/lpm_divide.tdf           ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/abs_divider.inc          ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/sign_div_unsign.inc      ;         ;
+; aglobal231.inc                   ; yes             ; Megafunction                 ; c:/intelfpga_lite/23.1std/quartus/libraries/megafunctions/aglobal231.inc           ;         ;
+; db/lpm_divide_lbm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/db/lpm_divide_lbm.tdf      ;         ;
+; db/sign_div_unsign_rlh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/db/sign_div_unsign_rlh.tdf ;         ;
+; db/alt_u_div_sve.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/db/alt_u_div_sve.tdf       ;         ;
+; db/lpm_divide_ibm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/db/lpm_divide_ibm.tdf      ;         ;
+; db/sign_div_unsign_olh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/db/sign_div_unsign_olh.tdf ;         ;
+; db/alt_u_div_mve.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/db/alt_u_div_mve.tdf       ;         ;
+; db/lpm_divide_72m.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/db/lpm_divide_72m.tdf      ;         ;
+; db/sign_div_unsign_akh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/db/sign_div_unsign_akh.tdf ;         ;
+; db/alt_u_div_qse.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/db/alt_u_div_qse.tdf       ;         ;
+; db/lpm_divide_a2m.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/db/lpm_divide_a2m.tdf      ;         ;
+; db/sign_div_unsign_dkh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/db/sign_div_unsign_dkh.tdf ;         ;
+; db/alt_u_div_0te.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/db/alt_u_div_0te.tdf       ;         ;
++----------------------------------+-----------------+------------------------------+------------------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------+
@@ -201,25 +218,25 @@ refer to the applicable agreement for further details.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimate of Logic utilization (ALMs needed) ; 287   ;
+; Estimate of Logic utilization (ALMs needed) ; 523   ;
 ;                                             ;       ;
-; Combinational ALUT usage for logic          ; 540   ;
+; Combinational ALUT usage for logic          ; 952   ;
 ;     -- 7 input functions                    ; 0     ;
-;     -- 6 input functions                    ; 30    ;
-;     -- 5 input functions                    ; 27    ;
-;     -- 4 input functions                    ; 76    ;
-;     -- <=3 input functions                  ; 407   ;
+;     -- 6 input functions                    ; 90    ;
+;     -- 5 input functions                    ; 38    ;
+;     -- 4 input functions                    ; 119   ;
+;     -- <=3 input functions                  ; 705   ;
 ;                                             ;       ;
-; Dedicated logic registers                   ; 104   ;
+; Dedicated logic registers                   ; 133   ;
 ;                                             ;       ;
 ; I/O pins                                    ; 77    ;
 ;                                             ;       ;
 ; Total DSP Blocks                            ; 0     ;
 ;                                             ;       ;
 ; Maximum fan-out node                        ; clk25 ;
-; Maximum fan-out                             ; 105   ;
-; Total fan-out                               ; 2025  ;
-; Average fan-out                             ; 2.54  ;
+; Maximum fan-out                             ; 134   ;
+; Total fan-out                               ; 3358  ;
+; Average fan-out                             ; 2.71  ;
 +---------------------------------------------+-------+
 
 
@@ -228,59 +245,63 @@ refer to the applicable agreement for further details.
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                ; Entity Name         ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |PONG                                     ; 540 (1)             ; 104 (1)                   ; 0                 ; 0          ; 77   ; 0            ; |PONG                                                                                                                              ; PONG                ; work         ;
-;    |BALL_LOGIC:ballLogic|                 ; 78 (78)             ; 49 (49)                   ; 0                 ; 0          ; 0    ; 0            ; |PONG|BALL_LOGIC:ballLogic                                                                                                         ; BALL_LOGIC          ; work         ;
-;    |NUM_TO_SEVSEG:playerOneScore|         ; 164 (10)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerOneScore                                                                                                 ; NUM_TO_SEVSEG       ; work         ;
+; |PONG                                     ; 952 (1)             ; 133 (1)                   ; 0                 ; 0          ; 77   ; 0            ; |PONG                                                                                                                              ; PONG                ; work         ;
+;    |BALL_LOGIC:ballLogic|                 ; 265 (265)           ; 78 (78)                   ; 0                 ; 0          ; 0    ; 0            ; |PONG|BALL_LOGIC:ballLogic                                                                                                         ; BALL_LOGIC          ; work         ;
+;    |NUM_TO_SEVSEG:playerOneScore|         ; 258 (29)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerOneScore                                                                                                 ; NUM_TO_SEVSEG       ; work         ;
+;       |SEV_SEG_OUTPUT:center|             ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerOneScore|SEV_SEG_OUTPUT:center                                                                           ; SEV_SEG_OUTPUT      ; work         ;
 ;       |SEV_SEG_OUTPUT:left|               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerOneScore|SEV_SEG_OUTPUT:left                                                                             ; SEV_SEG_OUTPUT      ; work         ;
-;       |lpm_divide:Div1|                   ; 147 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div1                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_lbm:auto_generated|  ; 147 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div1|lpm_divide_lbm:auto_generated                                                   ; lpm_divide_lbm      ; work         ;
-;             |sign_div_unsign_rlh:divider| ; 147 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div1|lpm_divide_lbm:auto_generated|sign_div_unsign_rlh:divider                       ; sign_div_unsign_rlh ; work         ;
-;                |alt_u_div_sve:divider|    ; 147 (147)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div1|lpm_divide_lbm:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_sve:divider ; alt_u_div_sve       ; work         ;
-;    |NUM_TO_SEVSEG:playerTwoScore|         ; 164 (10)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerTwoScore                                                                                                 ; NUM_TO_SEVSEG       ; work         ;
+;       |lpm_divide:Div0|                   ; 67 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_ibm:auto_generated|  ; 67 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div0|lpm_divide_ibm:auto_generated                                                   ; lpm_divide_ibm      ; work         ;
+;             |sign_div_unsign_olh:divider| ; 67 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div0|lpm_divide_ibm:auto_generated|sign_div_unsign_olh:divider                       ; sign_div_unsign_olh ; work         ;
+;                |alt_u_div_mve:divider|    ; 67 (67)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div0|lpm_divide_ibm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_mve:divider ; alt_u_div_mve       ; work         ;
+;       |lpm_divide:Div1|                   ; 148 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div1                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_lbm:auto_generated|  ; 148 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div1|lpm_divide_lbm:auto_generated                                                   ; lpm_divide_lbm      ; work         ;
+;             |sign_div_unsign_rlh:divider| ; 148 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div1|lpm_divide_lbm:auto_generated|sign_div_unsign_rlh:divider                       ; sign_div_unsign_rlh ; work         ;
+;                |alt_u_div_sve:divider|    ; 148 (148)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div1|lpm_divide_lbm:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_sve:divider ; alt_u_div_sve       ; work         ;
+;    |NUM_TO_SEVSEG:playerTwoScore|         ; 258 (29)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerTwoScore                                                                                                 ; NUM_TO_SEVSEG       ; work         ;
+;       |SEV_SEG_OUTPUT:center|             ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerTwoScore|SEV_SEG_OUTPUT:center                                                                           ; SEV_SEG_OUTPUT      ; work         ;
 ;       |SEV_SEG_OUTPUT:left|               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerTwoScore|SEV_SEG_OUTPUT:left                                                                             ; SEV_SEG_OUTPUT      ; work         ;
-;       |lpm_divide:Div1|                   ; 147 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerTwoScore|lpm_divide:Div1                                                                                 ; lpm_divide          ; work         ;
-;          |lpm_divide_lbm:auto_generated|  ; 147 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerTwoScore|lpm_divide:Div1|lpm_divide_lbm:auto_generated                                                   ; lpm_divide_lbm      ; work         ;
-;             |sign_div_unsign_rlh:divider| ; 147 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerTwoScore|lpm_divide:Div1|lpm_divide_lbm:auto_generated|sign_div_unsign_rlh:divider                       ; sign_div_unsign_rlh ; work         ;
-;                |alt_u_div_sve:divider|    ; 147 (147)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerTwoScore|lpm_divide:Div1|lpm_divide_lbm:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_sve:divider ; alt_u_div_sve       ; work         ;
-;    |VGA_OUTPUT:displayOutput|             ; 133 (133)           ; 54 (54)                   ; 0                 ; 0          ; 0    ; 0            ; |PONG|VGA_OUTPUT:displayOutput                                                                                                     ; VGA_OUTPUT          ; work         ;
+;       |lpm_divide:Div0|                   ; 67 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerTwoScore|lpm_divide:Div0                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_ibm:auto_generated|  ; 67 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerTwoScore|lpm_divide:Div0|lpm_divide_ibm:auto_generated                                                   ; lpm_divide_ibm      ; work         ;
+;             |sign_div_unsign_olh:divider| ; 67 (0)              ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerTwoScore|lpm_divide:Div0|lpm_divide_ibm:auto_generated|sign_div_unsign_olh:divider                       ; sign_div_unsign_olh ; work         ;
+;                |alt_u_div_mve:divider|    ; 67 (67)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerTwoScore|lpm_divide:Div0|lpm_divide_ibm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_mve:divider ; alt_u_div_mve       ; work         ;
+;       |lpm_divide:Div1|                   ; 148 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerTwoScore|lpm_divide:Div1                                                                                 ; lpm_divide          ; work         ;
+;          |lpm_divide_lbm:auto_generated|  ; 148 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerTwoScore|lpm_divide:Div1|lpm_divide_lbm:auto_generated                                                   ; lpm_divide_lbm      ; work         ;
+;             |sign_div_unsign_rlh:divider| ; 148 (0)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerTwoScore|lpm_divide:Div1|lpm_divide_lbm:auto_generated|sign_div_unsign_rlh:divider                       ; sign_div_unsign_rlh ; work         ;
+;                |alt_u_div_sve:divider|    ; 148 (148)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerTwoScore|lpm_divide:Div1|lpm_divide_lbm:auto_generated|sign_div_unsign_rlh:divider|alt_u_div_sve:divider ; alt_u_div_sve       ; work         ;
+;    |VGA_OUTPUT:displayOutput|             ; 170 (170)           ; 54 (54)                   ; 0                 ; 0          ; 0    ; 0            ; |PONG|VGA_OUTPUT:displayOutput                                                                                                     ; VGA_OUTPUT          ; work         ;
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
-+----------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                               ;
-+-----------------------------------------+----------------------------------------+
-; Register name                           ; Reason for Removal                     ;
-+-----------------------------------------+----------------------------------------+
-; scoreTwo[0..6]                          ; Stuck at GND due to stuck port data_in ;
-; scoreOne[0..6]                          ; Stuck at GND due to stuck port data_in ;
-; BALL_LOGIC:ballLogic|ballY[0]~reg0      ; Stuck at GND due to stuck port data_in ;
-; BALL_LOGIC:ballLogic|ballY[1]~reg0      ; Stuck at GND due to stuck port data_in ;
-; BALL_LOGIC:ballLogic|ballY[2]~reg0      ; Stuck at GND due to stuck port data_in ;
-; BALL_LOGIC:ballLogic|ballY[3]~reg0      ; Stuck at GND due to stuck port data_in ;
-; BALL_LOGIC:ballLogic|ballY[4]~reg0      ; Stuck at VCC due to stuck port data_in ;
-; BALL_LOGIC:ballLogic|ballY[5]~reg0      ; Stuck at VCC due to stuck port data_in ;
-; BALL_LOGIC:ballLogic|ballY[6]~reg0      ; Stuck at VCC due to stuck port data_in ;
-; BALL_LOGIC:ballLogic|ballY[7]~reg0      ; Stuck at VCC due to stuck port data_in ;
-; BALL_LOGIC:ballLogic|ballY[8]~reg0      ; Stuck at GND due to stuck port data_in ;
-; BALL_LOGIC:ballLogic|ballY[9]~reg0      ; Stuck at GND due to stuck port data_in ;
-; BALL_LOGIC:ballLogic|ballY[10]~reg0     ; Stuck at GND due to stuck port data_in ;
-; BALL_LOGIC:ballLogic|ballY[11]~reg0     ; Stuck at GND due to stuck port data_in ;
-; BALL_LOGIC:ballLogic|ballX[0]~reg0      ; Stuck at GND due to stuck port data_in ;
-; BALL_LOGIC:ballLogic|ballX[1]~reg0      ; Stuck at GND due to stuck port data_in ;
-; BALL_LOGIC:ballLogic|ballX[2]~reg0      ; Stuck at VCC due to stuck port data_in ;
-; BALL_LOGIC:ballLogic|ballX[3]~reg0      ; Stuck at GND due to stuck port data_in ;
-; BALL_LOGIC:ballLogic|ballX[4]~reg0      ; Stuck at VCC due to stuck port data_in ;
-; BALL_LOGIC:ballLogic|ballX[5]~reg0      ; Stuck at GND due to stuck port data_in ;
-; BALL_LOGIC:ballLogic|ballX[6]~reg0      ; Stuck at GND due to stuck port data_in ;
-; BALL_LOGIC:ballLogic|ballX[7]~reg0      ; Stuck at GND due to stuck port data_in ;
-; BALL_LOGIC:ballLogic|ballX[8]~reg0      ; Stuck at GND due to stuck port data_in ;
-; BALL_LOGIC:ballLogic|ballX[9]~reg0      ; Stuck at GND due to stuck port data_in ;
-; BALL_LOGIC:ballLogic|ballX[10]~reg0     ; Stuck at GND due to stuck port data_in ;
-; BALL_LOGIC:ballLogic|ballX[11]~reg0     ; Stuck at GND due to stuck port data_in ;
-; VGA_OUTPUT:displayOutput|rowChange[4,5] ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 40  ;                                        ;
-+-----------------------------------------+----------------------------------------+
++-----------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                            ;
++-----------------------------------------+-----------------------------------------------------+
+; Register name                           ; Reason for Removal                                  ;
++-----------------------------------------+-----------------------------------------------------+
+; BALL_LOGIC:ballLogic|launchMode[1]~reg0 ; Merged with BALL_LOGIC:ballLogic|launchMode[0]~reg0 ;
+; BALL_LOGIC:ballLogic|ballXVel[0]~reg0   ; Stuck at GND due to stuck port data_in              ;
+; BALL_LOGIC:ballLogic|ballXVel[1]~reg0   ; Stuck at GND due to stuck port data_in              ;
+; BALL_LOGIC:ballLogic|ballX[7]~reg0      ; Stuck at GND due to stuck port data_in              ;
+; BALL_LOGIC:ballLogic|ballX[8]~reg0      ; Stuck at GND due to stuck port data_in              ;
+; BALL_LOGIC:ballLogic|ballX[10]~reg0     ; Stuck at GND due to stuck port data_in              ;
+; BALL_LOGIC:ballLogic|ballX[11]~reg0     ; Stuck at GND due to stuck port data_in              ;
+; scoreOne[0..6]                          ; Stuck at GND due to stuck port data_in              ;
+; scoreTwo[0..6]                          ; Stuck at GND due to stuck port data_in              ;
+; BALL_LOGIC:ballLogic|launchMode[0]~reg0 ; Stuck at GND due to stuck port data_in              ;
+; VGA_OUTPUT:displayOutput|rowChange[4,5] ; Stuck at GND due to stuck port data_in              ;
+; Total Number of Removed Registers = 24  ;                                                     ;
++-----------------------------------------+-----------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                  ;
++---------------------------------------+---------------------------+--------------------------------------------------------------------------+
+; Register name                         ; Reason for Removal        ; Registers Removed due to This Register                                   ;
++---------------------------------------+---------------------------+--------------------------------------------------------------------------+
+; BALL_LOGIC:ballLogic|ballXVel[0]~reg0 ; Stuck at GND              ; BALL_LOGIC:ballLogic|ballX[7]~reg0, BALL_LOGIC:ballLogic|ballX[8]~reg0,  ;
+;                                       ; due to stuck port data_in ; BALL_LOGIC:ballLogic|ballX[10]~reg0, BALL_LOGIC:ballLogic|ballX[11]~reg0 ;
++---------------------------------------+---------------------------+--------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -288,12 +309,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 104   ;
-; Number of registers using Synchronous Clear  ; 65    ;
+; Total registers                              ; 133   ;
+; Number of registers using Synchronous Clear  ; 81    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 41    ;
+; Number of registers using Clock Enable       ; 63    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -303,15 +324,21 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------+---------+
 ; Inverted Register                        ; Fan out ;
 +------------------------------------------+---------+
-; BALL_LOGIC:ballLogic|blockerOneY[7]~reg0 ; 3       ;
-; BALL_LOGIC:ballLogic|blockerOneY[6]~reg0 ; 3       ;
-; BALL_LOGIC:ballLogic|blockerOneY[5]~reg0 ; 3       ;
-; BALL_LOGIC:ballLogic|blockerOneY[4]~reg0 ; 3       ;
-; BALL_LOGIC:ballLogic|blockerTwoY[7]~reg0 ; 3       ;
-; BALL_LOGIC:ballLogic|blockerTwoY[6]~reg0 ; 3       ;
-; BALL_LOGIC:ballLogic|blockerTwoY[5]~reg0 ; 3       ;
-; BALL_LOGIC:ballLogic|blockerTwoY[4]~reg0 ; 3       ;
-; Total number of inverted registers = 8   ;         ;
+; BALL_LOGIC:ballLogic|blockerOneY[7]~reg0 ; 5       ;
+; BALL_LOGIC:ballLogic|blockerOneY[6]~reg0 ; 5       ;
+; BALL_LOGIC:ballLogic|blockerOneY[5]~reg0 ; 5       ;
+; BALL_LOGIC:ballLogic|blockerOneY[4]~reg0 ; 5       ;
+; BALL_LOGIC:ballLogic|blockerTwoY[7]~reg0 ; 5       ;
+; BALL_LOGIC:ballLogic|blockerTwoY[6]~reg0 ; 5       ;
+; BALL_LOGIC:ballLogic|blockerTwoY[5]~reg0 ; 5       ;
+; BALL_LOGIC:ballLogic|blockerTwoY[4]~reg0 ; 5       ;
+; BALL_LOGIC:ballLogic|ballX[4]~reg0       ; 2       ;
+; BALL_LOGIC:ballLogic|ballX[2]~reg0       ; 2       ;
+; BALL_LOGIC:ballLogic|ballY[7]~reg0       ; 6       ;
+; BALL_LOGIC:ballLogic|ballY[6]~reg0       ; 6       ;
+; BALL_LOGIC:ballLogic|ballY[5]~reg0       ; 6       ;
+; BALL_LOGIC:ballLogic|ballY[4]~reg0       ; 6       ;
+; Total number of inverted registers = 14  ;         ;
 +------------------------------------------+---------+
 
 
@@ -320,14 +347,22 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                      ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |PONG|VGA_OUTPUT:displayOutput|Hpos[5]          ;
-; 3:1                ; 25 bits   ; 50 LEs        ; 0 LEs                ; 50 LEs                 ; Yes        ; |PONG|BALL_LOGIC:ballLogic|clkCount[21]         ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |PONG|VGA_OUTPUT:displayOutput|rowChange[0]     ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |PONG|scoreOne[0]                               ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |PONG|scoreTwo[2]                               ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |PONG|VGA_OUTPUT:displayOutput|Hpos[8]          ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |PONG|BALL_LOGIC:ballLogic|clkCount[25]         ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |PONG|VGA_OUTPUT:displayOutput|rowChange[3]     ;
 ; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |PONG|BALL_LOGIC:ballLogic|blockerOneY[11]~reg0 ;
-; 4:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |PONG|VGA_OUTPUT:displayOutput|Vpos[7]          ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |PONG|BALL_LOGIC:ballLogic|blockerTwoY[10]~reg0 ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |PONG|BALL_LOGIC:ballLogic|blockerOneY[7]~reg0  ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |PONG|BALL_LOGIC:ballLogic|blockerTwoY[5]~reg0  ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |PONG|VGA_OUTPUT:displayOutput|Vpos[4]          ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |PONG|BALL_LOGIC:ballLogic|blockerTwoY[11]~reg0 ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; Yes        ; |PONG|BALL_LOGIC:ballLogic|ballYVel[0]~reg0     ;
+; 9:1                ; 5 bits    ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |PONG|BALL_LOGIC:ballLogic|ballX[0]~reg0        ;
+; 9:1                ; 5 bits    ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |PONG|BALL_LOGIC:ballLogic|ballX[3]~reg0        ;
+; 12:1               ; 8 bits    ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |PONG|BALL_LOGIC:ballLogic|ballY[0]~reg0        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |PONG|BALL_LOGIC:ballLogic|blockerOneY[5]~reg0  ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |PONG|BALL_LOGIC:ballLogic|blockerTwoY[7]~reg0  ;
+; 9:1                ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |PONG|BALL_LOGIC:ballLogic|ballX[4]~reg0        ;
+; 12:1               ; 4 bits    ; 32 LEs        ; 12 LEs               ; 20 LEs                 ; Yes        ; |PONG|BALL_LOGIC:ballLogic|ballY[7]~reg0        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
 
 
@@ -388,6 +423,52 @@ Note: In order to hide this table in the UI and the text report file, please set
 
 
 +-----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div0 ;
++------------------------+----------------+-----------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                ;
++------------------------+----------------+-----------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                             ;
+; LPM_WIDTHD             ; 4              ; Untyped                                             ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                             ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                             ;
+; LPM_PIPELINE           ; 0              ; Untyped                                             ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                             ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                             ;
+; CBXI_PARAMETER         ; lpm_divide_ibm ; Untyped                                             ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                             ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                             ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                        ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                      ;
++------------------------+----------------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: NUM_TO_SEVSEG:playerOneScore|lpm_divide:Mod0 ;
++------------------------+----------------+-----------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                ;
++------------------------+----------------+-----------------------------------------------------+
+; LPM_WIDTHN             ; 7              ; Untyped                                             ;
+; LPM_WIDTHD             ; 4              ; Untyped                                             ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                             ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                             ;
+; LPM_PIPELINE           ; 0              ; Untyped                                             ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                             ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                             ;
+; CBXI_PARAMETER         ; lpm_divide_72m ; Untyped                                             ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                             ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                             ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                        ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                      ;
++------------------------+----------------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
 ; Parameter Settings for Inferred Entity Instance: NUM_TO_SEVSEG:playerTwoScore|lpm_divide:Div1 ;
 +------------------------+----------------+-----------------------------------------------------+
 ; Parameter Name         ; Value          ; Type                                                ;
@@ -400,6 +481,98 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                             ;
 ; MAXIMIZE_SPEED         ; 5              ; Untyped                                             ;
 ; CBXI_PARAMETER         ; lpm_divide_lbm ; Untyped                                             ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                             ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                             ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                        ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                      ;
++------------------------+----------------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: NUM_TO_SEVSEG:playerTwoScore|lpm_divide:Div0 ;
++------------------------+----------------+-----------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                ;
++------------------------+----------------+-----------------------------------------------------+
+; LPM_WIDTHN             ; 32             ; Untyped                                             ;
+; LPM_WIDTHD             ; 4              ; Untyped                                             ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                             ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                             ;
+; LPM_PIPELINE           ; 0              ; Untyped                                             ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                             ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                             ;
+; CBXI_PARAMETER         ; lpm_divide_ibm ; Untyped                                             ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                             ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                             ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                        ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                      ;
++------------------------+----------------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: NUM_TO_SEVSEG:playerTwoScore|lpm_divide:Mod0 ;
++------------------------+----------------+-----------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                ;
++------------------------+----------------+-----------------------------------------------------+
+; LPM_WIDTHN             ; 7              ; Untyped                                             ;
+; LPM_WIDTHD             ; 4              ; Untyped                                             ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                             ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                             ;
+; LPM_PIPELINE           ; 0              ; Untyped                                             ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                             ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                             ;
+; CBXI_PARAMETER         ; lpm_divide_72m ; Untyped                                             ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                             ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                             ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                        ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                      ;
++------------------------+----------------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: NUM_TO_SEVSEG:playerOneScore|lpm_divide:Mod1 ;
++------------------------+----------------+-----------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                ;
++------------------------+----------------+-----------------------------------------------------+
+; LPM_WIDTHN             ; 7              ; Untyped                                             ;
+; LPM_WIDTHD             ; 7              ; Untyped                                             ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                             ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                             ;
+; LPM_PIPELINE           ; 0              ; Untyped                                             ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                             ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                             ;
+; CBXI_PARAMETER         ; lpm_divide_a2m ; Untyped                                             ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                                             ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                             ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                          ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY                                        ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE                                        ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE                                      ;
++------------------------+----------------+-----------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: NUM_TO_SEVSEG:playerTwoScore|lpm_divide:Mod1 ;
++------------------------+----------------+-----------------------------------------------------+
+; Parameter Name         ; Value          ; Type                                                ;
++------------------------+----------------+-----------------------------------------------------+
+; LPM_WIDTHN             ; 7              ; Untyped                                             ;
+; LPM_WIDTHD             ; 7              ; Untyped                                             ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                                             ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                                             ;
+; LPM_PIPELINE           ; 0              ; Untyped                                             ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                                             ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                                             ;
+; CBXI_PARAMETER         ; lpm_divide_a2m ; Untyped                                             ;
 ; CARRY_CHAIN            ; MANUAL         ; Untyped                                             ;
 ; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                                             ;
 ; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY                                          ;
@@ -447,33 +620,33 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 104                         ;
-;     ENA               ; 13                          ;
-;     ENA SCLR          ; 28                          ;
-;     SCLR              ; 37                          ;
+; arriav_ff             ; 133                         ;
+;     ENA               ; 26                          ;
+;     ENA SCLR          ; 37                          ;
+;     SCLR              ; 44                          ;
 ;     plain             ; 26                          ;
-; arriav_lcell_comb     ; 544                         ;
-;     arith             ; 273                         ;
-;         0 data inputs ; 36                          ;
-;         1 data inputs ; 101                         ;
-;         2 data inputs ; 32                          ;
-;         3 data inputs ; 62                          ;
-;         4 data inputs ; 42                          ;
-;     normal            ; 235                         ;
+; arriav_lcell_comb     ; 956                         ;
+;     arith             ; 489                         ;
+;         0 data inputs ; 75                          ;
+;         1 data inputs ; 220                         ;
+;         2 data inputs ; 44                          ;
+;         3 data inputs ; 98                          ;
+;         4 data inputs ; 52                          ;
+;     normal            ; 405                         ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 3                           ;
-;         2 data inputs ; 85                          ;
-;         3 data inputs ; 54                          ;
-;         4 data inputs ; 34                          ;
-;         5 data inputs ; 27                          ;
-;         6 data inputs ; 30                          ;
-;     shared            ; 36                          ;
-;         0 data inputs ; 28                          ;
-;         1 data inputs ; 8                           ;
+;         2 data inputs ; 134                         ;
+;         3 data inputs ; 71                          ;
+;         4 data inputs ; 67                          ;
+;         5 data inputs ; 38                          ;
+;         6 data inputs ; 90                          ;
+;     shared            ; 62                          ;
+;         0 data inputs ; 32                          ;
+;         1 data inputs ; 30                          ;
 ; boundary_port         ; 77                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 18.10                       ;
-; Average LUT depth     ; 10.51                       ;
+; Max LUT depth         ; 32.00                       ;
+; Average LUT depth     ; 17.09                       ;
 +-----------------------+-----------------------------+
 
 
@@ -482,7 +655,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:03     ;
 +----------------+--------------+
 
 
@@ -491,105 +664,144 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-------------------------------+
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
-    Info: Version 18.0.0 Build 614 04/24/2018 SJ Standard Edition
-    Info: Processing started: Mon Mar 16 16:14:00 2026
+    Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+    Info: Processing started: Mon Mar 16 18:46:36 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PONG -c PONG
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
-Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
-Warning (10275): Verilog HDL Module Instantiation warning at PONG.v(169): ignored dangling comma in List of Port Connections File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 169
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Warning (10275): Verilog HDL Module Instantiation warning at PONG.v(169): ignored dangling comma in List of Port Connections File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 169
 Info (12021): Found 1 design units, including 1 entities, in source file pong.v
-    Info (12023): Found entity 1: PONG File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 7
+    Info (12023): Found entity 1: PONG File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file ball_logic.v
-    Info (12023): Found entity 1: BALL_LOGIC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 6
+    Info (12023): Found entity 1: BALL_LOGIC File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file vga_output.v
-    Info (12023): Found entity 1: VGA_OUTPUT File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/VGA_OUTPUT.v Line: 8
+    Info (12023): Found entity 1: VGA_OUTPUT File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/VGA_OUTPUT.v Line: 8
 Info (12021): Found 2 design units, including 2 entities, in source file num_to_sevseg.v
-    Info (12023): Found entity 1: NUM_TO_SEVSEG File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/NUM_TO_SEVSEG.v Line: 6
-    Info (12023): Found entity 2: SEV_SEG_OUTPUT File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/NUM_TO_SEVSEG.v Line: 57
+    Info (12023): Found entity 1: NUM_TO_SEVSEG File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 6
+    Info (12023): Found entity 2: SEV_SEG_OUTPUT File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 57
 Info (12021): Found 1 design units, including 1 entities, in source file push_btn_input.v
-    Info (12023): Found entity 1: PUSH_BTN_INPUT File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PUSH_BTN_INPUT.v Line: 6
+    Info (12023): Found entity 1: PUSH_BTN_INPUT File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PUSH_BTN_INPUT.v Line: 6
 Info (12127): Elaborating entity "PONG" for the top level hierarchy
-Info (12128): Elaborating entity "NUM_TO_SEVSEG" for hierarchy "NUM_TO_SEVSEG:playerOneScore" File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 89
-Warning (10230): Verilog HDL assignment warning at NUM_TO_SEVSEG.v(22): truncated value with size 32 to match size of target (4) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/NUM_TO_SEVSEG.v Line: 22
-Warning (10230): Verilog HDL assignment warning at NUM_TO_SEVSEG.v(23): truncated value with size 32 to match size of target (4) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/NUM_TO_SEVSEG.v Line: 23
-Warning (10230): Verilog HDL assignment warning at NUM_TO_SEVSEG.v(24): truncated value with size 32 to match size of target (4) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/NUM_TO_SEVSEG.v Line: 24
-Info (12128): Elaborating entity "SEV_SEG_OUTPUT" for hierarchy "NUM_TO_SEVSEG:playerOneScore|SEV_SEG_OUTPUT:left" File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/NUM_TO_SEVSEG.v Line: 36
-Info (12128): Elaborating entity "BALL_LOGIC" for hierarchy "BALL_LOGIC:ballLogic" File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 134
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(43): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 43
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(44): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 44
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(48): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 48
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(49): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 49
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(62): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 62
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(63): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 63
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(67): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 67
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(68): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 68
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(142): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 142
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(146): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 146
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(152): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 152
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(156): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 156
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(160): truncated value with size 32 to match size of target (25) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/BALL_LOGIC.v Line: 160
-Info (12128): Elaborating entity "VGA_OUTPUT" for hierarchy "VGA_OUTPUT:displayOutput" File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 169
-Warning (10230): Verilog HDL assignment warning at VGA_OUTPUT.v(78): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/VGA_OUTPUT.v Line: 78
-Warning (10230): Verilog HDL assignment warning at VGA_OUTPUT.v(87): truncated value with size 32 to match size of target (6) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/VGA_OUTPUT.v Line: 87
-Warning (10230): Verilog HDL assignment warning at VGA_OUTPUT.v(92): truncated value with size 32 to match size of target (12) File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/VGA_OUTPUT.v Line: 92
-Info (12128): Elaborating entity "PUSH_BTN_INPUT" for hierarchy "PUSH_BTN_INPUT:p1_inputs" File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 179
-Warning (12020): Port "enable" on the entity instantiation of "right" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/NUM_TO_SEVSEG.v Line: 48
-Info (278001): Inferred 2 megafunctions from design logic
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "NUM_TO_SEVSEG:playerOneScore|Div1" File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/NUM_TO_SEVSEG.v Line: 24
-    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "NUM_TO_SEVSEG:playerTwoScore|Div1" File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/NUM_TO_SEVSEG.v Line: 24
-Info (12130): Elaborated megafunction instantiation "NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div1" File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/NUM_TO_SEVSEG.v Line: 24
-Info (12133): Instantiated megafunction "NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div1" with the following parameter: File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/NUM_TO_SEVSEG.v Line: 24
+Info (12128): Elaborating entity "NUM_TO_SEVSEG" for hierarchy "NUM_TO_SEVSEG:playerOneScore" File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 89
+Warning (10230): Verilog HDL assignment warning at NUM_TO_SEVSEG.v(22): truncated value with size 32 to match size of target (4) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 22
+Warning (10230): Verilog HDL assignment warning at NUM_TO_SEVSEG.v(23): truncated value with size 32 to match size of target (4) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 23
+Warning (10230): Verilog HDL assignment warning at NUM_TO_SEVSEG.v(24): truncated value with size 32 to match size of target (4) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 24
+Info (12128): Elaborating entity "SEV_SEG_OUTPUT" for hierarchy "NUM_TO_SEVSEG:playerOneScore|SEV_SEG_OUTPUT:left" File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 36
+Info (12128): Elaborating entity "BALL_LOGIC" for hierarchy "BALL_LOGIC:ballLogic" File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 134
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(44): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 44
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(45): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 45
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(49): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 49
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(50): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 50
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(63): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 63
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(64): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 64
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(68): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 68
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(69): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 69
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(101): truncated value with size 32 to match size of target (7) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 101
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(104): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 104
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(116): truncated value with size 32 to match size of target (7) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 116
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(119): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 119
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(126): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 126
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(128): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 128
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(132): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 132
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(134): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 134
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(151): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 151
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(154): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 154
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(159): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 159
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(163): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 163
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(179): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 179
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(182): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 182
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(187): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 187
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(190): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 190
+Info (12128): Elaborating entity "VGA_OUTPUT" for hierarchy "VGA_OUTPUT:displayOutput" File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 169
+Warning (10230): Verilog HDL assignment warning at VGA_OUTPUT.v(78): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/VGA_OUTPUT.v Line: 78
+Warning (10230): Verilog HDL assignment warning at VGA_OUTPUT.v(87): truncated value with size 32 to match size of target (6) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/VGA_OUTPUT.v Line: 87
+Warning (10230): Verilog HDL assignment warning at VGA_OUTPUT.v(92): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/VGA_OUTPUT.v Line: 92
+Info (12128): Elaborating entity "PUSH_BTN_INPUT" for hierarchy "PUSH_BTN_INPUT:p1_inputs" File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 179
+Warning (12020): Port "enable" on the entity instantiation of "right" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 48
+Info (278001): Inferred 8 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "NUM_TO_SEVSEG:playerOneScore|Div1" File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 24
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "NUM_TO_SEVSEG:playerOneScore|Div0" File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 23
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "NUM_TO_SEVSEG:playerOneScore|Mod0" File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 22
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "NUM_TO_SEVSEG:playerTwoScore|Div1" File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 24
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "NUM_TO_SEVSEG:playerTwoScore|Div0" File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 23
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "NUM_TO_SEVSEG:playerTwoScore|Mod0" File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 22
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "NUM_TO_SEVSEG:playerOneScore|Mod1" File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 23
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "NUM_TO_SEVSEG:playerTwoScore|Mod1" File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 23
+Info (12130): Elaborated megafunction instantiation "NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div1" File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 24
+Info (12133): Instantiated megafunction "NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div1" with the following parameter: File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 24
     Info (12134): Parameter "LPM_WIDTHN" = "32"
     Info (12134): Parameter "LPM_WIDTHD" = "7"
     Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
     Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
 Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_lbm.tdf
-    Info (12023): Found entity 1: lpm_divide_lbm File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/db/lpm_divide_lbm.tdf Line: 24
+    Info (12023): Found entity 1: lpm_divide_lbm File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/db/lpm_divide_lbm.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_rlh.tdf
-    Info (12023): Found entity 1: sign_div_unsign_rlh File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/db/sign_div_unsign_rlh.tdf Line: 24
+    Info (12023): Found entity 1: sign_div_unsign_rlh File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/db/sign_div_unsign_rlh.tdf Line: 25
 Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_sve.tdf
-    Info (12023): Found entity 1: alt_u_div_sve File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/db/alt_u_div_sve.tdf Line: 22
+    Info (12023): Found entity 1: alt_u_div_sve File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/db/alt_u_div_sve.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div0" File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 23
+Info (12133): Instantiated megafunction "NUM_TO_SEVSEG:playerOneScore|lpm_divide:Div0" with the following parameter: File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 23
+    Info (12134): Parameter "LPM_WIDTHN" = "32"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_ibm.tdf
+    Info (12023): Found entity 1: lpm_divide_ibm File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/db/lpm_divide_ibm.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_olh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_olh File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/db/sign_div_unsign_olh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_mve.tdf
+    Info (12023): Found entity 1: alt_u_div_mve File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/db/alt_u_div_mve.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "NUM_TO_SEVSEG:playerOneScore|lpm_divide:Mod0" File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 22
+Info (12133): Instantiated megafunction "NUM_TO_SEVSEG:playerOneScore|lpm_divide:Mod0" with the following parameter: File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 22
+    Info (12134): Parameter "LPM_WIDTHN" = "7"
+    Info (12134): Parameter "LPM_WIDTHD" = "4"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_72m.tdf
+    Info (12023): Found entity 1: lpm_divide_72m File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/db/lpm_divide_72m.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_akh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_akh File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/db/sign_div_unsign_akh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_qse.tdf
+    Info (12023): Found entity 1: alt_u_div_qse File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/db/alt_u_div_qse.tdf Line: 23
+Info (12130): Elaborated megafunction instantiation "NUM_TO_SEVSEG:playerOneScore|lpm_divide:Mod1" File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 23
+Info (12133): Instantiated megafunction "NUM_TO_SEVSEG:playerOneScore|lpm_divide:Mod1" with the following parameter: File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 23
+    Info (12134): Parameter "LPM_WIDTHN" = "7"
+    Info (12134): Parameter "LPM_WIDTHD" = "7"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_a2m.tdf
+    Info (12023): Found entity 1: lpm_divide_a2m File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/db/lpm_divide_a2m.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_dkh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_dkh File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/db/sign_div_unsign_dkh.tdf Line: 25
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_0te.tdf
+    Info (12023): Found entity 1: alt_u_div_0te File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/db/alt_u_div_0te.tdf Line: 23
 Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "sevSegP1C[0]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 21
-    Warning (13410): Pin "sevSegP1C[1]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 21
-    Warning (13410): Pin "sevSegP1C[2]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 21
-    Warning (13410): Pin "sevSegP1C[3]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 21
-    Warning (13410): Pin "sevSegP1C[4]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 21
-    Warning (13410): Pin "sevSegP1C[5]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 21
-    Warning (13410): Pin "sevSegP1C[6]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 21
-    Warning (13410): Pin "sevSegP1R[0]" is stuck at GND File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 22
-    Warning (13410): Pin "sevSegP1R[1]" is stuck at GND File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 22
-    Warning (13410): Pin "sevSegP1R[2]" is stuck at GND File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 22
-    Warning (13410): Pin "sevSegP1R[3]" is stuck at GND File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 22
-    Warning (13410): Pin "sevSegP1R[4]" is stuck at GND File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 22
-    Warning (13410): Pin "sevSegP1R[5]" is stuck at GND File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 22
-    Warning (13410): Pin "sevSegP1R[6]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 22
-    Warning (13410): Pin "sevSegP2C[0]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 24
-    Warning (13410): Pin "sevSegP2C[1]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 24
-    Warning (13410): Pin "sevSegP2C[2]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 24
-    Warning (13410): Pin "sevSegP2C[3]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 24
-    Warning (13410): Pin "sevSegP2C[4]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 24
-    Warning (13410): Pin "sevSegP2C[5]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 24
-    Warning (13410): Pin "sevSegP2C[6]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 24
-    Warning (13410): Pin "sevSegP2R[0]" is stuck at GND File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 25
-    Warning (13410): Pin "sevSegP2R[1]" is stuck at GND File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 25
-    Warning (13410): Pin "sevSegP2R[2]" is stuck at GND File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 25
-    Warning (13410): Pin "sevSegP2R[3]" is stuck at GND File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 25
-    Warning (13410): Pin "sevSegP2R[4]" is stuck at GND File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 25
-    Warning (13410): Pin "sevSegP2R[5]" is stuck at GND File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 25
-    Warning (13410): Pin "sevSegP2R[6]" is stuck at VCC File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/PONG.v Line: 25
+    Warning (13410): Pin "sevSegP1R[0]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 22
+    Warning (13410): Pin "sevSegP1R[1]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 22
+    Warning (13410): Pin "sevSegP1R[2]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 22
+    Warning (13410): Pin "sevSegP1R[3]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 22
+    Warning (13410): Pin "sevSegP1R[4]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 22
+    Warning (13410): Pin "sevSegP1R[5]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 22
+    Warning (13410): Pin "sevSegP1R[6]" is stuck at VCC File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 22
+    Warning (13410): Pin "sevSegP2R[0]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 25
+    Warning (13410): Pin "sevSegP2R[1]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 25
+    Warning (13410): Pin "sevSegP2R[2]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 25
+    Warning (13410): Pin "sevSegP2R[3]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 25
+    Warning (13410): Pin "sevSegP2R[4]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 25
+    Warning (13410): Pin "sevSegP2R[5]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 25
+    Warning (13410): Pin "sevSegP2R[6]" is stuck at VCC File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 25
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 641 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1059 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 71 output pins
-    Info (21061): Implemented 564 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 52 warnings
-    Info: Peak virtual memory: 4905 megabytes
-    Info: Processing ended: Mon Mar 16 16:14:14 2026
-    Info: Elapsed time: 00:00:14
-    Info: Total CPU time (on all processors): 00:00:15
+    Info (21061): Implemented 982 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 49 warnings
+    Info: Peak virtual memory: 4868 megabytes
+    Info: Processing ended: Mon Mar 16 18:46:48 2026
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:21
 
 
