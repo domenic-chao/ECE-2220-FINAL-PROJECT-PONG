@@ -1,10 +1,12 @@
 // PONG
 // 	THE TOP MODULE FOR THE PROJECT
-// VERSION: 1.0.0
-// LAST UPDATED: MAR 16, 2026
+// VERSION: 1.0.1
+// LAST UPDATED: MAR 17, 2026
 // AUTHOR(S): DOMENIC CHAO, Leon Fust, Israel Igbinawan, Augustine Eyolfson
 
 module PONG (	
+	// SW INPUT
+	input	pause,						// SW[0]		PIN_AF14
 	input rst,							// SW[9] 	PIN_AA30
 	
 	// CLK INPUTS
@@ -40,7 +42,7 @@ module PONG (
 	localparam SCREEN_WIDTH = 640;											// THE WIDTH OF THE SCREEN
 	localparam SCREEN_HEIGHT = 480; 											// THE HEIGHT OF THE SCREEN
 		
-	localparam BLOCKER_PADDING = 10;											// THE PADDING BEHIND THE BLOCKER
+	localparam BLOCKER_PADDING = 15;											// THE PADDING BEHIND THE BLOCKER
 	localparam BLOCKER_WIDTH = 5;												// THE WIDTH OF THE BLOCKER
 	localparam BLOCKER_HEIGHT = 20;											// THE HEIGHT OF THE BLOCKER
 	
@@ -130,7 +132,9 @@ module PONG (
 		.launchMode(launchMode),
 		
 		.clk25(clk25),
-		.rst(rst)
+		.rst(rst),
+		.paused(pause),
+		//.mainMenu(mainMenu)
 	);
 	
 	// VGA OUTPUTS TO MONITOR
@@ -161,6 +165,9 @@ module PONG (
 		
 		.clk25(clk25),
 		.rst(rst),
+		.paused(pause),
+		//.mainMenu(mainMenu),
+		
 		.vgaR(vgaR),
 		.vgaG(vgaG),
 		.vgaB(vgaB),

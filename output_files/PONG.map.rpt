@@ -1,5 +1,5 @@
 Analysis & Synthesis report for PONG
-Mon Mar 16 18:46:48 2026
+Wed Mar 18 17:53:15 2026
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -60,14 +60,14 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +---------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Mon Mar 16 18:46:48 2026          ;
+; Analysis & Synthesis Status     ; Successful - Wed Mar 18 17:53:15 2026          ;
 ; Quartus Prime Version           ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
 ; Revision Name                   ; PONG                                           ;
 ; Top-level Entity Name           ; PONG                                           ;
 ; Family                          ; Cyclone V                                      ;
 ; Logic utilization (in ALMs)     ; N/A                                            ;
-; Total registers                 ; 133                                            ;
-; Total pins                      ; 77                                             ;
+; Total registers                 ; 125                                            ;
+; Total pins                      ; 78                                             ;
 ; Total virtual pins              ; 0                                              ;
 ; Total block memory bits         ; 0                                              ;
 ; Total DSP Blocks                ; 0                                              ;
@@ -180,7 +180,8 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-4         ;   0.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-4         ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -218,25 +219,25 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimate of Logic utilization (ALMs needed) ; 523   ;
+; Estimate of Logic utilization (ALMs needed) ; 526   ;
 ;                                             ;       ;
-; Combinational ALUT usage for logic          ; 952   ;
+; Combinational ALUT usage for logic          ; 960   ;
 ;     -- 7 input functions                    ; 0     ;
-;     -- 6 input functions                    ; 90    ;
-;     -- 5 input functions                    ; 38    ;
-;     -- 4 input functions                    ; 119   ;
-;     -- <=3 input functions                  ; 705   ;
+;     -- 6 input functions                    ; 88    ;
+;     -- 5 input functions                    ; 48    ;
+;     -- 4 input functions                    ; 121   ;
+;     -- <=3 input functions                  ; 703   ;
 ;                                             ;       ;
-; Dedicated logic registers                   ; 133   ;
+; Dedicated logic registers                   ; 125   ;
 ;                                             ;       ;
-; I/O pins                                    ; 77    ;
+; I/O pins                                    ; 78    ;
 ;                                             ;       ;
 ; Total DSP Blocks                            ; 0     ;
 ;                                             ;       ;
 ; Maximum fan-out node                        ; clk25 ;
-; Maximum fan-out                             ; 134   ;
-; Total fan-out                               ; 3358  ;
-; Average fan-out                             ; 2.71  ;
+; Maximum fan-out                             ; 126   ;
+; Total fan-out                               ; 3389  ;
+; Average fan-out                             ; 2.73  ;
 +---------------------------------------------+-------+
 
 
@@ -245,8 +246,8 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
 ; Compilation Hierarchy Node                ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                ; Entity Name         ; Library Name ;
 +-------------------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------+---------------------+--------------+
-; |PONG                                     ; 952 (1)             ; 133 (1)                   ; 0                 ; 0          ; 77   ; 0            ; |PONG                                                                                                                              ; PONG                ; work         ;
-;    |BALL_LOGIC:ballLogic|                 ; 265 (265)           ; 78 (78)                   ; 0                 ; 0          ; 0    ; 0            ; |PONG|BALL_LOGIC:ballLogic                                                                                                         ; BALL_LOGIC          ; work         ;
+; |PONG                                     ; 960 (1)             ; 125 (1)                   ; 0                 ; 0          ; 78   ; 0            ; |PONG                                                                                                                              ; PONG                ; work         ;
+;    |BALL_LOGIC:ballLogic|                 ; 273 (273)           ; 70 (70)                   ; 0                 ; 0          ; 0    ; 0            ; |PONG|BALL_LOGIC:ballLogic                                                                                                         ; BALL_LOGIC          ; work         ;
 ;    |NUM_TO_SEVSEG:playerOneScore|         ; 258 (29)            ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerOneScore                                                                                                 ; NUM_TO_SEVSEG       ; work         ;
 ;       |SEV_SEG_OUTPUT:center|             ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerOneScore|SEV_SEG_OUTPUT:center                                                                           ; SEV_SEG_OUTPUT      ; work         ;
 ;       |SEV_SEG_OUTPUT:left|               ; 7 (7)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |PONG|NUM_TO_SEVSEG:playerOneScore|SEV_SEG_OUTPUT:left                                                                             ; SEV_SEG_OUTPUT      ; work         ;
@@ -280,28 +281,39 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Register name                           ; Reason for Removal                                  ;
 +-----------------------------------------+-----------------------------------------------------+
 ; BALL_LOGIC:ballLogic|launchMode[1]~reg0 ; Merged with BALL_LOGIC:ballLogic|launchMode[0]~reg0 ;
-; BALL_LOGIC:ballLogic|ballXVel[0]~reg0   ; Stuck at GND due to stuck port data_in              ;
-; BALL_LOGIC:ballLogic|ballXVel[1]~reg0   ; Stuck at GND due to stuck port data_in              ;
-; BALL_LOGIC:ballLogic|ballX[7]~reg0      ; Stuck at GND due to stuck port data_in              ;
-; BALL_LOGIC:ballLogic|ballX[8]~reg0      ; Stuck at GND due to stuck port data_in              ;
-; BALL_LOGIC:ballLogic|ballX[10]~reg0     ; Stuck at GND due to stuck port data_in              ;
-; BALL_LOGIC:ballLogic|ballX[11]~reg0     ; Stuck at GND due to stuck port data_in              ;
+; BALL_LOGIC:ballLogic|ballX[3]~reg0      ; Stuck at GND due to stuck port data_in              ;
+; BALL_LOGIC:ballLogic|ballX[5]~reg0      ; Stuck at GND due to stuck port data_in              ;
+; BALL_LOGIC:ballLogic|ballX[6]~reg0      ; Stuck at GND due to stuck port data_in              ;
+; BALL_LOGIC:ballLogic|ballX[9]~reg0      ; Stuck at GND due to stuck port data_in              ;
 ; scoreOne[0..6]                          ; Stuck at GND due to stuck port data_in              ;
 ; scoreTwo[0..6]                          ; Stuck at GND due to stuck port data_in              ;
-; BALL_LOGIC:ballLogic|launchMode[0]~reg0 ; Stuck at GND due to stuck port data_in              ;
+; BALL_LOGIC:ballLogic|ballX[0]~reg0      ; Stuck at GND due to stuck port data_in              ;
+; BALL_LOGIC:ballLogic|launchMode[0]~reg0 ; Stuck at VCC due to stuck port data_in              ;
+; BALL_LOGIC:ballLogic|ballX[11]~reg0     ; Stuck at GND due to stuck port data_in              ;
+; BALL_LOGIC:ballLogic|ballX[10]~reg0     ; Stuck at GND due to stuck port data_in              ;
+; BALL_LOGIC:ballLogic|ballX[8]~reg0      ; Stuck at GND due to stuck port data_in              ;
+; BALL_LOGIC:ballLogic|ballX[7]~reg0      ; Stuck at GND due to stuck port data_in              ;
+; BALL_LOGIC:ballLogic|ballX[4]~reg0      ; Stuck at VCC due to stuck port data_in              ;
+; BALL_LOGIC:ballLogic|ballX[2]~reg0      ; Stuck at VCC due to stuck port data_in              ;
+; BALL_LOGIC:ballLogic|ballX[1]~reg0      ; Stuck at GND due to stuck port data_in              ;
+; BALL_LOGIC:ballLogic|ballXVel[1]~reg0   ; Stuck at GND due to stuck port data_in              ;
+; BALL_LOGIC:ballLogic|ballXVel[0]~reg0   ; Lost fanout                                         ;
 ; VGA_OUTPUT:displayOutput|rowChange[4,5] ; Stuck at GND due to stuck port data_in              ;
-; Total Number of Removed Registers = 24  ;                                                     ;
+; Total Number of Removed Registers = 32  ;                                                     ;
 +-----------------------------------------+-----------------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                                                                  ;
-+---------------------------------------+---------------------------+--------------------------------------------------------------------------+
-; Register name                         ; Reason for Removal        ; Registers Removed due to This Register                                   ;
-+---------------------------------------+---------------------------+--------------------------------------------------------------------------+
-; BALL_LOGIC:ballLogic|ballXVel[0]~reg0 ; Stuck at GND              ; BALL_LOGIC:ballLogic|ballX[7]~reg0, BALL_LOGIC:ballLogic|ballX[8]~reg0,  ;
-;                                       ; due to stuck port data_in ; BALL_LOGIC:ballLogic|ballX[10]~reg0, BALL_LOGIC:ballLogic|ballX[11]~reg0 ;
-+---------------------------------------+---------------------------+--------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                     ;
++-----------------------------------------+---------------------------+---------------------------------------------------------------------------+
+; Register name                           ; Reason for Removal        ; Registers Removed due to This Register                                    ;
++-----------------------------------------+---------------------------+---------------------------------------------------------------------------+
+; BALL_LOGIC:ballLogic|ballX[3]~reg0      ; Stuck at GND              ; BALL_LOGIC:ballLogic|ballX[11]~reg0, BALL_LOGIC:ballLogic|ballX[10]~reg0, ;
+;                                         ; due to stuck port data_in ; BALL_LOGIC:ballLogic|ballX[8]~reg0, BALL_LOGIC:ballLogic|ballX[7]~reg0,   ;
+;                                         ;                           ; BALL_LOGIC:ballLogic|ballXVel[0]~reg0                                     ;
+; BALL_LOGIC:ballLogic|launchMode[0]~reg0 ; Stuck at VCC              ; BALL_LOGIC:ballLogic|ballXVel[1]~reg0                                     ;
+;                                         ; due to stuck port data_in ;                                                                           ;
++-----------------------------------------+---------------------------+---------------------------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -309,12 +321,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 133   ;
-; Number of registers using Synchronous Clear  ; 81    ;
+; Total registers                              ; 125   ;
+; Number of registers using Synchronous Clear  ; 80    ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 63    ;
+; Number of registers using Clock Enable       ; 87    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -324,46 +336,43 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +------------------------------------------+---------+
 ; Inverted Register                        ; Fan out ;
 +------------------------------------------+---------+
-; BALL_LOGIC:ballLogic|blockerOneY[7]~reg0 ; 5       ;
-; BALL_LOGIC:ballLogic|blockerOneY[6]~reg0 ; 5       ;
-; BALL_LOGIC:ballLogic|blockerOneY[5]~reg0 ; 5       ;
-; BALL_LOGIC:ballLogic|blockerOneY[4]~reg0 ; 5       ;
 ; BALL_LOGIC:ballLogic|blockerTwoY[7]~reg0 ; 5       ;
 ; BALL_LOGIC:ballLogic|blockerTwoY[6]~reg0 ; 5       ;
 ; BALL_LOGIC:ballLogic|blockerTwoY[5]~reg0 ; 5       ;
 ; BALL_LOGIC:ballLogic|blockerTwoY[4]~reg0 ; 5       ;
-; BALL_LOGIC:ballLogic|ballX[4]~reg0       ; 2       ;
-; BALL_LOGIC:ballLogic|ballX[2]~reg0       ; 2       ;
+; BALL_LOGIC:ballLogic|blockerOneY[7]~reg0 ; 5       ;
+; BALL_LOGIC:ballLogic|blockerOneY[6]~reg0 ; 5       ;
+; BALL_LOGIC:ballLogic|blockerOneY[5]~reg0 ; 5       ;
+; BALL_LOGIC:ballLogic|blockerOneY[4]~reg0 ; 5       ;
 ; BALL_LOGIC:ballLogic|ballY[7]~reg0       ; 6       ;
 ; BALL_LOGIC:ballLogic|ballY[6]~reg0       ; 6       ;
 ; BALL_LOGIC:ballLogic|ballY[5]~reg0       ; 6       ;
 ; BALL_LOGIC:ballLogic|ballY[4]~reg0       ; 6       ;
-; Total number of inverted registers = 14  ;         ;
+; Total number of inverted registers = 12  ;         ;
 +------------------------------------------+---------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                      ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |PONG|scoreOne[0]                               ;
-; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |PONG|scoreTwo[2]                               ;
-; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |PONG|VGA_OUTPUT:displayOutput|Hpos[8]          ;
-; 3:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |PONG|BALL_LOGIC:ballLogic|clkCount[25]         ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |PONG|VGA_OUTPUT:displayOutput|rowChange[3]     ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |PONG|BALL_LOGIC:ballLogic|blockerOneY[11]~reg0 ;
-; 4:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |PONG|VGA_OUTPUT:displayOutput|Vpos[4]          ;
-; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |PONG|BALL_LOGIC:ballLogic|blockerTwoY[11]~reg0 ;
-; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; Yes        ; |PONG|BALL_LOGIC:ballLogic|ballYVel[0]~reg0     ;
-; 9:1                ; 5 bits    ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |PONG|BALL_LOGIC:ballLogic|ballX[0]~reg0        ;
-; 9:1                ; 5 bits    ; 30 LEs        ; 20 LEs               ; 10 LEs                 ; Yes        ; |PONG|BALL_LOGIC:ballLogic|ballX[3]~reg0        ;
-; 12:1               ; 8 bits    ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |PONG|BALL_LOGIC:ballLogic|ballY[0]~reg0        ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |PONG|BALL_LOGIC:ballLogic|blockerOneY[5]~reg0  ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |PONG|BALL_LOGIC:ballLogic|blockerTwoY[7]~reg0  ;
-; 9:1                ; 2 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |PONG|BALL_LOGIC:ballLogic|ballX[4]~reg0        ;
-; 12:1               ; 4 bits    ; 32 LEs        ; 12 LEs               ; 20 LEs                 ; Yes        ; |PONG|BALL_LOGIC:ballLogic|ballY[7]~reg0        ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                               ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                     ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |PONG|scoreOne[0]                              ;
+; 3:1                ; 7 bits    ; 14 LEs        ; 7 LEs                ; 7 LEs                  ; Yes        ; |PONG|scoreTwo[0]                              ;
+; 3:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |PONG|VGA_OUTPUT:displayOutput|Hpos[3]         ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 12 LEs               ; 0 LEs                  ; Yes        ; |PONG|VGA_OUTPUT:displayOutput|rowChange[5]    ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |PONG|BALL_LOGIC:ballLogic|blockerOneY[0]~reg0 ;
+; 4:1                ; 12 bits   ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |PONG|VGA_OUTPUT:displayOutput|Vpos[5]         ;
+; 4:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |PONG|BALL_LOGIC:ballLogic|blockerTwoY[3]~reg0 ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 0 LEs                ; 64 LEs                 ; Yes        ; |PONG|BALL_LOGIC:ballLogic|clkCount[5]         ;
+; 5:1                ; 6 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; Yes        ; |PONG|BALL_LOGIC:ballLogic|ballX[10]~reg0      ;
+; 5:1                ; 4 bits    ; 12 LEs        ; 8 LEs                ; 4 LEs                  ; Yes        ; |PONG|BALL_LOGIC:ballLogic|ballX[3]~reg0       ;
+; 8:1                ; 2 bits    ; 10 LEs        ; 6 LEs                ; 4 LEs                  ; Yes        ; |PONG|BALL_LOGIC:ballLogic|ballYVel[0]~reg0    ;
+; 12:1               ; 8 bits    ; 64 LEs        ; 16 LEs               ; 48 LEs                 ; Yes        ; |PONG|BALL_LOGIC:ballLogic|ballY[0]~reg0       ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |PONG|BALL_LOGIC:ballLogic|blockerOneY[4]~reg0 ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |PONG|BALL_LOGIC:ballLogic|blockerTwoY[4]~reg0 ;
+; 12:1               ; 4 bits    ; 32 LEs        ; 12 LEs               ; 20 LEs                 ; Yes        ; |PONG|BALL_LOGIC:ballLogic|ballY[4]~reg0       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------+
 
 
 +-------------------------------------------------------------------+
@@ -377,7 +386,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; BALL_SIZE       ; 5       ; Signed Integer                        ;
 ; BLOCKER_WIDTH   ; 5       ; Signed Integer                        ;
 ; BLOCKER_SIZE    ; 20      ; Signed Integer                        ;
-; BLOCKER_PADDING ; 10      ; Signed Integer                        ;
+; BLOCKER_PADDING ; 15      ; Signed Integer                        ;
 +-----------------+---------+---------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
@@ -391,7 +400,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; BOARD_HEIGHT       ; 480   ; Signed Integer                           ;
 ; BALL_SIZE          ; 5     ; Signed Integer                           ;
 ; BLOCKER_SIZE       ; 20    ; Signed Integer                           ;
-; BLOCKER_PADDING    ; 10    ; Signed Integer                           ;
+; BLOCKER_PADDING    ; 15    ; Signed Integer                           ;
 ; BLOCKER_WIDTH      ; 5     ; Signed Integer                           ;
 ; CENTRE_ROW_BETWEEN ; 10    ; Signed Integer                           ;
 ; CENTRE_WIDTH       ; 5     ; Signed Integer                           ;
@@ -620,33 +629,33 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 133                         ;
-;     ENA               ; 26                          ;
-;     ENA SCLR          ; 37                          ;
-;     SCLR              ; 44                          ;
+; arriav_ff             ; 125                         ;
+;     ENA               ; 19                          ;
+;     ENA SCLR          ; 68                          ;
+;     SCLR              ; 12                          ;
 ;     plain             ; 26                          ;
-; arriav_lcell_comb     ; 956                         ;
-;     arith             ; 489                         ;
-;         0 data inputs ; 75                          ;
-;         1 data inputs ; 220                         ;
-;         2 data inputs ; 44                          ;
+; arriav_lcell_comb     ; 964                         ;
+;     arith             ; 491                         ;
+;         0 data inputs ; 92                          ;
+;         1 data inputs ; 206                         ;
+;         2 data inputs ; 43                          ;
 ;         3 data inputs ; 98                          ;
 ;         4 data inputs ; 52                          ;
-;     normal            ; 405                         ;
+;     normal            ; 411                         ;
 ;         0 data inputs ; 2                           ;
 ;         1 data inputs ; 3                           ;
-;         2 data inputs ; 134                         ;
-;         3 data inputs ; 71                          ;
-;         4 data inputs ; 67                          ;
-;         5 data inputs ; 38                          ;
-;         6 data inputs ; 90                          ;
+;         2 data inputs ; 132                         ;
+;         3 data inputs ; 69                          ;
+;         4 data inputs ; 69                          ;
+;         5 data inputs ; 48                          ;
+;         6 data inputs ; 88                          ;
 ;     shared            ; 62                          ;
 ;         0 data inputs ; 32                          ;
 ;         1 data inputs ; 30                          ;
-; boundary_port         ; 77                          ;
+; boundary_port         ; 78                          ;
 ;                       ;                             ;
 ; Max LUT depth         ; 32.00                       ;
-; Average LUT depth     ; 17.09                       ;
+; Average LUT depth     ; 17.02                       ;
 +-----------------------+-----------------------------+
 
 
@@ -655,7 +664,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:03     ;
+; Top            ; 00:00:02     ;
 +----------------+--------------+
 
 
@@ -665,11 +674,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Mon Mar 16 18:46:36 2026
+    Info: Processing started: Wed Mar 18 17:53:02 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off PONG -c PONG
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
-Warning (10275): Verilog HDL Module Instantiation warning at PONG.v(169): ignored dangling comma in List of Port Connections File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 169
+Warning (10275): Verilog HDL Module Instantiation warning at PONG.v(138): ignored dangling comma in List of Port Connections File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 138
+Warning (10275): Verilog HDL Module Instantiation warning at PONG.v(176): ignored dangling comma in List of Port Connections File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 176
 Info (12021): Found 1 design units, including 1 entities, in source file pong.v
     Info (12023): Found entity 1: PONG File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 7
 Info (12021): Found 1 design units, including 1 entities, in source file ball_logic.v
@@ -681,42 +691,44 @@ Info (12021): Found 2 design units, including 2 entities, in source file num_to_
     Info (12023): Found entity 2: SEV_SEG_OUTPUT File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 57
 Info (12021): Found 1 design units, including 1 entities, in source file push_btn_input.v
     Info (12023): Found entity 1: PUSH_BTN_INPUT File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PUSH_BTN_INPUT.v Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file char_to_vga.v
+    Info (12023): Found entity 1: CHAR_TO_VGA File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/CHAR_TO_VGA.v Line: 7
 Info (12127): Elaborating entity "PONG" for the top level hierarchy
-Info (12128): Elaborating entity "NUM_TO_SEVSEG" for hierarchy "NUM_TO_SEVSEG:playerOneScore" File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 89
+Info (12128): Elaborating entity "NUM_TO_SEVSEG" for hierarchy "NUM_TO_SEVSEG:playerOneScore" File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 91
 Warning (10230): Verilog HDL assignment warning at NUM_TO_SEVSEG.v(22): truncated value with size 32 to match size of target (4) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 22
 Warning (10230): Verilog HDL assignment warning at NUM_TO_SEVSEG.v(23): truncated value with size 32 to match size of target (4) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 23
 Warning (10230): Verilog HDL assignment warning at NUM_TO_SEVSEG.v(24): truncated value with size 32 to match size of target (4) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 24
 Info (12128): Elaborating entity "SEV_SEG_OUTPUT" for hierarchy "NUM_TO_SEVSEG:playerOneScore|SEV_SEG_OUTPUT:left" File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 36
-Info (12128): Elaborating entity "BALL_LOGIC" for hierarchy "BALL_LOGIC:ballLogic" File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 134
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(44): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 44
+Info (12128): Elaborating entity "BALL_LOGIC" for hierarchy "BALL_LOGIC:ballLogic" File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 138
 Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(45): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 45
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(49): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 49
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(46): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 46
 Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(50): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 50
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(63): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 63
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(51): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 51
 Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(64): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 64
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(68): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 68
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(65): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 65
 Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(69): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 69
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(101): truncated value with size 32 to match size of target (7) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 101
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(104): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 104
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(116): truncated value with size 32 to match size of target (7) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 116
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(119): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 119
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(126): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 126
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(128): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 128
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(132): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 132
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(134): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 134
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(151): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 151
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(154): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 154
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(159): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 159
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(163): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 163
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(179): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 179
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(182): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 182
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(187): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 187
-Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(190): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 190
-Info (12128): Elaborating entity "VGA_OUTPUT" for hierarchy "VGA_OUTPUT:displayOutput" File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 169
-Warning (10230): Verilog HDL assignment warning at VGA_OUTPUT.v(78): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/VGA_OUTPUT.v Line: 78
-Warning (10230): Verilog HDL assignment warning at VGA_OUTPUT.v(87): truncated value with size 32 to match size of target (6) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/VGA_OUTPUT.v Line: 87
-Warning (10230): Verilog HDL assignment warning at VGA_OUTPUT.v(92): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/VGA_OUTPUT.v Line: 92
-Info (12128): Elaborating entity "PUSH_BTN_INPUT" for hierarchy "PUSH_BTN_INPUT:p1_inputs" File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 179
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(70): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 70
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(102): truncated value with size 32 to match size of target (7) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 102
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(105): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 105
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(117): truncated value with size 32 to match size of target (7) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 117
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(120): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 120
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(127): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 127
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(129): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 129
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(133): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 133
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(135): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 135
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(152): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 152
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(155): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 155
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(160): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 160
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(164): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 164
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(180): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 180
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(183): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 183
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(188): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 188
+Warning (10230): Verilog HDL assignment warning at BALL_LOGIC.v(191): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/BALL_LOGIC.v Line: 191
+Info (12128): Elaborating entity "VGA_OUTPUT" for hierarchy "VGA_OUTPUT:displayOutput" File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 176
+Warning (10230): Verilog HDL assignment warning at VGA_OUTPUT.v(79): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/VGA_OUTPUT.v Line: 79
+Warning (10230): Verilog HDL assignment warning at VGA_OUTPUT.v(88): truncated value with size 32 to match size of target (6) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/VGA_OUTPUT.v Line: 88
+Warning (10230): Verilog HDL assignment warning at VGA_OUTPUT.v(93): truncated value with size 32 to match size of target (12) File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/VGA_OUTPUT.v Line: 93
+Info (12128): Elaborating entity "PUSH_BTN_INPUT" for hierarchy "PUSH_BTN_INPUT:p1_inputs" File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 186
 Warning (12020): Port "enable" on the entity instantiation of "right" is connected to a signal of width 32. The formal width of the signal in the module is 1.  The extra bits will be ignored. File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 48
 Info (278001): Inferred 8 megafunctions from design logic
     Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "NUM_TO_SEVSEG:playerOneScore|Div1" File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/NUM_TO_SEVSEG.v Line: 24
@@ -777,31 +789,32 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/alt_
     Info (12023): Found entity 1: alt_u_div_0te File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/db/alt_u_div_0te.tdf Line: 23
 Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "sevSegP1R[0]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 22
-    Warning (13410): Pin "sevSegP1R[1]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 22
-    Warning (13410): Pin "sevSegP1R[2]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 22
-    Warning (13410): Pin "sevSegP1R[3]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 22
-    Warning (13410): Pin "sevSegP1R[4]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 22
-    Warning (13410): Pin "sevSegP1R[5]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 22
-    Warning (13410): Pin "sevSegP1R[6]" is stuck at VCC File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 22
-    Warning (13410): Pin "sevSegP2R[0]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 25
-    Warning (13410): Pin "sevSegP2R[1]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 25
-    Warning (13410): Pin "sevSegP2R[2]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 25
-    Warning (13410): Pin "sevSegP2R[3]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 25
-    Warning (13410): Pin "sevSegP2R[4]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 25
-    Warning (13410): Pin "sevSegP2R[5]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 25
-    Warning (13410): Pin "sevSegP2R[6]" is stuck at VCC File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 25
+    Warning (13410): Pin "sevSegP1R[0]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 24
+    Warning (13410): Pin "sevSegP1R[1]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 24
+    Warning (13410): Pin "sevSegP1R[2]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 24
+    Warning (13410): Pin "sevSegP1R[3]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 24
+    Warning (13410): Pin "sevSegP1R[4]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 24
+    Warning (13410): Pin "sevSegP1R[5]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 24
+    Warning (13410): Pin "sevSegP1R[6]" is stuck at VCC File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 24
+    Warning (13410): Pin "sevSegP2R[0]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 27
+    Warning (13410): Pin "sevSegP2R[1]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 27
+    Warning (13410): Pin "sevSegP2R[2]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 27
+    Warning (13410): Pin "sevSegP2R[3]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 27
+    Warning (13410): Pin "sevSegP2R[4]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 27
+    Warning (13410): Pin "sevSegP2R[5]" is stuck at GND File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 27
+    Warning (13410): Pin "sevSegP2R[6]" is stuck at VCC File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/PONG.v Line: 27
 Info (286030): Timing-Driven Synthesis is running
+Info (17049): 1 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1059 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 6 input pins
+Info (21057): Implemented 1062 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 7 input pins
     Info (21059): Implemented 71 output pins
-    Info (21061): Implemented 982 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 49 warnings
-    Info: Peak virtual memory: 4868 megabytes
-    Info: Processing ended: Mon Mar 16 18:46:48 2026
-    Info: Elapsed time: 00:00:12
-    Info: Total CPU time (on all processors): 00:00:21
+    Info (21061): Implemented 984 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 50 warnings
+    Info: Peak virtual memory: 4884 megabytes
+    Info: Processing ended: Wed Mar 18 17:53:15 2026
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:26
 
 

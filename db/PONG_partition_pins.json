@@ -248,6 +248,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "pause",
+					"strict" : false
+				},
+				{
 					"name" : "playerTwoUp",
 					"strict" : false
 				},

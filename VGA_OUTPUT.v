@@ -1,8 +1,8 @@
 // VGA_OUTPUT
 // 	MODULE TO DETERMINE PIXEL COLOR (OBJECT VS NO OBJECT) 
 //			AND THEN DISPLAY TO DATA TO SCREEN
-// VERSION: 1.0.0
-// LAST UPDATED: MAR 16, 2026
+// VERSION: 1.0.3
+// LAST UPDATED: MAR 17, 2026
 // AUTHOR: DOMENIC CHAO
 
 module VGA_OUTPUT #(
@@ -33,6 +33,7 @@ module VGA_OUTPUT #(
 	input clk25,				// 25MHZ CLOCK
 	
 	input rst,					// RESET INPUT
+	input paused,				// PUASE INPUT
 	
 	output reg [7:0] vgaR, 	// VGA RED COLOR OUTPUT (0-255)
 	output reg [7:0] vgaG,	// VGA GREEN COLOR OUTPUT (0-255)
@@ -43,8 +44,8 @@ module VGA_OUTPUT #(
 );
 
 	// VARIABLES FOR HEIGHT AND WIDTH
-   localparam H_ACTIVE = 640;
-   localparam V_ACTIVE = 480;
+   localparam H_ACTIVE = BOARD_WIDTH;
+   localparam V_ACTIVE = BOARD_HEIGHT;
 	
    localparam H_FRONT_P = 16;
 	localparam V_FRONT_P = 10;

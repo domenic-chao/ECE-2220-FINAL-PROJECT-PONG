@@ -1,7 +1,7 @@
 // BALL_LOGIC
 // 	MODULE TO MOVE BALL BASED ON VELOCITY AND CHECKS FOR SCORING
-// VERSION: 1.0.0
-// LAST UPDATED: MAR 15, 2026
+// VERSION: 1.0.1
+// LAST UPDATED: MAR 16, 2026
 // AUTHOR(s): DOMENIC CHAO, Augustine Eyolfson
 
 module BALL_LOGIC #(
@@ -17,6 +17,7 @@ module BALL_LOGIC #(
 )(
 	input clk25,								// THE CLOCK INPUT (25MHZ)
 	input rst,									// RESET INPUT
+	input paused,								// IF THE GAME IS PAUSED
 	
 	inout reg [11:0] ballX,					// THE X POSITION OF THE BALL
 	inout reg [11:0] ballY,					// THE Y POSITION OF THE BALL
@@ -41,7 +42,7 @@ module BALL_LOGIC #(
 	reg [31:0] clkCount = 0;				// THE COUNT OF THE CLOCK CYCLES
 
 	initial begin
-		ballX <= (BLOCKER_PADDING + BLOCKER_WIDTH + BALL_SIZE); 	// SETTING THE INITIAL BALL X POSITION
+		ballX <= (BLOCKER_PADDING + BALL_SIZE); 	// SETTING THE INITIAL BALL X POSITION
 		ballY <= (BOARD_HEIGHT / 2);										// SETTING THE INITIAL BALL Y POSITION
 		ballXVel <= 0;															// THE INITITAL BALL VELOCITY (0)
 		ballYVel <= 0;															// THE INITITAL BALL VELOCITY (0)
@@ -60,7 +61,7 @@ module BALL_LOGIC #(
 	always @(posedge clk25) begin
 		// RESET BACK TO DEFAULT STATE
 		if (rst) begin
-			ballX <= (BLOCKER_PADDING + BLOCKER_WIDTH + BALL_SIZE); 	// SETTING THE INITIAL BALL X POSITION
+			ballX <= (BLOCKER_PADDING + BALL_SIZE); 	// SETTING THE INITIAL BALL X POSITION
 			ballY <= (BOARD_HEIGHT / 2);										// SETTING THE INITIAL BALL Y POSITION
 			ballXVel <= 0;															// THE INITITAL BALL VELOCITY (0)
 			ballYVel <= 0;															// THE INITITAL BALL VELOCITY (0)
@@ -75,7 +76,7 @@ module BALL_LOGIC #(
 			
 			clkCount <= 0;															// THE INITAL CLOCK COUNT
 		// LOOP THAT RUNS EVERY HALF SECOND
-		end else if (clkCount >= (CLK_SIZE/8)) begin	
+		end else if (clkCount >= (CLK_SIZE/8) && !paused) begin	
 				clkCount <= 0;
 				
 				if (launchMode == 0) begin
@@ -139,7 +140,7 @@ module BALL_LOGIC #(
 				// MOVE BLOCKER
 				if (playerOneUp && playerOneDown) begin
 					if (launchMode == 1) begin
-						ballX <= 1;
+						ballXVel <= 1;
 						if (ballY >= (BOARD_HEIGHT/2)) begin
 							ballYVel <= 1;
 						end else begin
@@ -167,7 +168,7 @@ module BALL_LOGIC #(
 					
 				if (playerOneUp && playerOneDown) begin
 					if (launchMode == 2) begin
-						ballX <= 2;
+						ballXVel <= 2;
 						if (ballY >= (BOARD_HEIGHT/2)) begin
 							ballYVel <= 1;
 						end else begin
@@ -191,7 +192,7 @@ module BALL_LOGIC #(
 						end
 					end
 				end
-		end else begin
+		end else if (!paused) begin
 			clkCount <= clkCount + 1;
 		end
 	end
