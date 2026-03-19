@@ -8,7 +8,7 @@ module CHAR_TO_VGA #(
 	parameter HEIGHT = 9,		// MUST BE A MULTIPLE OF 9
 	parameter WIDTH = 5			// MUST BE A MULTIPLE OF 5
 )(
-	input [6:0] ascii,			// VALUE OF THE ASCII CHARACTER, NOTE THAT 0 IS BLANK
+	input [11:0] ascii,			// VALUE OF THE ASCII CHARACTER, NOTE THAT 0 IS BLANK
 	input [11:0] xPos,			// SHOULD BE OFFSET TO BE PIXEL INSIDE THE CHARACTER
 	input [11:0] yPos,			// SHOULD BE OFFSET TO BE PIXEL INSIDE THE CHARACTER
 	
@@ -21,8 +21,8 @@ module CHAR_TO_VGA #(
 	always @(*) begin
 		
 		
-		row <= (xPos / (WIDTH / 5)) + 1;
-		col <= (yPos / (HEIGHT / 9)) + 1;
+		col <= (xPos / (WIDTH / 5)) + 1;
+		row <= (yPos / (HEIGHT / 9)) + 1;
 		
 		// DETERMINE IF FOR THE CHARACTER AT THIS PIXEL IF THIS CHARACTER SHOULD HAVE COLOR AT THIS PIXEL
 		case (ascii) 
@@ -93,7 +93,7 @@ module CHAR_TO_VGA #(
 					4'd9: begin	
 						isColor <= 1;
 					end	
-					endcase
+				endcase
 			end
 			12'd49: begin // CHARACTER: 1 
 					case (row)	

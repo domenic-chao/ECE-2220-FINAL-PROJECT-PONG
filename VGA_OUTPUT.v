@@ -69,6 +69,22 @@ module VGA_OUTPUT #(
 	
 	reg object = 0;
 
+	reg [11:0] xOffset = 0;
+	reg [11:0] yOffset = 0;
+	reg [11:0] ascii = 0;
+	wire isColor;
+	
+	 CHAR_TO_VGA #(
+		.HEIGHT(27),
+		.WIDTH(15)
+	) largeFont (
+		.ascii(ascii),
+		.xPos(xOffset),
+		.yPos(yOffset),
+		.isColor(isColor)
+	);
+	
+	
 	// UPDATING THE VERTICAL AND HORIZONTAL POSITION
 	always @(posedge clk25) begin
 		if (rst) begin
@@ -112,6 +128,31 @@ module VGA_OUTPUT #(
 		object <= 0;
 		
 		// DETERMINE IF THERE IS OBJECT AT THIS PIXEL OR NOT
+		
+		// PAUSED WORDS
+		if (paused) begin
+			if (Hpos >= 200 && Hpos < 215 && Vpos >= 50 && Vpos <= 77) begin
+				xOffset <= Hpos - 200;
+				yOffset <= Vpos - 50;
+				ascii <= 12'd80;
+			end else if (Hpos >= 225 && Hpos < 240 && Vpos >= 50 && Vpos <= 77) begin
+				xOffset <= Hpos - 225;
+				yOffset <= Vpos - 50;
+				ascii <= 12'd79;
+			end else if (Hpos >= 250 && Hpos < 265 && Vpos >= 50 && Vpos <= 77) begin
+				xOffset <= Hpos - 250;
+				yOffset <= Vpos - 50;
+				ascii <= 12'd78;
+			end else	if (Hpos >= 275 && Hpos < 290 && Vpos >= 50 && Vpos <= 77) begin
+				xOffset <= Hpos - 275;
+				yOffset <= Vpos - 50;
+				ascii <= 12'd71;
+			end else begin
+				ascii <= 0;
+			end
+						
+			object <= isColor;
+		end
 		
 		// BALL
 		if ((Hpos >= (ballX - BALL_SIZE)) && (Hpos <= (ballX + BALL_SIZE)) && (Vpos >= (ballY - BALL_SIZE)) && (Vpos <= (ballY + BALL_SIZE))) begin

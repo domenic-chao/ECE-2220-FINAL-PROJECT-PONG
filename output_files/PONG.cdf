@@ -6,7 +6,7 @@ JedecChain;
 	P ActionCode(Ign)
 		Device PartName(SOCVHPS) MfrSpec(OpMask(0));
 	P ActionCode(Cfg)
-		Device PartName(5CSXFC6D6F31) Path("C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/output_files/") File("PONG.sof") MfrSpec(OpMask(1));
+		Device PartName(5CSXFC6D6F31) Path("E:/PONG/output_files/") File("PONG.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 
