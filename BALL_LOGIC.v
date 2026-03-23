@@ -92,10 +92,10 @@ module BALL_LOGIC #(
 			scoredThisFrame <= 0;
 		// LOOP THAT RUNS IF WE ARE IN MAIN MENU MODE
 		end else if (mainMenu) begin
-			if (playerOneUp) begin
+			if (playerOneDown) begin
 				mainMenu <= 0;
 				gameMode <= 1;
-			end else if (playerOneDown) begin
+			end else if (playerOneUp) begin
 				mainMenu <= 0;
 				gameMode <= 0;
 			end
@@ -134,6 +134,12 @@ module BALL_LOGIC #(
 						launchMode <= 2;
 						ballY <= blockerTwoY;
 					end
+					
+					if (gameMode) begin
+						if (scoreOne >= 3 | scoreTwo >= 3) begin
+							gameOver <= 1;
+						end
+					end
 				end
 				
 				
@@ -163,10 +169,6 @@ module BALL_LOGIC #(
 							launchMode <= 3;
 							lastScoredOn <= 1;
 							scoredThisFrame <= 1;
-							
-							if (gameMode && scoreOne >= 3) begin
-								gameOver <= 1;
-							end
 						end
 					end else if ((ballX - BALL_SIZE) <= (BLOCKER_PADDING)) begin
 						if (((ballY + BALL_SIZE) <= (blockerOneY + BLOCKER_SIZE)) && ((ballY + BALL_SIZE) >= (blockerOneY - BLOCKER_SIZE))) begin
@@ -184,10 +186,6 @@ module BALL_LOGIC #(
 							launchMode <= 3;
 							lastScoredOn <= 0;
 							scoredThisFrame <= 1;
-							
-							if (gameMode && scoreTwo >= 3) begin
-								gameOver <= 1;
-							end
 						end
 					end
 					

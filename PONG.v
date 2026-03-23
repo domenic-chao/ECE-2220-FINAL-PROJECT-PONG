@@ -73,6 +73,9 @@ module PONG (
 	wire playerTwoMoveUp;
 	wire playerTwoMoveDown;
 	
+	
+	assign gamemode = gameMode;
+	
 	//CREATING 25MHZ CLOCK FROM 50
 	always @(posedge clk50) begin
 		clk25 <= !clk25;

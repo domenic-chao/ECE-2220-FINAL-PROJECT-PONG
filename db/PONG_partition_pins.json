@@ -284,15 +284,15 @@
 					"strict" : false
 				},
 				{
-					"name" : "pause",
-					"strict" : false
-				},
-				{
 					"name" : "playerOneUp",
 					"strict" : false
 				},
 				{
 					"name" : "playerOneDown",
+					"strict" : false
+				},
+				{
+					"name" : "pause",
 					"strict" : false
 				},
 				{

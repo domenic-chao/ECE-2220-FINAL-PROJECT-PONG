@@ -42,7 +42,6 @@ module VGA_OUTPUT #(
 	output reg [7:0] vgaB,						// VGA BLUE COLOR OUTPUT (0-255)
 	output vgaHSYNC,								// VGA HORIZONTAL SYNC OUTPUT 
 	output vgaVSYNC								// VGA VERTICAL SYNC OUTPUT
-	
 );
 
 	// VARIABLES FOR HEIGHT AND WIDTH
@@ -86,10 +85,10 @@ module VGA_OUTPUT #(
 	reg [11:0] asciiSml= 0;
 	wire isColorSml;
 	
-	reg scoreOneDigitOne = 0;
-	reg scoreOneDigitTwo = 0;
-	reg scoreTwoDigitOne = 0;
-	reg scoreTwoDigitTwo = 0;
+	reg [11:0] scoreOneDigitOne = 0;
+	reg [11:0] scoreOneDigitTwo = 0;
+	reg [11:0] scoreTwoDigitOne = 0;
+	reg [11:0] scoreTwoDigitTwo = 0;
 	
 	 CHAR_TO_VGA #(
 		.HEIGHT(180),
@@ -106,7 +105,7 @@ module VGA_OUTPUT #(
 		.WIDTH(80)
 	) numFont (
 		.ascii(asciiNum),
-		.xPos(xOffsetNm),
+		.xPos(xOffsetNum),
 		.yPos(yOffsetNum),
 		.isColor(isColorNum)
 	);
@@ -167,19 +166,19 @@ module VGA_OUTPUT #(
 		// DETERMINE IF THERE IS OBJECT AT THIS PIXEL OR NOT
 		if (mainMenu) begin
 			// PONG WORDS
-			if (Hpos >= 40 && Hpos <= 140 && Vpos >= 50 && Vpos <= 230) begin
+			if (Hpos >= 40 && Hpos < 140 && Vpos >= 50 && Vpos <= 230) begin
 				xOffset <= Hpos - 40;
 				yOffset <= Vpos - 50;
 				ascii <= 12'd80;
-			end else if (Hpos >= 160 && Hpos <= 260 && Vpos >= 50 && Vpos <= 230) begin
-				xOffset <= Hpos - 150;
+			end else if (Hpos >= 160 && Hpos < 260 && Vpos >= 50 && Vpos <= 230) begin
+				xOffset <= Hpos - 160;
 				yOffset <= Vpos - 50;
 				ascii <= 12'd79;
-			end else if (Hpos >= 280 && Hpos <= 380 && Vpos >= 50 && Vpos <= 230) begin
+			end else if (Hpos >= 280 && Hpos < 380 && Vpos >= 50 && Vpos <= 230) begin
 				xOffset <= Hpos - 280;
 				yOffset <= Vpos - 50;
 				ascii <= 12'd78;
-			end else	if (Hpos >= 400 && Hpos <= 500 && Vpos >= 50 && Vpos <= 230) begin
+			end else	if (Hpos >= 400 && Hpos < 500 && Vpos >= 50 && Vpos <= 230) begin
 				xOffset <= Hpos - 400;
 				yOffset <= Vpos - 50;
 				ascii <= 12'd71;
@@ -189,110 +188,107 @@ module VGA_OUTPUT #(
 			
 			// MENU OPTIONS
 			// UP: FIRST TO 3
-			if (Hpos >= 100 && Hpos <= 125 && Vpos >= 400 && Vpos <= 445) begin
+			if (Hpos >= 100 && Hpos < 125 && Vpos >= 300 && Vpos <= 345) begin
 				xOffsetSml <= Hpos - 100;
-				yOffsetSml <= Vpos - 400;
+				yOffsetSml <= Vpos - 300;
 				asciiSml <= 12'd85;
-			end else if (Hpos >= 135 && Hpos <= 160 && Vpos >= 400 && Vpos <= 445) begin
+			end else if (Hpos >= 135 && Hpos < 160 && Vpos >= 300 && Vpos <= 345) begin
 				xOffsetSml <= Hpos - 135;
-				yOffsetSml <= Vpos - 400;
+				yOffsetSml <= Vpos - 300;
 				asciiSml <= 12'd80;
-			end else if (Hpos >=  170 && Hpos <= 195 && Vpos >= 400 && Vpos <= 445) begin
+			end else if (Hpos >=  170 && Hpos < 195 && Vpos >= 300 && Vpos <= 345) begin
 				xOffsetSml <= Hpos - 170;
-				yOffsetSml <= Vpos - 400;
+				yOffsetSml <= Vpos - 300;
 				asciiSml <= 12'd58;
-			end else	if (Hpos >=  205 && Hpos <= 230  && Vpos >= 400 && Vpos <= 445) begin
+			end else	if (Hpos >=  205 && Hpos < 230  && Vpos >= 300 && Vpos <= 345) begin
 				xOffsetSml <= Hpos - 205;
-				yOffsetSml <= Vpos - 400;
+				yOffsetSml <= Vpos - 300;
 				asciiSml <= 12'd00;
-			end else	if (Hpos >=  240 && Hpos <= 265 && Vpos >= 400 && Vpos <= 445) begin
+			end else	if (Hpos >=  240 && Hpos < 265 && Vpos >= 300 && Vpos <= 345) begin
 				xOffsetSml <= Hpos - 240;
-				yOffsetSml <= Vpos - 400;
+				yOffsetSml <= Vpos - 300;
 				asciiSml <= 12'd70;	
-			end else	if (Hpos >=  275 && Hpos <= 300 && Vpos >= 400 && Vpos <= 445) begin
+			end else	if (Hpos >=  275 && Hpos < 300 && Vpos >= 300 && Vpos <= 345) begin
 				xOffsetSml <= Hpos - 275;
-				yOffsetSml <= Vpos - 400;
+				yOffsetSml <= Vpos - 300;
 				asciiSml <= 12'd73;
-			end else	if (Hpos >= 310 && Hpos <= 335 && Vpos >= 400 && Vpos <= 445) begin
+			end else	if (Hpos >= 310 && Hpos < 335 && Vpos >= 300 && Vpos <= 345) begin
 				xOffsetSml <= Hpos - 310;
-				yOffsetSml <= Vpos - 400;
+				yOffsetSml <= Vpos - 300;
 				asciiSml <= 12'd82;
-			end else	if (Hpos >= 345 && Hpos <= 370 && Vpos >= 400 && Vpos <= 445) begin
+			end else	if (Hpos >= 345 && Hpos < 370 && Vpos >= 300 && Vpos <= 345) begin
 				xOffsetSml <= Hpos - 345;
-				yOffsetSml <= Vpos - 400;
+				yOffsetSml <= Vpos - 300;
 				asciiSml <= 12'd83;
-			end else	if (Hpos >= 380 && Hpos <= 405 && Vpos >= 400 && Vpos <= 445) begin
+			end else	if (Hpos >= 380 && Hpos < 405 && Vpos >= 300 && Vpos <= 345) begin
 				xOffsetSml <= Hpos - 380;
-				yOffsetSml <= Vpos - 400;
+				yOffsetSml <= Vpos - 300;
 				asciiSml <= 12'd84;
-			end else	if (Hpos >= 415 && Hpos <= 440 && Vpos >= 400 && Vpos <= 445) begin
+			end else	if (Hpos >= 415 && Hpos < 440 && Vpos >= 300 && Vpos <= 345) begin
 				xOffsetSml <= Hpos - 415;
-				yOffsetSml <= Vpos - 400;
+				yOffsetSml <= Vpos - 300;
 				asciiSml <= 12'd00;
-			end else	if (Hpos >=  450 && Hpos <= 475 && Vpos >= 400 && Vpos <= 445) begin
+			end else	if (Hpos >=  450 && Hpos < 475 && Vpos >= 300 && Vpos <= 345) begin
 				xOffsetSml <= Hpos - 450;
-				yOffsetSml <= Vpos - 400;
+				yOffsetSml <= Vpos - 300;
 				asciiSml <= 12'd84;
-			end else	if (Hpos >= 485 && Hpos <= 510 && Vpos >= 400 && Vpos <= 445) begin
+			end else	if (Hpos >= 485 && Hpos < 510 && Vpos >= 300 && Vpos <= 345) begin
 				xOffsetSml <= Hpos - 485;
-				yOffsetSml <= Vpos - 400;
+				yOffsetSml <= Vpos - 300;
 				asciiSml <= 12'd79;
-			end else	if (Hpos >= 495 && Hpos <= 520 && Vpos >= 400 && Vpos <= 445) begin
+			end else	if (Hpos >= 495 && Hpos < 520 && Vpos >= 300 && Vpos <= 345) begin
 				xOffsetSml <= Hpos - 495;
-				yOffsetSml <= Vpos - 400;
+				yOffsetSml <= Vpos - 300;
 				asciiSml <= 12'd00;
-			end else	if (Hpos >=  530 && Hpos <= 555 && Vpos >= 400 && Vpos <= 445) begin
+			end else	if (Hpos >=  530 && Hpos < 555 && Vpos >= 300 && Vpos <= 345) begin
 				xOffsetSml <= Hpos - 530;
-				yOffsetSml <= Vpos - 400;
+				yOffsetSml <= Vpos - 300;
 				asciiSml <= 12'd51;
-			end else begin
-				asciiSml <= 0;
-			end
-			
+				
 			// DOWN: INFTY
-			if (Hpos >= 100 && Hpos <= 125 && Vpos >= 500 && Vpos <= 545) begin
+			end else if (Hpos >= 100 && Hpos < 125 && Vpos >= 400 && Vpos <= 445) begin
 				xOffsetSml <= Hpos - 100;
-				yOffsetSml <= Vpos - 500;
+				yOffsetSml <= Vpos - 400;
 				asciiSml <= 12'd68;
-			end else if (Hpos >= 135 && Hpos <= 160 && Vpos >= 500 && Vpos <= 545) begin
+			end else if (Hpos >= 135 && Hpos < 160 && Vpos >= 400 && Vpos <= 445) begin
 				xOffsetSml <= Hpos - 135;
-				yOffsetSml <= Vpos - 500;
+				yOffsetSml <= Vpos - 400;
 				asciiSml <= 12'd79;
-			end else if (Hpos >=  170 && Hpos <= 195 && Vpos >= 500 && Vpos <= 545) begin
+			end else if (Hpos >=  170 && Hpos < 195 && Vpos >= 400 && Vpos <= 445) begin
 				xOffsetSml <= Hpos - 170;
-				yOffsetSml <= Vpos - 500;
+				yOffsetSml <= Vpos - 400;
 				asciiSml <= 12'd87;
-			end else	if (Hpos >=  205 && Hpos <= 230  && Vpos >= 500 && Vpos <= 545) begin
+			end else	if (Hpos >=  205 && Hpos < 230  && Vpos >= 400 && Vpos <= 445) begin
 				xOffsetSml <= Hpos - 205;
-				yOffsetSml <= Vpos - 500;
+				yOffsetSml <= Vpos - 400;
 				asciiSml <= 12'd78;
-			end else	if (Hpos >=  240 && Hpos <= 265 && Vpos >= 500 && Vpos <= 545) begin
+			end else	if (Hpos >=  240 && Hpos < 265 && Vpos >= 400 && Vpos <= 445) begin
 				xOffsetSml <= Hpos - 240;
-				yOffsetSml <= Vpos - 500;
+				yOffsetSml <= Vpos - 400;
 				asciiSml <= 12'd58;	
-			end else	if (Hpos >=  275 && Hpos <= 300 && Vpos >= 500 && Vpos <= 545) begin
+			end else	if (Hpos >=  275 && Hpos < 300 && Vpos >= 400 && Vpos <= 445) begin
 				xOffsetSml <= Hpos - 275;
-				yOffsetSml <= Vpos - 500;
+				yOffsetSml <= Vpos - 400;
 				asciiSml <= 12'd00;
-			end else	if (Hpos >= 310 && Hpos <= 335 && Vpos >= 500 && Vpos <= 545) begin
+			end else	if (Hpos >= 310 && Hpos < 335 && Vpos >= 400 && Vpos <= 445) begin
 				xOffsetSml <= Hpos - 310;
-				yOffsetSml <= Vpos - 500;
+				yOffsetSml <= Vpos - 400;
 				asciiSml <= 12'd73;
-			end else	if (Hpos >= 345 && Hpos <= 370 && Vpos >= 500 && Vpos <= 545) begin
+			end else	if (Hpos >= 345 && Hpos < 370 && Vpos >= 400 && Vpos <= 445) begin
 				xOffsetSml <= Hpos - 345;
-				yOffsetSml <= Vpos - 500;
+				yOffsetSml <= Vpos - 400;
 				asciiSml <= 12'd78;
-			end else	if (Hpos >= 380 && Hpos <= 405 && Vpos >= 500 && Vpos <= 545) begin
+			end else	if (Hpos >= 380 && Hpos < 405 && Vpos >= 400 && Vpos <= 445) begin
 				xOffsetSml <= Hpos - 380;
-				yOffsetSml <= Vpos - 500;
+				yOffsetSml <= Vpos - 400;
 				asciiSml <= 12'd70;
-			end else	if (Hpos >= 415 && Hpos <= 440 && Vpos >= 500 && Vpos <= 545) begin
+			end else	if (Hpos >= 415 && Hpos < 440 && Vpos >= 400 && Vpos <= 445) begin
 				xOffsetSml <= Hpos - 415;
-				yOffsetSml <= Vpos - 500;
+				yOffsetSml <= Vpos - 400;
 				asciiSml <= 12'd84;
-			end else	if (Hpos >=  450 && Hpos <= 475 && Vpos >= 500 && Vpos <= 545) begin
+			end else	if (Hpos >=  450 && Hpos < 475 && Vpos >= 400 && Vpos <= 445) begin
 				xOffsetSml <= Hpos - 450;
-				yOffsetSml <= Vpos - 500;
+				yOffsetSml <= Vpos - 400;
 				asciiSml <= 12'd89;
 			end else begin
 				asciiSml <= 0;
@@ -302,39 +298,37 @@ module VGA_OUTPUT #(
 			object <= isColorLarge | isColorSml;
 		end else if (gameOver) begin	
 			// GAMEOVER SCREEN
-			
-			// UP: FIRST TO 3
-			if (Hpos >= 100 && Hpos <= 125 && Vpos >= 400 && Vpos <= 445) begin
+			if (Hpos >= 100 && Hpos < 125 && Vpos >= 200 && Vpos <= 245) begin
 				xOffsetSml <= Hpos - 100;
-				yOffsetSml <= Vpos - 400;
+				yOffsetSml <= Vpos - 200;
 				asciiSml <= 12'd80;
-			end else if (Hpos >= 135 && Hpos <= 160 && Vpos >= 400 && Vpos <= 445) begin
+			end else if (Hpos >= 135 && Hpos < 160 && Vpos >= 200 && Vpos <= 245) begin
 				xOffsetSml <= Hpos - 135;
-				yOffsetSml <= Vpos - 400;
+				yOffsetSml <= Vpos - 200;
 				asciiSml <= 12'd76;
-			end else if (Hpos >=  170 && Hpos <= 195 && Vpos >= 400 && Vpos <= 445) begin
+			end else if (Hpos >=  170 && Hpos < 195 && Vpos >= 200 && Vpos <= 245) begin
 				xOffsetSml <= Hpos - 170;
-				yOffsetSml <= Vpos - 400;
+				yOffsetSml <= Vpos - 200;
 				asciiSml <= 12'd65;
-			end else	if (Hpos >=  205 && Hpos <= 230  && Vpos >= 400 && Vpos <= 445) begin
+			end else	if (Hpos >=  205 && Hpos < 230  && Vpos >= 200 && Vpos <= 245) begin
 				xOffsetSml <= Hpos - 205;
-				yOffsetSml <= Vpos - 400;
+				yOffsetSml <= Vpos - 200;
 				asciiSml <= 12'd89;
-			end else	if (Hpos >=  240 && Hpos <= 265 && Vpos >= 400 && Vpos <= 445) begin
+			end else	if (Hpos >=  240 && Hpos < 265 && Vpos >= 200 && Vpos <= 245) begin
 				xOffsetSml <= Hpos - 240;
-				yOffsetSml <= Vpos - 400;
+				yOffsetSml <= Vpos - 200;
 				asciiSml <= 12'd69;	
-			end else	if (Hpos >=  275 && Hpos <= 300 && Vpos >= 400 && Vpos <= 445) begin
+			end else	if (Hpos >=  275 && Hpos < 300 && Vpos >= 200 && Vpos <= 245) begin
 				xOffsetSml <= Hpos - 275;
-				yOffsetSml <= Vpos - 400;
+				yOffsetSml <= Vpos - 200;
 				asciiSml <= 12'd82;
-			end else	if (Hpos >= 310 && Hpos <= 335 && Vpos >= 400 && Vpos <= 445) begin
+			end else	if (Hpos >= 310 && Hpos < 335 && Vpos >= 200 && Vpos <= 245) begin
 				xOffsetSml <= Hpos - 310;
-				yOffsetSml <= Vpos - 400;
+				yOffsetSml <= Vpos - 200;
 				asciiSml <= 12'd00;
-			end else	if (Hpos >= 345 && Hpos <= 370 && Vpos >= 400 && Vpos <= 445) begin
+			end else	if (Hpos >= 345 && Hpos < 370 && Vpos >= 200 && Vpos <= 245) begin
 				xOffsetSml <= Hpos - 345;
-				yOffsetSml <= Vpos - 400;
+				yOffsetSml <= Vpos - 200;
 				
 				// PRINTING 1 OR 2
 				if (scoreOne > scoreTwo) begin
@@ -342,21 +336,21 @@ module VGA_OUTPUT #(
 				end else begin
 					asciiSml <= 12'd50;
 				end
-			end else	if (Hpos >= 380 && Hpos <= 405 && Vpos >= 400 && Vpos <= 445) begin
+			end else	if (Hpos >= 380 && Hpos < 405 && Vpos >= 200 && Vpos <= 245) begin
 				xOffsetSml <= Hpos - 380;
-				yOffsetSml <= Vpos - 400;
+				yOffsetSml <= Vpos - 200;
 				asciiSml <= 12'd00;
-			end else	if (Hpos >= 415 && Hpos <= 440 && Vpos >= 400 && Vpos <= 445) begin
+			end else	if (Hpos >= 415 && Hpos < 440 && Vpos >= 200 && Vpos <= 245) begin
 				xOffsetSml <= Hpos - 415;
-				yOffsetSml <= Vpos - 400;
+				yOffsetSml <= Vpos - 200;
 				asciiSml <= 12'd87;
-			end else	if (Hpos >=  450 && Hpos <= 475 && Vpos >= 400 && Vpos <= 445) begin
+			end else	if (Hpos >=  450 && Hpos < 475 && Vpos >= 200 && Vpos <= 245) begin
 				xOffsetSml <= Hpos - 450;
-				yOffsetSml <= Vpos - 400;
+				yOffsetSml <= Vpos - 200;
 				asciiSml <= 12'd79;
-			end else	if (Hpos >= 485 && Hpos <= 510 && Vpos >= 400 && Vpos <= 445) begin
+			end else	if (Hpos >= 485 && Hpos < 510 && Vpos >= 200 && Vpos <= 245) begin
 				xOffsetSml <= Hpos - 485;
-				yOffsetSml <= Vpos - 400;
+				yOffsetSml <= Vpos - 200;
 				asciiSml <= 12'd78;
 			end else begin
 				asciiSml <= 0;
@@ -366,76 +360,75 @@ module VGA_OUTPUT #(
 		end else begin
 			// PAUSED WORDS
 			if (paused) begin
-				if (Hpos >= 30 && Hpos <= 110 && Vpos >= 50 && Vpos <= 194) begin
+				if (Hpos >= 30 && Hpos < 110 && Vpos >= 50 && Vpos <= 194) begin
 					xOffsetNum <= Hpos - 30;
 					yOffsetNum <= Vpos - 50;
 					asciiNum <= 12'd80;
-				end else if (Hpos >= 130 && Hpos <= 210 && Vpos >= 50 && Vpos <= 194) begin
+				end else if (Hpos >= 130 && Hpos < 210 && Vpos >= 50 && Vpos <= 194) begin
 					xOffsetNum <= Hpos - 130;
 					yOffsetNum <= Vpos - 50;
 					asciiNum <= 12'd65;
-				end else if (Hpos >= 230 && Hpos <= 310 && Vpos >= 50 && Vpos <= 194) begin
+				end else if (Hpos >= 230 && Hpos < 310 && Vpos >= 50 && Vpos <= 194) begin
 					xOffsetNum <= Hpos - 230;
 					yOffsetNum <= Vpos - 50;
 					asciiNum <= 12'd85;
-				end else	if (Hpos >= 330 && Hpos <= 410 && Vpos >= 50 && Vpos <= 194) begin
+				end else	if (Hpos >= 330 && Hpos < 410 && Vpos >= 50 && Vpos <= 194) begin
 					xOffsetNum <= Hpos - 330;
 					yOffsetNum <= Vpos - 50;
 					asciiNum <= 12'd83;
-				end else	if (Hpos >= 430 && Hpos <= 510 && Vpos >= 50 && Vpos <= 194) begin
+				end else	if (Hpos >= 430 && Hpos < 510 && Vpos >= 50 && Vpos <= 194) begin
 					xOffsetNum <= Hpos - 430;
 					yOffsetNum <= Vpos - 50;
 					asciiNum <= 12'd69;
-				end else	if (Hpos >= 530 && Hpos <= 610 && Vpos >= 50 && Vpos <= 194) begin
+				end else	if (Hpos >= 530 && Hpos < 610 && Vpos >= 50 && Vpos <= 194) begin
 					xOffsetNum <= Hpos - 530;
 					yOffsetNum <= Vpos - 50;
 					asciiNum <= 12'd68;
 				end else begin
 					asciiNum <= 0;
 				end
-						
-				object <= isColorNum;
-			end
-			
+			end else begin
 		
-			// PLAYER ONE SCORE
-			scoreOneDigitOne = scoreOne % 10;
-			scoreOneDigitTwo = ((scoreOne - scoreOneDigitOne) % 100) / 10;
-			
-			if ((Hpos >= 93 && Hpos <= 173 & Vpos >= 50 && Vpos <= 194)) begin
-				if (scoreOneDigitTwo > 0) begin
-					xOffsetNum <= Hpos - 93;
+				// PLAYER ONE SCORE
+				scoreOneDigitOne = scoreOne % 10;
+				scoreOneDigitTwo = ((scoreOne - scoreOneDigitOne) % 100) / 10;
+				
+				// PLAYER TWO SCORE
+				scoreTwoDigitOne = scoreTwo % 10;
+				scoreTwoDigitTwo = ((scoreTwo - scoreTwoDigitOne) % 100) / 10;
+				
+				
+				// DIGIT ONE (10S FOR P1)
+				if ((Hpos >= 93 && Hpos < 173 & Vpos >= 50 && Vpos <= 194)) begin
+					if (scoreOneDigitTwo > 0) begin
+						xOffsetNum <= Hpos - 93;
+						yOffsetNum <= Vpos - 50;
+						asciiNum <= (12'd48 + scoreOneDigitTwo);
+					end else begin
+						asciiNum <= 0;
+					end
+				// DIGIT TWO (1S FOR P1)
+				end else if ((Hpos >= 193 && Hpos < 273 & Vpos >= 50 && Vpos <= 194)) begin
+					xOffsetNum <= Hpos - 193;
 					yOffsetNum <= Vpos - 50;
-					asciiNum <= 48 + scoreOneDigitTwo;
-				end else begin
-					asciiNum <= 0;
-				end
-			end else if ((Hpos >= 193 && Hpos <= 273 & Vpos >= 50 && Vpos <= 194)) begin
-				xOffsetNum <= Hpos - 193;
-				yOffsetNum <= Vpos - 50;
-				asciiNum <= 48 + scoreOneDigitOne;
-			end else begin
-				asciiNum <= 0;
-			end
-			
-			// PLAYER TWO SCORE
-			scoreTwoDigitOne = scoreTwo % 10;
-			scoreTwoDigitTwo = ((scoreTwo - scoreTwoDigitOne) % 100) / 10;
-			
-			if ((Hpos >= 357 && Hpos <= 437 & Vpos >= 50 && Vpos <= 194)) begin
-				if (scoreTwoDigitTwo > 0) begin
-					xOffsetNum <= Hpos - 357;
+					asciiNum <= (12'd48 + scoreOneDigitOne);
+				// DIGIT ONE (10S FOR P2)
+				end else if ((Hpos >= 357 && Hpos < 437 & Vpos >= 50 && Vpos <= 194)) begin
+					if (scoreTwoDigitTwo > 0) begin
+						xOffsetNum <= Hpos - 357;
+						yOffsetNum <= Vpos - 50;
+						asciiNum <= (12'd48 + scoreTwoDigitTwo);
+					end else begin
+						asciiNum <= 12'd0;
+					end
+				// DIGIT TWO (1S FOR P2)
+				end else if ((Hpos >= 457 && Hpos < 537 & Vpos >= 50 && Vpos <= 194)) begin
+					xOffsetNum <= Hpos - 457;
 					yOffsetNum <= Vpos - 50;
-					asciiNum <= 48 + scoreTwoDigitTwo;
+					asciiNum <= (12'd48 + scoreTwoDigitOne);
 				end else begin
-					asciiNum <= 0;
+					asciiNum <= 12'd0;
 				end
-			end else if ((Hpos >= 457 && Hpos <= 537 & Vpos >= 50 && Vpos <= 194)) begin
-				xOffsetNum <= Hpos - 457;
-				yOffsetNum <= Vpos - 50;
-				asciiNum <= 48 + scoreTwoDigitOne;
-			end else begin
-				asciiNum <= 0;
 			end
 			
 			if (isColorNum == 1) begin
