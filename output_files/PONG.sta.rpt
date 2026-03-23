@@ -1,5 +1,5 @@
 Timing Analyzer report for PONG
-Mon Mar 23 10:40:19 2026
+Mon Mar 23 14:53:13 2026
 Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 
 
@@ -100,14 +100,14 @@ https://fpgasoftware.intel.com/eula.
 ; Number detected on machine ; 8           ;
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
-; Average used               ; 1.73        ;
+; Average used               ; 1.64        ;
 ; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;  24.5%      ;
-;     Processor 3            ;  24.4%      ;
-;     Processor 4            ;  24.3%      ;
+;     Processor 2            ;  21.3%      ;
+;     Processor 3            ;  21.2%      ;
+;     Processor 4            ;  21.1%      ;
 +----------------------------+-------------+
 
 
@@ -129,10 +129,10 @@ https://fpgasoftware.intel.com/eula.
 +------------+-----------------+--------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                           ; Note ;
 +------------+-----------------+--------------------------------------+------+
-; 35.82 MHz  ; 35.82 MHz       ; clk25                                ;      ;
-; 93.01 MHz  ; 93.01 MHz       ; VGA_OUTPUT:displayOutput|asciiSml[0] ;      ;
-; 98.78 MHz  ; 98.78 MHz       ; VGA_OUTPUT:displayOutput|asciiNum[0] ;      ;
-; 140.25 MHz ; 140.25 MHz      ; VGA_OUTPUT:displayOutput|ascii[0]    ;      ;
+; 36.09 MHz  ; 36.09 MHz       ; clk25                                ;      ;
+; 78.0 MHz   ; 78.0 MHz        ; VGA_OUTPUT:displayOutput|asciiNum[0] ;      ;
+; 124.88 MHz ; 124.88 MHz      ; VGA_OUTPUT:displayOutput|asciiSml[0] ;      ;
+; 160.98 MHz ; 160.98 MHz      ; VGA_OUTPUT:displayOutput|ascii[0]    ;      ;
 +------------+-----------------+--------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -148,11 +148,11 @@ HTML report is unavailable in plain text report export.
 +--------------------------------------+---------+---------------+
 ; Clock                                ; Slack   ; End Point TNS ;
 +--------------------------------------+---------+---------------+
-; clk25                                ; -26.916 ; -2271.117     ;
-; VGA_OUTPUT:displayOutput|asciiSml[0] ; -21.529 ; -21.529       ;
-; VGA_OUTPUT:displayOutput|ascii[0]    ; -17.199 ; -17.199       ;
-; VGA_OUTPUT:displayOutput|asciiNum[0] ; -6.704  ; -6.704        ;
-; clk50                                ; -2.499  ; -2.499        ;
+; clk25                                ; -26.711 ; -2513.678     ;
+; VGA_OUTPUT:displayOutput|asciiSml[0] ; -20.125 ; -20.125       ;
+; VGA_OUTPUT:displayOutput|ascii[0]    ; -16.361 ; -16.361       ;
+; VGA_OUTPUT:displayOutput|asciiNum[0] ; -7.647  ; -7.647        ;
+; clk50                                ; -2.652  ; -2.652        ;
 +--------------------------------------+---------+---------------+
 
 
@@ -161,11 +161,11 @@ HTML report is unavailable in plain text report export.
 +--------------------------------------+--------+---------------+
 ; Clock                                ; Slack  ; End Point TNS ;
 +--------------------------------------+--------+---------------+
-; VGA_OUTPUT:displayOutput|asciiNum[0] ; -0.187 ; -0.187        ;
-; VGA_OUTPUT:displayOutput|asciiSml[0] ; 0.348  ; 0.000         ;
-; clk25                                ; 0.365  ; 0.000         ;
-; VGA_OUTPUT:displayOutput|ascii[0]    ; 0.583  ; 0.000         ;
-; clk50                                ; 0.924  ; 0.000         ;
+; VGA_OUTPUT:displayOutput|asciiSml[0] ; -0.180 ; -0.180        ;
+; clk25                                ; 0.139  ; 0.000         ;
+; VGA_OUTPUT:displayOutput|ascii[0]    ; 0.258  ; 0.000         ;
+; VGA_OUTPUT:displayOutput|asciiNum[0] ; 0.635  ; 0.000         ;
+; clk50                                ; 1.150  ; 0.000         ;
 +--------------------------------------+--------+---------------+
 
 
@@ -186,11 +186,11 @@ No paths to report.
 +--------------------------------------+--------+---------------+
 ; Clock                                ; Slack  ; End Point TNS ;
 +--------------------------------------+--------+---------------+
-; VGA_OUTPUT:displayOutput|asciiSml[0] ; -1.024 ; -5.986        ;
-; clk50                                ; -0.414 ; -0.808        ;
-; VGA_OUTPUT:displayOutput|asciiNum[0] ; -0.410 ; -1.755        ;
-; clk25                                ; -0.394 ; -142.890      ;
-; VGA_OUTPUT:displayOutput|ascii[0]    ; 0.373  ; 0.000         ;
+; VGA_OUTPUT:displayOutput|asciiNum[0] ; -1.020 ; -5.383        ;
+; VGA_OUTPUT:displayOutput|asciiSml[0] ; -0.693 ; -5.071        ;
+; clk25                                ; -0.455 ; -149.978      ;
+; clk50                                ; -0.394 ; -0.788        ;
+; VGA_OUTPUT:displayOutput|ascii[0]    ; 0.307  ; 0.000         ;
 +--------------------------------------+--------+---------------+
 
 
@@ -205,10 +205,10 @@ No synchronizer chains to report.
 +------------+-----------------+--------------------------------------+------+
 ; Fmax       ; Restricted Fmax ; Clock Name                           ; Note ;
 +------------+-----------------+--------------------------------------+------+
-; 34.87 MHz  ; 34.87 MHz       ; clk25                                ;      ;
-; 94.27 MHz  ; 94.27 MHz       ; VGA_OUTPUT:displayOutput|asciiSml[0] ;      ;
-; 100.26 MHz ; 100.26 MHz      ; VGA_OUTPUT:displayOutput|asciiNum[0] ;      ;
-; 138.77 MHz ; 138.77 MHz      ; VGA_OUTPUT:displayOutput|ascii[0]    ;      ;
+; 34.86 MHz  ; 34.86 MHz       ; clk25                                ;      ;
+; 78.41 MHz  ; 78.41 MHz       ; VGA_OUTPUT:displayOutput|asciiNum[0] ;      ;
+; 126.49 MHz ; 126.49 MHz      ; VGA_OUTPUT:displayOutput|asciiSml[0] ;      ;
+; 164.47 MHz ; 164.47 MHz      ; VGA_OUTPUT:displayOutput|ascii[0]    ;      ;
 +------------+-----------------+--------------------------------------+------+
 This panel reports FMAX for every clock in the design, regardless of the user-specified clock periods.  FMAX is only computed for paths where the source and destination registers or ports are driven by the same clock.  Paths of different clocks, including generated clocks, are ignored.  For paths between a clock and its inversion, FMAX is computed as if the rising and falling edges are scaled along with FMAX, such that the duty cycle (in terms of a percentage) is maintained. Altera recommends that you always use clock constraints and other slack reports for sign-off analysis.
 
@@ -218,11 +218,11 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------------------+---------+---------------+
 ; Clock                                ; Slack   ; End Point TNS ;
 +--------------------------------------+---------+---------------+
-; clk25                                ; -27.675 ; -2226.201     ;
-; VGA_OUTPUT:displayOutput|asciiSml[0] ; -21.871 ; -21.871       ;
-; VGA_OUTPUT:displayOutput|ascii[0]    ; -17.605 ; -17.605       ;
-; VGA_OUTPUT:displayOutput|asciiNum[0] ; -6.507  ; -6.507        ;
-; clk50                                ; -2.257  ; -2.257        ;
+; clk25                                ; -27.689 ; -2459.303     ;
+; VGA_OUTPUT:displayOutput|asciiSml[0] ; -20.465 ; -20.465       ;
+; VGA_OUTPUT:displayOutput|ascii[0]    ; -16.740 ; -16.740       ;
+; VGA_OUTPUT:displayOutput|asciiNum[0] ; -7.523  ; -7.523        ;
+; clk50                                ; -2.491  ; -2.491        ;
 +--------------------------------------+---------+---------------+
 
 
@@ -231,11 +231,11 @@ This panel reports FMAX for every clock in the design, regardless of the user-sp
 +--------------------------------------+--------+---------------+
 ; Clock                                ; Slack  ; End Point TNS ;
 +--------------------------------------+--------+---------------+
-; VGA_OUTPUT:displayOutput|asciiNum[0] ; -0.380 ; -0.380        ;
-; VGA_OUTPUT:displayOutput|asciiSml[0] ; 0.267  ; 0.000         ;
-; clk25                                ; 0.354  ; 0.000         ;
-; VGA_OUTPUT:displayOutput|ascii[0]    ; 0.508  ; 0.000         ;
-; clk50                                ; 0.758  ; 0.000         ;
+; VGA_OUTPUT:displayOutput|asciiSml[0] ; -0.261 ; -0.261        ;
+; clk25                                ; 0.127  ; 0.000         ;
+; VGA_OUTPUT:displayOutput|ascii[0]    ; 0.206  ; 0.000         ;
+; VGA_OUTPUT:displayOutput|asciiNum[0] ; 0.594  ; 0.000         ;
+; clk50                                ; 1.046  ; 0.000         ;
 +--------------------------------------+--------+---------------+
 
 
@@ -256,11 +256,11 @@ No paths to report.
 +--------------------------------------+--------+---------------+
 ; Clock                                ; Slack  ; End Point TNS ;
 +--------------------------------------+--------+---------------+
-; VGA_OUTPUT:displayOutput|asciiSml[0] ; -1.018 ; -5.846        ;
-; VGA_OUTPUT:displayOutput|asciiNum[0] ; -0.472 ; -2.036        ;
-; clk50                                ; -0.430 ; -0.824        ;
-; clk25                                ; -0.394 ; -140.660      ;
-; VGA_OUTPUT:displayOutput|ascii[0]    ; 0.386  ; 0.000         ;
+; VGA_OUTPUT:displayOutput|asciiNum[0] ; -1.024 ; -5.436        ;
+; VGA_OUTPUT:displayOutput|asciiSml[0] ; -0.665 ; -4.910        ;
+; clk50                                ; -0.429 ; -0.823        ;
+; clk25                                ; -0.423 ; -145.919      ;
+; VGA_OUTPUT:displayOutput|ascii[0]    ; 0.322  ; 0.000         ;
 +--------------------------------------+--------+---------------+
 
 
@@ -275,11 +275,11 @@ No synchronizer chains to report.
 +--------------------------------------+---------+---------------+
 ; Clock                                ; Slack   ; End Point TNS ;
 +--------------------------------------+---------+---------------+
-; clk25                                ; -13.965 ; -1284.419     ;
-; VGA_OUTPUT:displayOutput|asciiSml[0] ; -10.861 ; -10.861       ;
-; VGA_OUTPUT:displayOutput|ascii[0]    ; -9.194  ; -9.194        ;
-; VGA_OUTPUT:displayOutput|asciiNum[0] ; -3.700  ; -3.700        ;
-; clk50                                ; -1.807  ; -1.807        ;
+; clk25                                ; -13.798 ; -1459.455     ;
+; VGA_OUTPUT:displayOutput|asciiSml[0] ; -10.108 ; -10.108       ;
+; VGA_OUTPUT:displayOutput|ascii[0]    ; -8.743  ; -8.743        ;
+; VGA_OUTPUT:displayOutput|asciiNum[0] ; -4.243  ; -4.243        ;
+; clk50                                ; -2.031  ; -2.031        ;
 +--------------------------------------+---------+---------------+
 
 
@@ -288,11 +288,11 @@ No synchronizer chains to report.
 +--------------------------------------+--------+---------------+
 ; Clock                                ; Slack  ; End Point TNS ;
 +--------------------------------------+--------+---------------+
-; VGA_OUTPUT:displayOutput|asciiNum[0] ; -0.158 ; -0.158        ;
-; VGA_OUTPUT:displayOutput|asciiSml[0] ; 0.048  ; 0.000         ;
-; clk25                                ; 0.145  ; 0.000         ;
-; VGA_OUTPUT:displayOutput|ascii[0]    ; 0.247  ; 0.000         ;
-; clk50                                ; 0.804  ; 0.000         ;
+; VGA_OUTPUT:displayOutput|asciiSml[0] ; -0.314 ; -0.314        ;
+; clk25                                ; 0.031  ; 0.000         ;
+; VGA_OUTPUT:displayOutput|ascii[0]    ; 0.121  ; 0.000         ;
+; VGA_OUTPUT:displayOutput|asciiNum[0] ; 0.283  ; 0.000         ;
+; clk50                                ; 1.074  ; 0.000         ;
 +--------------------------------------+--------+---------------+
 
 
@@ -313,11 +313,11 @@ No paths to report.
 +--------------------------------------+--------+---------------+
 ; Clock                                ; Slack  ; End Point TNS ;
 +--------------------------------------+--------+---------------+
-; clk50                                ; -0.438 ; -0.528        ;
-; VGA_OUTPUT:displayOutput|asciiSml[0] ; -0.412 ; -2.167        ;
-; clk25                                ; -0.128 ; -5.011        ;
-; VGA_OUTPUT:displayOutput|asciiNum[0] ; 0.039  ; 0.000         ;
-; VGA_OUTPUT:displayOutput|ascii[0]    ; 0.358  ; 0.000         ;
+; clk50                                ; -0.450 ; -0.552        ;
+; VGA_OUTPUT:displayOutput|asciiNum[0] ; -0.370 ; -1.786        ;
+; clk25                                ; -0.214 ; -8.720        ;
+; VGA_OUTPUT:displayOutput|asciiSml[0] ; -0.174 ; -0.524        ;
+; VGA_OUTPUT:displayOutput|ascii[0]    ; 0.314  ; 0.000         ;
 +--------------------------------------+--------+---------------+
 
 
@@ -332,11 +332,11 @@ No synchronizer chains to report.
 +--------------------------------------+---------+---------------+
 ; Clock                                ; Slack   ; End Point TNS ;
 +--------------------------------------+---------+---------------+
-; clk25                                ; -13.168 ; -1149.806     ;
-; VGA_OUTPUT:displayOutput|asciiSml[0] ; -10.095 ; -10.095       ;
-; VGA_OUTPUT:displayOutput|ascii[0]    ; -8.705  ; -8.705        ;
-; VGA_OUTPUT:displayOutput|asciiNum[0] ; -3.303  ; -3.303        ;
-; clk50                                ; -1.432  ; -1.432        ;
+; clk25                                ; -13.159 ; -1303.275     ;
+; VGA_OUTPUT:displayOutput|asciiSml[0] ; -9.410  ; -9.410        ;
+; VGA_OUTPUT:displayOutput|ascii[0]    ; -8.285  ; -8.285        ;
+; VGA_OUTPUT:displayOutput|asciiNum[0] ; -3.785  ; -3.785        ;
+; clk50                                ; -1.676  ; -1.676        ;
 +--------------------------------------+---------+---------------+
 
 
@@ -345,11 +345,11 @@ No synchronizer chains to report.
 +--------------------------------------+--------+---------------+
 ; Clock                                ; Slack  ; End Point TNS ;
 +--------------------------------------+--------+---------------+
-; VGA_OUTPUT:displayOutput|asciiNum[0] ; -0.223 ; -0.223        ;
-; VGA_OUTPUT:displayOutput|asciiSml[0] ; 0.016  ; 0.000         ;
-; clk25                                ; 0.123  ; 0.000         ;
-; VGA_OUTPUT:displayOutput|ascii[0]    ; 0.235  ; 0.000         ;
-; clk50                                ; 0.489  ; 0.000         ;
+; VGA_OUTPUT:displayOutput|asciiSml[0] ; -0.302 ; -0.302        ;
+; clk25                                ; -0.008 ; -0.008        ;
+; VGA_OUTPUT:displayOutput|ascii[0]    ; 0.127  ; 0.000         ;
+; VGA_OUTPUT:displayOutput|asciiNum[0] ; 0.195  ; 0.000         ;
+; clk50                                ; 0.775  ; 0.000         ;
 +--------------------------------------+--------+---------------+
 
 
@@ -370,11 +370,11 @@ No paths to report.
 +--------------------------------------+--------+---------------+
 ; Clock                                ; Slack  ; End Point TNS ;
 +--------------------------------------+--------+---------------+
-; clk50                                ; -0.444 ; -0.547        ;
-; VGA_OUTPUT:displayOutput|asciiSml[0] ; -0.317 ; -1.687        ;
-; clk25                                ; -0.055 ; -1.345        ;
-; VGA_OUTPUT:displayOutput|asciiNum[0] ; 0.067  ; 0.000         ;
-; VGA_OUTPUT:displayOutput|ascii[0]    ; 0.384  ; 0.000         ;
+; clk50                                ; -0.466 ; -0.591        ;
+; VGA_OUTPUT:displayOutput|asciiNum[0] ; -0.289 ; -1.339        ;
+; clk25                                ; -0.126 ; -2.010        ;
+; VGA_OUTPUT:displayOutput|asciiSml[0] ; -0.093 ; -0.189        ;
+; VGA_OUTPUT:displayOutput|ascii[0]    ; 0.347  ; 0.000         ;
 +--------------------------------------+--------+---------------+
 
 
@@ -389,18 +389,18 @@ No synchronizer chains to report.
 +---------------------------------------+-----------+--------+----------+---------+---------------------+
 ; Clock                                 ; Setup     ; Hold   ; Recovery ; Removal ; Minimum Pulse Width ;
 +---------------------------------------+-----------+--------+----------+---------+---------------------+
-; Worst-case Slack                      ; -27.675   ; -0.380 ; N/A      ; N/A     ; -1.024              ;
-;  VGA_OUTPUT:displayOutput|asciiNum[0] ; -6.704    ; -0.380 ; N/A      ; N/A     ; -0.472              ;
-;  VGA_OUTPUT:displayOutput|asciiSml[0] ; -21.871   ; 0.016  ; N/A      ; N/A     ; -1.024              ;
-;  VGA_OUTPUT:displayOutput|ascii[0]    ; -17.605   ; 0.235  ; N/A      ; N/A     ; 0.358               ;
-;  clk25                                ; -27.675   ; 0.123  ; N/A      ; N/A     ; -0.394              ;
-;  clk50                                ; -2.499    ; 0.489  ; N/A      ; N/A     ; -0.444              ;
-; Design-wide TNS                       ; -2319.048 ; -0.38  ; 0.0      ; 0.0     ; -151.439            ;
-;  VGA_OUTPUT:displayOutput|asciiNum[0] ; -6.704    ; -0.380 ; N/A      ; N/A     ; -2.036              ;
-;  VGA_OUTPUT:displayOutput|asciiSml[0] ; -21.871   ; 0.000  ; N/A      ; N/A     ; -5.986              ;
-;  VGA_OUTPUT:displayOutput|ascii[0]    ; -17.605   ; 0.000  ; N/A      ; N/A     ; 0.000               ;
-;  clk25                                ; -2271.117 ; 0.000  ; N/A      ; N/A     ; -142.890            ;
-;  clk50                                ; -2.499    ; 0.000  ; N/A      ; N/A     ; -0.824              ;
+; Worst-case Slack                      ; -27.689   ; -0.314 ; N/A      ; N/A     ; -1.024              ;
+;  VGA_OUTPUT:displayOutput|asciiNum[0] ; -7.647    ; 0.195  ; N/A      ; N/A     ; -1.024              ;
+;  VGA_OUTPUT:displayOutput|asciiSml[0] ; -20.465   ; -0.314 ; N/A      ; N/A     ; -0.693              ;
+;  VGA_OUTPUT:displayOutput|ascii[0]    ; -16.740   ; 0.121  ; N/A      ; N/A     ; 0.307               ;
+;  clk25                                ; -27.689   ; -0.008 ; N/A      ; N/A     ; -0.455              ;
+;  clk50                                ; -2.652    ; 0.775  ; N/A      ; N/A     ; -0.466              ;
+; Design-wide TNS                       ; -2560.463 ; -0.314 ; 0.0      ; 0.0     ; -161.22             ;
+;  VGA_OUTPUT:displayOutput|asciiNum[0] ; -7.647    ; 0.000  ; N/A      ; N/A     ; -5.436              ;
+;  VGA_OUTPUT:displayOutput|asciiSml[0] ; -20.465   ; -0.314 ; N/A      ; N/A     ; -5.071              ;
+;  VGA_OUTPUT:displayOutput|ascii[0]    ; -16.740   ; 0.000  ; N/A      ; N/A     ; 0.000               ;
+;  clk25                                ; -2513.678 ; -0.008 ; N/A      ; N/A     ; -149.978            ;
+;  clk50                                ; -2.652    ; 0.000  ; N/A      ; N/A     ; -0.823              ;
 +---------------------------------------+-----------+--------+----------+---------+---------------------+
 
 
@@ -1071,7 +1071,7 @@ No non-DPA dedicated SERDES Receiver circuitry present in device or used in desi
 Info: *******************************************************************
 Info: Running Quartus Prime Timing Analyzer
     Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
-    Info: Processing started: Mon Mar 23 10:40:09 2026
+    Info: Processing started: Mon Mar 23 14:53:01 2026
 Info: Command: quartus_sta PONG -c PONG
 Info: qsta_default_script.tcl version: #1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
@@ -1084,12 +1084,12 @@ Info (332142): No user constrained base clocks found in the design. Calling "der
 Info (332105): Deriving Clocks
     Info (332105): create_clock -period 1.000 -name clk25 clk25
     Info (332105): create_clock -period 1.000 -name clk50 clk50
-    Info (332105): create_clock -period 1.000 -name VGA_OUTPUT:displayOutput|ascii[0] VGA_OUTPUT:displayOutput|ascii[0]
     Info (332105): create_clock -period 1.000 -name VGA_OUTPUT:displayOutput|asciiNum[0] VGA_OUTPUT:displayOutput|asciiNum[0]
+    Info (332105): create_clock -period 1.000 -name VGA_OUTPUT:displayOutput|ascii[0] VGA_OUTPUT:displayOutput|ascii[0]
     Info (332105): create_clock -period 1.000 -name VGA_OUTPUT:displayOutput|asciiSml[0] VGA_OUTPUT:displayOutput|asciiSml[0]
 Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
-    Info (332098): Cell: displayOutput|largeFont|Selector0~1  from: dataf  to: combout
-    Info (332098): Cell: displayOutput|numFont|Selector0~0  from: datac  to: combout
+    Info (332098): Cell: displayOutput|largeFont|Selector0~1  from: datab  to: combout
+    Info (332098): Cell: displayOutput|numFont|Selector0~0  from: dataf  to: combout
     Info (332098): Cell: displayOutput|smlFont|Selector0~0  from: datab  to: combout
 Info (332143): No user constrained clock uncertainty found in the design. Calling "derive_clock_uncertainty"
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
@@ -1097,144 +1097,144 @@ Info: Found TIMING_ANALYZER_REPORT_SCRIPT_INCLUDE_DEFAULT_ANALYSIS = ON
 Info: Analyzing Slow 1100mV 85C Model
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -26.916
+Info (332146): Worst-case setup slack is -26.711
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -26.916           -2271.117 clk25 
-    Info (332119):   -21.529             -21.529 VGA_OUTPUT:displayOutput|asciiSml[0] 
-    Info (332119):   -17.199             -17.199 VGA_OUTPUT:displayOutput|ascii[0] 
-    Info (332119):    -6.704              -6.704 VGA_OUTPUT:displayOutput|asciiNum[0] 
-    Info (332119):    -2.499              -2.499 clk50 
-Info (332146): Worst-case hold slack is -0.187
+    Info (332119):   -26.711           -2513.678 clk25 
+    Info (332119):   -20.125             -20.125 VGA_OUTPUT:displayOutput|asciiSml[0] 
+    Info (332119):   -16.361             -16.361 VGA_OUTPUT:displayOutput|ascii[0] 
+    Info (332119):    -7.647              -7.647 VGA_OUTPUT:displayOutput|asciiNum[0] 
+    Info (332119):    -2.652              -2.652 clk50 
+Info (332146): Worst-case hold slack is -0.180
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.187              -0.187 VGA_OUTPUT:displayOutput|asciiNum[0] 
-    Info (332119):     0.348               0.000 VGA_OUTPUT:displayOutput|asciiSml[0] 
-    Info (332119):     0.365               0.000 clk25 
-    Info (332119):     0.583               0.000 VGA_OUTPUT:displayOutput|ascii[0] 
-    Info (332119):     0.924               0.000 clk50 
+    Info (332119):    -0.180              -0.180 VGA_OUTPUT:displayOutput|asciiSml[0] 
+    Info (332119):     0.139               0.000 clk25 
+    Info (332119):     0.258               0.000 VGA_OUTPUT:displayOutput|ascii[0] 
+    Info (332119):     0.635               0.000 VGA_OUTPUT:displayOutput|asciiNum[0] 
+    Info (332119):     1.150               0.000 clk50 
+Info (332140): No Recovery paths to report
+Info (332140): No Removal paths to report
+Info (332146): Worst-case minimum pulse width slack is -1.020
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -1.020              -5.383 VGA_OUTPUT:displayOutput|asciiNum[0] 
+    Info (332119):    -0.693              -5.071 VGA_OUTPUT:displayOutput|asciiSml[0] 
+    Info (332119):    -0.455            -149.978 clk25 
+    Info (332119):    -0.394              -0.788 clk50 
+    Info (332119):     0.307               0.000 VGA_OUTPUT:displayOutput|ascii[0] 
+Info: Analyzing Slow 1100mV 0C Model
+Info (334003): Started post-fitting delay annotation
+Info (334004): Delay annotation completed successfully
+Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
+    Info (332098): Cell: displayOutput|largeFont|Selector0~1  from: datab  to: combout
+    Info (332098): Cell: displayOutput|numFont|Selector0~0  from: dataf  to: combout
+    Info (332098): Cell: displayOutput|smlFont|Selector0~0  from: datab  to: combout
+Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
+Critical Warning (332148): Timing requirements not met
+    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
+Info (332146): Worst-case setup slack is -27.689
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):   -27.689           -2459.303 clk25 
+    Info (332119):   -20.465             -20.465 VGA_OUTPUT:displayOutput|asciiSml[0] 
+    Info (332119):   -16.740             -16.740 VGA_OUTPUT:displayOutput|ascii[0] 
+    Info (332119):    -7.523              -7.523 VGA_OUTPUT:displayOutput|asciiNum[0] 
+    Info (332119):    -2.491              -2.491 clk50 
+Info (332146): Worst-case hold slack is -0.261
+    Info (332119):     Slack       End Point TNS Clock 
+    Info (332119): ========= =================== =====================
+    Info (332119):    -0.261              -0.261 VGA_OUTPUT:displayOutput|asciiSml[0] 
+    Info (332119):     0.127               0.000 clk25 
+    Info (332119):     0.206               0.000 VGA_OUTPUT:displayOutput|ascii[0] 
+    Info (332119):     0.594               0.000 VGA_OUTPUT:displayOutput|asciiNum[0] 
+    Info (332119):     1.046               0.000 clk50 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
 Info (332146): Worst-case minimum pulse width slack is -1.024
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -1.024              -5.986 VGA_OUTPUT:displayOutput|asciiSml[0] 
-    Info (332119):    -0.414              -0.808 clk50 
-    Info (332119):    -0.410              -1.755 VGA_OUTPUT:displayOutput|asciiNum[0] 
-    Info (332119):    -0.394            -142.890 clk25 
-    Info (332119):     0.373               0.000 VGA_OUTPUT:displayOutput|ascii[0] 
-Info: Analyzing Slow 1100mV 0C Model
-Info (334003): Started post-fitting delay annotation
-Info (334004): Delay annotation completed successfully
-Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
-    Info (332098): Cell: displayOutput|largeFont|Selector0~1  from: dataf  to: combout
-    Info (332098): Cell: displayOutput|numFont|Selector0~0  from: datac  to: combout
-    Info (332098): Cell: displayOutput|smlFont|Selector0~0  from: datab  to: combout
-Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
-Critical Warning (332148): Timing requirements not met
-    Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -27.675
-    Info (332119):     Slack       End Point TNS Clock 
-    Info (332119): ========= =================== =====================
-    Info (332119):   -27.675           -2226.201 clk25 
-    Info (332119):   -21.871             -21.871 VGA_OUTPUT:displayOutput|asciiSml[0] 
-    Info (332119):   -17.605             -17.605 VGA_OUTPUT:displayOutput|ascii[0] 
-    Info (332119):    -6.507              -6.507 VGA_OUTPUT:displayOutput|asciiNum[0] 
-    Info (332119):    -2.257              -2.257 clk50 
-Info (332146): Worst-case hold slack is -0.380
-    Info (332119):     Slack       End Point TNS Clock 
-    Info (332119): ========= =================== =====================
-    Info (332119):    -0.380              -0.380 VGA_OUTPUT:displayOutput|asciiNum[0] 
-    Info (332119):     0.267               0.000 VGA_OUTPUT:displayOutput|asciiSml[0] 
-    Info (332119):     0.354               0.000 clk25 
-    Info (332119):     0.508               0.000 VGA_OUTPUT:displayOutput|ascii[0] 
-    Info (332119):     0.758               0.000 clk50 
-Info (332140): No Recovery paths to report
-Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -1.018
-    Info (332119):     Slack       End Point TNS Clock 
-    Info (332119): ========= =================== =====================
-    Info (332119):    -1.018              -5.846 VGA_OUTPUT:displayOutput|asciiSml[0] 
-    Info (332119):    -0.472              -2.036 VGA_OUTPUT:displayOutput|asciiNum[0] 
-    Info (332119):    -0.430              -0.824 clk50 
-    Info (332119):    -0.394            -140.660 clk25 
-    Info (332119):     0.386               0.000 VGA_OUTPUT:displayOutput|ascii[0] 
+    Info (332119):    -1.024              -5.436 VGA_OUTPUT:displayOutput|asciiNum[0] 
+    Info (332119):    -0.665              -4.910 VGA_OUTPUT:displayOutput|asciiSml[0] 
+    Info (332119):    -0.429              -0.823 clk50 
+    Info (332119):    -0.423            -145.919 clk25 
+    Info (332119):     0.322               0.000 VGA_OUTPUT:displayOutput|ascii[0] 
 Info: Analyzing Fast 1100mV 85C Model
 Info (334003): Started post-fitting delay annotation
 Info (334004): Delay annotation completed successfully
 Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
-    Info (332098): Cell: displayOutput|largeFont|Selector0~1  from: dataf  to: combout
-    Info (332098): Cell: displayOutput|numFont|Selector0~0  from: datac  to: combout
+    Info (332098): Cell: displayOutput|largeFont|Selector0~1  from: datab  to: combout
+    Info (332098): Cell: displayOutput|numFont|Selector0~0  from: dataf  to: combout
     Info (332098): Cell: displayOutput|smlFont|Selector0~0  from: datab  to: combout
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -13.965
+Info (332146): Worst-case setup slack is -13.798
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -13.965           -1284.419 clk25 
-    Info (332119):   -10.861             -10.861 VGA_OUTPUT:displayOutput|asciiSml[0] 
-    Info (332119):    -9.194              -9.194 VGA_OUTPUT:displayOutput|ascii[0] 
-    Info (332119):    -3.700              -3.700 VGA_OUTPUT:displayOutput|asciiNum[0] 
-    Info (332119):    -1.807              -1.807 clk50 
-Info (332146): Worst-case hold slack is -0.158
+    Info (332119):   -13.798           -1459.455 clk25 
+    Info (332119):   -10.108             -10.108 VGA_OUTPUT:displayOutput|asciiSml[0] 
+    Info (332119):    -8.743              -8.743 VGA_OUTPUT:displayOutput|ascii[0] 
+    Info (332119):    -4.243              -4.243 VGA_OUTPUT:displayOutput|asciiNum[0] 
+    Info (332119):    -2.031              -2.031 clk50 
+Info (332146): Worst-case hold slack is -0.314
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.158              -0.158 VGA_OUTPUT:displayOutput|asciiNum[0] 
-    Info (332119):     0.048               0.000 VGA_OUTPUT:displayOutput|asciiSml[0] 
-    Info (332119):     0.145               0.000 clk25 
-    Info (332119):     0.247               0.000 VGA_OUTPUT:displayOutput|ascii[0] 
-    Info (332119):     0.804               0.000 clk50 
+    Info (332119):    -0.314              -0.314 VGA_OUTPUT:displayOutput|asciiSml[0] 
+    Info (332119):     0.031               0.000 clk25 
+    Info (332119):     0.121               0.000 VGA_OUTPUT:displayOutput|ascii[0] 
+    Info (332119):     0.283               0.000 VGA_OUTPUT:displayOutput|asciiNum[0] 
+    Info (332119):     1.074               0.000 clk50 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -0.438
+Info (332146): Worst-case minimum pulse width slack is -0.450
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.438              -0.528 clk50 
-    Info (332119):    -0.412              -2.167 VGA_OUTPUT:displayOutput|asciiSml[0] 
-    Info (332119):    -0.128              -5.011 clk25 
-    Info (332119):     0.039               0.000 VGA_OUTPUT:displayOutput|asciiNum[0] 
-    Info (332119):     0.358               0.000 VGA_OUTPUT:displayOutput|ascii[0] 
+    Info (332119):    -0.450              -0.552 clk50 
+    Info (332119):    -0.370              -1.786 VGA_OUTPUT:displayOutput|asciiNum[0] 
+    Info (332119):    -0.214              -8.720 clk25 
+    Info (332119):    -0.174              -0.524 VGA_OUTPUT:displayOutput|asciiSml[0] 
+    Info (332119):     0.314               0.000 VGA_OUTPUT:displayOutput|ascii[0] 
 Info: Analyzing Fast 1100mV 0C Model
 Info (332097): The following timing edges are non-unate.  The Timing Analyzer will assume pos-unate behavior for these edges in the clock network.
-    Info (332098): Cell: displayOutput|largeFont|Selector0~1  from: dataf  to: combout
-    Info (332098): Cell: displayOutput|numFont|Selector0~0  from: datac  to: combout
+    Info (332098): Cell: displayOutput|largeFont|Selector0~1  from: datab  to: combout
+    Info (332098): Cell: displayOutput|numFont|Selector0~0  from: dataf  to: combout
     Info (332098): Cell: displayOutput|smlFont|Selector0~0  from: datab  to: combout
 Info (332123): Deriving Clock Uncertainty. Please refer to report_sdc in the Timing Analyzer to see clock uncertainties.
 Critical Warning (332148): Timing requirements not met
     Info (11105): For recommendations on closing timing, run Report Timing Closure Recommendations in the Timing Analyzer.
-Info (332146): Worst-case setup slack is -13.168
+Info (332146): Worst-case setup slack is -13.159
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):   -13.168           -1149.806 clk25 
-    Info (332119):   -10.095             -10.095 VGA_OUTPUT:displayOutput|asciiSml[0] 
-    Info (332119):    -8.705              -8.705 VGA_OUTPUT:displayOutput|ascii[0] 
-    Info (332119):    -3.303              -3.303 VGA_OUTPUT:displayOutput|asciiNum[0] 
-    Info (332119):    -1.432              -1.432 clk50 
-Info (332146): Worst-case hold slack is -0.223
+    Info (332119):   -13.159           -1303.275 clk25 
+    Info (332119):    -9.410              -9.410 VGA_OUTPUT:displayOutput|asciiSml[0] 
+    Info (332119):    -8.285              -8.285 VGA_OUTPUT:displayOutput|ascii[0] 
+    Info (332119):    -3.785              -3.785 VGA_OUTPUT:displayOutput|asciiNum[0] 
+    Info (332119):    -1.676              -1.676 clk50 
+Info (332146): Worst-case hold slack is -0.302
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.223              -0.223 VGA_OUTPUT:displayOutput|asciiNum[0] 
-    Info (332119):     0.016               0.000 VGA_OUTPUT:displayOutput|asciiSml[0] 
-    Info (332119):     0.123               0.000 clk25 
-    Info (332119):     0.235               0.000 VGA_OUTPUT:displayOutput|ascii[0] 
-    Info (332119):     0.489               0.000 clk50 
+    Info (332119):    -0.302              -0.302 VGA_OUTPUT:displayOutput|asciiSml[0] 
+    Info (332119):    -0.008              -0.008 clk25 
+    Info (332119):     0.127               0.000 VGA_OUTPUT:displayOutput|ascii[0] 
+    Info (332119):     0.195               0.000 VGA_OUTPUT:displayOutput|asciiNum[0] 
+    Info (332119):     0.775               0.000 clk50 
 Info (332140): No Recovery paths to report
 Info (332140): No Removal paths to report
-Info (332146): Worst-case minimum pulse width slack is -0.444
+Info (332146): Worst-case minimum pulse width slack is -0.466
     Info (332119):     Slack       End Point TNS Clock 
     Info (332119): ========= =================== =====================
-    Info (332119):    -0.444              -0.547 clk50 
-    Info (332119):    -0.317              -1.687 VGA_OUTPUT:displayOutput|asciiSml[0] 
-    Info (332119):    -0.055              -1.345 clk25 
-    Info (332119):     0.067               0.000 VGA_OUTPUT:displayOutput|asciiNum[0] 
-    Info (332119):     0.384               0.000 VGA_OUTPUT:displayOutput|ascii[0] 
+    Info (332119):    -0.466              -0.591 clk50 
+    Info (332119):    -0.289              -1.339 VGA_OUTPUT:displayOutput|asciiNum[0] 
+    Info (332119):    -0.126              -2.010 clk25 
+    Info (332119):    -0.093              -0.189 VGA_OUTPUT:displayOutput|asciiSml[0] 
+    Info (332119):     0.347               0.000 VGA_OUTPUT:displayOutput|ascii[0] 
 Info (332102): Design is not fully constrained for setup requirements
 Info (332102): Design is not fully constrained for hold requirements
 Info: Quartus Prime Timing Analyzer was successful. 0 errors, 7 warnings
     Info: Peak virtual memory: 5399 megabytes
-    Info: Processing ended: Mon Mar 23 10:40:19 2026
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:16
+    Info: Processing ended: Mon Mar 23 14:53:13 2026
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:18
 
 

@@ -1,12 +1,12 @@
-Fitter Status : Successful - Mon Mar 23 10:39:57 2026
+Fitter Status : Successful - Mon Mar 23 14:52:47 2026
 Quartus Prime Version : 23.1std.1 Build 993 05/14/2024 SC Lite Edition
 Revision Name : PONG
 Top-level Entity Name : PONG
 Family : Cyclone V
 Device : 5CSXFC6D6F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 1,611 / 41,910 ( 4 % )
-Total registers : 241
+Logic utilization (in ALMs) : 1,610 / 41,910 ( 4 % )
+Total registers : 240
 Total pins : 76 / 499 ( 15 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 5,662,720 ( 0 % )

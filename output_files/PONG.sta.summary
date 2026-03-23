@@ -3,243 +3,243 @@ Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1100mV 85C Model Setup 'clk25'
-Slack : -26.916
-TNS   : -2271.117
+Slack : -26.711
+TNS   : -2513.678
 
 Type  : Slow 1100mV 85C Model Setup 'VGA_OUTPUT:displayOutput|asciiSml[0]'
-Slack : -21.529
-TNS   : -21.529
+Slack : -20.125
+TNS   : -20.125
 
 Type  : Slow 1100mV 85C Model Setup 'VGA_OUTPUT:displayOutput|ascii[0]'
-Slack : -17.199
-TNS   : -17.199
+Slack : -16.361
+TNS   : -16.361
 
 Type  : Slow 1100mV 85C Model Setup 'VGA_OUTPUT:displayOutput|asciiNum[0]'
-Slack : -6.704
-TNS   : -6.704
+Slack : -7.647
+TNS   : -7.647
 
 Type  : Slow 1100mV 85C Model Setup 'clk50'
-Slack : -2.499
-TNS   : -2.499
-
-Type  : Slow 1100mV 85C Model Hold 'VGA_OUTPUT:displayOutput|asciiNum[0]'
-Slack : -0.187
-TNS   : -0.187
+Slack : -2.652
+TNS   : -2.652
 
 Type  : Slow 1100mV 85C Model Hold 'VGA_OUTPUT:displayOutput|asciiSml[0]'
-Slack : 0.348
-TNS   : 0.000
+Slack : -0.180
+TNS   : -0.180
 
 Type  : Slow 1100mV 85C Model Hold 'clk25'
-Slack : 0.365
+Slack : 0.139
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Hold 'VGA_OUTPUT:displayOutput|ascii[0]'
-Slack : 0.583
+Slack : 0.258
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Hold 'VGA_OUTPUT:displayOutput|asciiNum[0]'
+Slack : 0.635
 TNS   : 0.000
 
 Type  : Slow 1100mV 85C Model Hold 'clk50'
-Slack : 0.924
+Slack : 1.150
 TNS   : 0.000
 
-Type  : Slow 1100mV 85C Model Minimum Pulse Width 'VGA_OUTPUT:displayOutput|asciiSml[0]'
-Slack : -1.024
-TNS   : -5.986
-
-Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk50'
-Slack : -0.414
-TNS   : -0.808
-
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'VGA_OUTPUT:displayOutput|asciiNum[0]'
-Slack : -0.410
-TNS   : -1.755
+Slack : -1.020
+TNS   : -5.383
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'VGA_OUTPUT:displayOutput|asciiSml[0]'
+Slack : -0.693
+TNS   : -5.071
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk25'
+Slack : -0.455
+TNS   : -149.978
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk50'
 Slack : -0.394
-TNS   : -142.890
+TNS   : -0.788
 
 Type  : Slow 1100mV 85C Model Minimum Pulse Width 'VGA_OUTPUT:displayOutput|ascii[0]'
-Slack : 0.373
+Slack : 0.307
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Setup 'clk25'
-Slack : -27.675
-TNS   : -2226.201
+Slack : -27.689
+TNS   : -2459.303
 
 Type  : Slow 1100mV 0C Model Setup 'VGA_OUTPUT:displayOutput|asciiSml[0]'
-Slack : -21.871
-TNS   : -21.871
+Slack : -20.465
+TNS   : -20.465
 
 Type  : Slow 1100mV 0C Model Setup 'VGA_OUTPUT:displayOutput|ascii[0]'
-Slack : -17.605
-TNS   : -17.605
+Slack : -16.740
+TNS   : -16.740
 
 Type  : Slow 1100mV 0C Model Setup 'VGA_OUTPUT:displayOutput|asciiNum[0]'
-Slack : -6.507
-TNS   : -6.507
+Slack : -7.523
+TNS   : -7.523
 
 Type  : Slow 1100mV 0C Model Setup 'clk50'
-Slack : -2.257
-TNS   : -2.257
-
-Type  : Slow 1100mV 0C Model Hold 'VGA_OUTPUT:displayOutput|asciiNum[0]'
-Slack : -0.380
-TNS   : -0.380
+Slack : -2.491
+TNS   : -2.491
 
 Type  : Slow 1100mV 0C Model Hold 'VGA_OUTPUT:displayOutput|asciiSml[0]'
-Slack : 0.267
-TNS   : 0.000
+Slack : -0.261
+TNS   : -0.261
 
 Type  : Slow 1100mV 0C Model Hold 'clk25'
-Slack : 0.354
+Slack : 0.127
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Hold 'VGA_OUTPUT:displayOutput|ascii[0]'
-Slack : 0.508
+Slack : 0.206
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Hold 'VGA_OUTPUT:displayOutput|asciiNum[0]'
+Slack : 0.594
 TNS   : 0.000
 
 Type  : Slow 1100mV 0C Model Hold 'clk50'
-Slack : 0.758
+Slack : 1.046
 TNS   : 0.000
 
-Type  : Slow 1100mV 0C Model Minimum Pulse Width 'VGA_OUTPUT:displayOutput|asciiSml[0]'
-Slack : -1.018
-TNS   : -5.846
-
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'VGA_OUTPUT:displayOutput|asciiNum[0]'
-Slack : -0.472
-TNS   : -2.036
+Slack : -1.024
+TNS   : -5.436
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'VGA_OUTPUT:displayOutput|asciiSml[0]'
+Slack : -0.665
+TNS   : -4.910
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk50'
-Slack : -0.430
-TNS   : -0.824
+Slack : -0.429
+TNS   : -0.823
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk25'
-Slack : -0.394
-TNS   : -140.660
+Slack : -0.423
+TNS   : -145.919
 
 Type  : Slow 1100mV 0C Model Minimum Pulse Width 'VGA_OUTPUT:displayOutput|ascii[0]'
-Slack : 0.386
+Slack : 0.322
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Setup 'clk25'
-Slack : -13.965
-TNS   : -1284.419
+Slack : -13.798
+TNS   : -1459.455
 
 Type  : Fast 1100mV 85C Model Setup 'VGA_OUTPUT:displayOutput|asciiSml[0]'
-Slack : -10.861
-TNS   : -10.861
+Slack : -10.108
+TNS   : -10.108
 
 Type  : Fast 1100mV 85C Model Setup 'VGA_OUTPUT:displayOutput|ascii[0]'
-Slack : -9.194
-TNS   : -9.194
+Slack : -8.743
+TNS   : -8.743
 
 Type  : Fast 1100mV 85C Model Setup 'VGA_OUTPUT:displayOutput|asciiNum[0]'
-Slack : -3.700
-TNS   : -3.700
+Slack : -4.243
+TNS   : -4.243
 
 Type  : Fast 1100mV 85C Model Setup 'clk50'
-Slack : -1.807
-TNS   : -1.807
-
-Type  : Fast 1100mV 85C Model Hold 'VGA_OUTPUT:displayOutput|asciiNum[0]'
-Slack : -0.158
-TNS   : -0.158
+Slack : -2.031
+TNS   : -2.031
 
 Type  : Fast 1100mV 85C Model Hold 'VGA_OUTPUT:displayOutput|asciiSml[0]'
-Slack : 0.048
-TNS   : 0.000
+Slack : -0.314
+TNS   : -0.314
 
 Type  : Fast 1100mV 85C Model Hold 'clk25'
-Slack : 0.145
+Slack : 0.031
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Hold 'VGA_OUTPUT:displayOutput|ascii[0]'
-Slack : 0.247
+Slack : 0.121
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Hold 'VGA_OUTPUT:displayOutput|asciiNum[0]'
+Slack : 0.283
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Hold 'clk50'
-Slack : 0.804
+Slack : 1.074
 TNS   : 0.000
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk50'
-Slack : -0.438
-TNS   : -0.528
-
-Type  : Fast 1100mV 85C Model Minimum Pulse Width 'VGA_OUTPUT:displayOutput|asciiSml[0]'
-Slack : -0.412
-TNS   : -2.167
-
-Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk25'
-Slack : -0.128
-TNS   : -5.011
+Slack : -0.450
+TNS   : -0.552
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'VGA_OUTPUT:displayOutput|asciiNum[0]'
-Slack : 0.039
-TNS   : 0.000
+Slack : -0.370
+TNS   : -1.786
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk25'
+Slack : -0.214
+TNS   : -8.720
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'VGA_OUTPUT:displayOutput|asciiSml[0]'
+Slack : -0.174
+TNS   : -0.524
 
 Type  : Fast 1100mV 85C Model Minimum Pulse Width 'VGA_OUTPUT:displayOutput|ascii[0]'
-Slack : 0.358
+Slack : 0.314
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Setup 'clk25'
-Slack : -13.168
-TNS   : -1149.806
+Slack : -13.159
+TNS   : -1303.275
 
 Type  : Fast 1100mV 0C Model Setup 'VGA_OUTPUT:displayOutput|asciiSml[0]'
-Slack : -10.095
-TNS   : -10.095
+Slack : -9.410
+TNS   : -9.410
 
 Type  : Fast 1100mV 0C Model Setup 'VGA_OUTPUT:displayOutput|ascii[0]'
-Slack : -8.705
-TNS   : -8.705
+Slack : -8.285
+TNS   : -8.285
 
 Type  : Fast 1100mV 0C Model Setup 'VGA_OUTPUT:displayOutput|asciiNum[0]'
-Slack : -3.303
-TNS   : -3.303
+Slack : -3.785
+TNS   : -3.785
 
 Type  : Fast 1100mV 0C Model Setup 'clk50'
-Slack : -1.432
-TNS   : -1.432
-
-Type  : Fast 1100mV 0C Model Hold 'VGA_OUTPUT:displayOutput|asciiNum[0]'
-Slack : -0.223
-TNS   : -0.223
+Slack : -1.676
+TNS   : -1.676
 
 Type  : Fast 1100mV 0C Model Hold 'VGA_OUTPUT:displayOutput|asciiSml[0]'
-Slack : 0.016
-TNS   : 0.000
+Slack : -0.302
+TNS   : -0.302
 
 Type  : Fast 1100mV 0C Model Hold 'clk25'
-Slack : 0.123
-TNS   : 0.000
+Slack : -0.008
+TNS   : -0.008
 
 Type  : Fast 1100mV 0C Model Hold 'VGA_OUTPUT:displayOutput|ascii[0]'
-Slack : 0.235
+Slack : 0.127
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Hold 'VGA_OUTPUT:displayOutput|asciiNum[0]'
+Slack : 0.195
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Hold 'clk50'
-Slack : 0.489
+Slack : 0.775
 TNS   : 0.000
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk50'
-Slack : -0.444
-TNS   : -0.547
-
-Type  : Fast 1100mV 0C Model Minimum Pulse Width 'VGA_OUTPUT:displayOutput|asciiSml[0]'
-Slack : -0.317
-TNS   : -1.687
-
-Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk25'
-Slack : -0.055
-TNS   : -1.345
+Slack : -0.466
+TNS   : -0.591
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'VGA_OUTPUT:displayOutput|asciiNum[0]'
-Slack : 0.067
-TNS   : 0.000
+Slack : -0.289
+TNS   : -1.339
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk25'
+Slack : -0.126
+TNS   : -2.010
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'VGA_OUTPUT:displayOutput|asciiSml[0]'
+Slack : -0.093
+TNS   : -0.189
 
 Type  : Fast 1100mV 0C Model Minimum Pulse Width 'VGA_OUTPUT:displayOutput|ascii[0]'
-Slack : 0.384
+Slack : 0.347
 TNS   : 0.000
 
 ------------------------------------------------------------
