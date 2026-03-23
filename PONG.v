@@ -32,10 +32,7 @@ module PONG (
 	output [7:0] vgaB,				// VGA_B		[7: PIN_AK16; 6: PIN_AJ16; 5: PIN_AJ17; 4: PIN_AH19; 3: PIN_AJ19; 2: PIN_AH20; 1: PIN_AJ20; 0: PIN_AJ21;]
 	output vgaHSync,					//	VGA HSYC	[PIN_AK19]
 	output vgaVSync,					// VGA VSYC	[PIN_AK18]
-	output vga_clk,					// VGA_CLK	[PIN_AK21]
-	
-	output led_up,
-	output led_down
+	output vga_clk						// VGA_CLK	[PIN_AK21]
 );	
 
 	// LOCAL PARAMETERS
@@ -67,7 +64,9 @@ module PONG (
 	wire [23:0] objectCol = 		24'b111111111111111111111111;		// THE COLOR OF THE OBJECT (WHITE)
 	
 	wire [1:0] launchMode;														// WHO SHOULD LAUNCH THE BALL (0 = NOT IN LAUNCH MODE, 1 = PLAYER ONE LAUNCH MODE, 2 = PLAYER TWO LAUNCH MODE)
-	
+	wire mainMenu;																	// IF THE GAME IS IN THE MAIN MENU
+	wire gameMode;																	// IF THE GAME IS UNLIMATED OR FIRST TO 3; 0 FOR ULIMATED AND 1 FOR FIRST TO 3
+	wire gameOver;																	// IF THE GAME IS OVER
 
 	wire playerOneMoveUp;
 	wire playerOneMoveDown;
@@ -134,7 +133,9 @@ module PONG (
 		.clk25(clk25),
 		.rst(rst),
 		.paused(pause),
-		//.mainMenu(mainMenu)
+		.mainMenu(mainMenu),
+		.gameMode(gameMode),
+		.gameOver(gameOver)
 	);
 	
 	// VGA OUTPUTS TO MONITOR
@@ -166,7 +167,8 @@ module PONG (
 		.clk25(clk25),
 		.rst(rst),
 		.paused(pause),
-		//.mainMenu(mainMenu),
+		.mainMenu(mainMenu),
+		.gameOver(gameOver),
 		
 		.vgaR(vgaR),
 		.vgaG(vgaG),
@@ -192,8 +194,5 @@ module PONG (
 		.moveUp(playerTwoMoveUp),
 		.moveDown(playerTwoMoveDown)
 	);
-	
-	assign led_up = playerOneMoveUp;
-	assign led_down = playerOneMoveDown;
 endmodule
 

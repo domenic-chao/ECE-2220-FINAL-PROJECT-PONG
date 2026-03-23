@@ -2,7 +2,7 @@
 // 	MODULE TO DETERMINE PIXEL COLOR (OBJECT VS NO OBJECT) 
 //			AND THEN DISPLAY TO DATA TO SCREEN
 // VERSION: 1.0.3
-// LAST UPDATED: MAR 17, 2026
+// LAST UPDATED: MAR 22, 2026
 // AUTHOR: DOMENIC CHAO
 
 module VGA_OUTPUT #(
@@ -30,16 +30,18 @@ module VGA_OUTPUT #(
 	input [23:0] backgroundCol,				// THE COLOR OF THE BACKGROUND
 	input [23:0] objectCol,						// THE COLOR OF THE OBJECTS ON THE BOARD
 
-	input clk25,				// 25MHZ CLOCK
+	input clk25,									// 25MHZ CLOCK
 	
-	input rst,					// RESET INPUT
-	input paused,				// PUASE INPUT
+	input rst,										// RESET INPUT
+	input paused,									// PUASE INPUT
+	input mainMenu,								// IS MAIN MENU ACTIVE
+	input gameOver,								// IS THE GAME OVER
 	
-	output reg [7:0] vgaR, 	// VGA RED COLOR OUTPUT (0-255)
-	output reg [7:0] vgaG,	// VGA GREEN COLOR OUTPUT (0-255)
-	output reg [7:0] vgaB,	// VGA BLUE COLOR OUTPUT (0-255)
-	output vgaHSYNC,			// VGA HORIZONTAL SYNC OUTPUT 
-	output vgaVSYNC			// VGA VERTICAL SYNC OUTPUT
+	output reg [7:0] vgaR, 						// VGA RED COLOR OUTPUT (0-255)
+	output reg [7:0] vgaG,						// VGA GREEN COLOR OUTPUT (0-255)
+	output reg [7:0] vgaB,						// VGA BLUE COLOR OUTPUT (0-255)
+	output vgaHSYNC,								// VGA HORIZONTAL SYNC OUTPUT 
+	output vgaVSYNC								// VGA VERTICAL SYNC OUTPUT
 	
 );
 
@@ -72,16 +74,51 @@ module VGA_OUTPUT #(
 	reg [11:0] xOffset = 0;
 	reg [11:0] yOffset = 0;
 	reg [11:0] ascii = 0;
-	wire isColor;
+	wire isColorLarge;
+	
+	reg [11:0] xOffsetNum = 0;
+	reg [11:0] yOffsetNum = 0;
+	reg [11:0] asciiNum = 0;
+	wire isColorNum;
+	
+	reg [11:0] xOffsetSml = 0;
+	reg [11:0] yOffsetSml = 0;
+	reg [11:0] asciiSml= 0;
+	wire isColorSml;
+	
+	reg scoreOneDigitOne = 0;
+	reg scoreOneDigitTwo = 0;
+	reg scoreTwoDigitOne = 0;
+	reg scoreTwoDigitTwo = 0;
 	
 	 CHAR_TO_VGA #(
-		.HEIGHT(27),
-		.WIDTH(15)
+		.HEIGHT(180),
+		.WIDTH(100)
 	) largeFont (
 		.ascii(ascii),
 		.xPos(xOffset),
 		.yPos(yOffset),
-		.isColor(isColor)
+		.isColor(isColorLarge)
+	);
+	
+	CHAR_TO_VGA #(
+		.HEIGHT(144),
+		.WIDTH(80)
+	) numFont (
+		.ascii(asciiNum),
+		.xPos(xOffsetNm),
+		.yPos(yOffsetNum),
+		.isColor(isColorNum)
+	);
+	
+	CHAR_TO_VGA #(
+		.HEIGHT(45),
+		.WIDTH(25)
+	) smlFont (
+		.ascii(asciiSml),
+		.xPos(xOffsetSml),
+		.yPos(yOffsetSml),
+		.isColor(isColorSml)
 	);
 	
 	
@@ -128,54 +165,305 @@ module VGA_OUTPUT #(
 		object <= 0;
 		
 		// DETERMINE IF THERE IS OBJECT AT THIS PIXEL OR NOT
-		
-		// PAUSED WORDS
-		if (paused) begin
-			if (Hpos >= 200 && Hpos < 215 && Vpos >= 50 && Vpos <= 77) begin
-				xOffset <= Hpos - 200;
+		if (mainMenu) begin
+			// PONG WORDS
+			if (Hpos >= 40 && Hpos <= 140 && Vpos >= 50 && Vpos <= 230) begin
+				xOffset <= Hpos - 40;
 				yOffset <= Vpos - 50;
 				ascii <= 12'd80;
-			end else if (Hpos >= 225 && Hpos < 240 && Vpos >= 50 && Vpos <= 77) begin
-				xOffset <= Hpos - 225;
+			end else if (Hpos >= 160 && Hpos <= 260 && Vpos >= 50 && Vpos <= 230) begin
+				xOffset <= Hpos - 150;
 				yOffset <= Vpos - 50;
 				ascii <= 12'd79;
-			end else if (Hpos >= 250 && Hpos < 265 && Vpos >= 50 && Vpos <= 77) begin
-				xOffset <= Hpos - 250;
+			end else if (Hpos >= 280 && Hpos <= 380 && Vpos >= 50 && Vpos <= 230) begin
+				xOffset <= Hpos - 280;
 				yOffset <= Vpos - 50;
 				ascii <= 12'd78;
-			end else	if (Hpos >= 275 && Hpos < 290 && Vpos >= 50 && Vpos <= 77) begin
-				xOffset <= Hpos - 275;
+			end else	if (Hpos >= 400 && Hpos <= 500 && Vpos >= 50 && Vpos <= 230) begin
+				xOffset <= Hpos - 400;
 				yOffset <= Vpos - 50;
 				ascii <= 12'd71;
 			end else begin
 				ascii <= 0;
 			end
+			
+			// MENU OPTIONS
+			// UP: FIRST TO 3
+			if (Hpos >= 100 && Hpos <= 125 && Vpos >= 400 && Vpos <= 445) begin
+				xOffsetSml <= Hpos - 100;
+				yOffsetSml <= Vpos - 400;
+				asciiSml <= 12'd85;
+			end else if (Hpos >= 135 && Hpos <= 160 && Vpos >= 400 && Vpos <= 445) begin
+				xOffsetSml <= Hpos - 135;
+				yOffsetSml <= Vpos - 400;
+				asciiSml <= 12'd80;
+			end else if (Hpos >=  170 && Hpos <= 195 && Vpos >= 400 && Vpos <= 445) begin
+				xOffsetSml <= Hpos - 170;
+				yOffsetSml <= Vpos - 400;
+				asciiSml <= 12'd58;
+			end else	if (Hpos >=  205 && Hpos <= 230  && Vpos >= 400 && Vpos <= 445) begin
+				xOffsetSml <= Hpos - 205;
+				yOffsetSml <= Vpos - 400;
+				asciiSml <= 12'd00;
+			end else	if (Hpos >=  240 && Hpos <= 265 && Vpos >= 400 && Vpos <= 445) begin
+				xOffsetSml <= Hpos - 240;
+				yOffsetSml <= Vpos - 400;
+				asciiSml <= 12'd70;	
+			end else	if (Hpos >=  275 && Hpos <= 300 && Vpos >= 400 && Vpos <= 445) begin
+				xOffsetSml <= Hpos - 275;
+				yOffsetSml <= Vpos - 400;
+				asciiSml <= 12'd73;
+			end else	if (Hpos >= 310 && Hpos <= 335 && Vpos >= 400 && Vpos <= 445) begin
+				xOffsetSml <= Hpos - 310;
+				yOffsetSml <= Vpos - 400;
+				asciiSml <= 12'd82;
+			end else	if (Hpos >= 345 && Hpos <= 370 && Vpos >= 400 && Vpos <= 445) begin
+				xOffsetSml <= Hpos - 345;
+				yOffsetSml <= Vpos - 400;
+				asciiSml <= 12'd83;
+			end else	if (Hpos >= 380 && Hpos <= 405 && Vpos >= 400 && Vpos <= 445) begin
+				xOffsetSml <= Hpos - 380;
+				yOffsetSml <= Vpos - 400;
+				asciiSml <= 12'd84;
+			end else	if (Hpos >= 415 && Hpos <= 440 && Vpos >= 400 && Vpos <= 445) begin
+				xOffsetSml <= Hpos - 415;
+				yOffsetSml <= Vpos - 400;
+				asciiSml <= 12'd00;
+			end else	if (Hpos >=  450 && Hpos <= 475 && Vpos >= 400 && Vpos <= 445) begin
+				xOffsetSml <= Hpos - 450;
+				yOffsetSml <= Vpos - 400;
+				asciiSml <= 12'd84;
+			end else	if (Hpos >= 485 && Hpos <= 510 && Vpos >= 400 && Vpos <= 445) begin
+				xOffsetSml <= Hpos - 485;
+				yOffsetSml <= Vpos - 400;
+				asciiSml <= 12'd79;
+			end else	if (Hpos >= 495 && Hpos <= 520 && Vpos >= 400 && Vpos <= 445) begin
+				xOffsetSml <= Hpos - 495;
+				yOffsetSml <= Vpos - 400;
+				asciiSml <= 12'd00;
+			end else	if (Hpos >=  530 && Hpos <= 555 && Vpos >= 400 && Vpos <= 445) begin
+				xOffsetSml <= Hpos - 530;
+				yOffsetSml <= Vpos - 400;
+				asciiSml <= 12'd51;
+			end else begin
+				asciiSml <= 0;
+			end
+			
+			// DOWN: INFTY
+			if (Hpos >= 100 && Hpos <= 125 && Vpos >= 500 && Vpos <= 545) begin
+				xOffsetSml <= Hpos - 100;
+				yOffsetSml <= Vpos - 500;
+				asciiSml <= 12'd68;
+			end else if (Hpos >= 135 && Hpos <= 160 && Vpos >= 500 && Vpos <= 545) begin
+				xOffsetSml <= Hpos - 135;
+				yOffsetSml <= Vpos - 500;
+				asciiSml <= 12'd79;
+			end else if (Hpos >=  170 && Hpos <= 195 && Vpos >= 500 && Vpos <= 545) begin
+				xOffsetSml <= Hpos - 170;
+				yOffsetSml <= Vpos - 500;
+				asciiSml <= 12'd87;
+			end else	if (Hpos >=  205 && Hpos <= 230  && Vpos >= 500 && Vpos <= 545) begin
+				xOffsetSml <= Hpos - 205;
+				yOffsetSml <= Vpos - 500;
+				asciiSml <= 12'd78;
+			end else	if (Hpos >=  240 && Hpos <= 265 && Vpos >= 500 && Vpos <= 545) begin
+				xOffsetSml <= Hpos - 240;
+				yOffsetSml <= Vpos - 500;
+				asciiSml <= 12'd58;	
+			end else	if (Hpos >=  275 && Hpos <= 300 && Vpos >= 500 && Vpos <= 545) begin
+				xOffsetSml <= Hpos - 275;
+				yOffsetSml <= Vpos - 500;
+				asciiSml <= 12'd00;
+			end else	if (Hpos >= 310 && Hpos <= 335 && Vpos >= 500 && Vpos <= 545) begin
+				xOffsetSml <= Hpos - 310;
+				yOffsetSml <= Vpos - 500;
+				asciiSml <= 12'd73;
+			end else	if (Hpos >= 345 && Hpos <= 370 && Vpos >= 500 && Vpos <= 545) begin
+				xOffsetSml <= Hpos - 345;
+				yOffsetSml <= Vpos - 500;
+				asciiSml <= 12'd78;
+			end else	if (Hpos >= 380 && Hpos <= 405 && Vpos >= 500 && Vpos <= 545) begin
+				xOffsetSml <= Hpos - 380;
+				yOffsetSml <= Vpos - 500;
+				asciiSml <= 12'd70;
+			end else	if (Hpos >= 415 && Hpos <= 440 && Vpos >= 500 && Vpos <= 545) begin
+				xOffsetSml <= Hpos - 415;
+				yOffsetSml <= Vpos - 500;
+				asciiSml <= 12'd84;
+			end else	if (Hpos >=  450 && Hpos <= 475 && Vpos >= 500 && Vpos <= 545) begin
+				xOffsetSml <= Hpos - 450;
+				yOffsetSml <= Vpos - 500;
+				asciiSml <= 12'd89;
+			end else begin
+				asciiSml <= 0;
+			end
+			
+		
+			object <= isColorLarge | isColorSml;
+		end else if (gameOver) begin	
+			// GAMEOVER SCREEN
+			
+			// UP: FIRST TO 3
+			if (Hpos >= 100 && Hpos <= 125 && Vpos >= 400 && Vpos <= 445) begin
+				xOffsetSml <= Hpos - 100;
+				yOffsetSml <= Vpos - 400;
+				asciiSml <= 12'd80;
+			end else if (Hpos >= 135 && Hpos <= 160 && Vpos >= 400 && Vpos <= 445) begin
+				xOffsetSml <= Hpos - 135;
+				yOffsetSml <= Vpos - 400;
+				asciiSml <= 12'd76;
+			end else if (Hpos >=  170 && Hpos <= 195 && Vpos >= 400 && Vpos <= 445) begin
+				xOffsetSml <= Hpos - 170;
+				yOffsetSml <= Vpos - 400;
+				asciiSml <= 12'd65;
+			end else	if (Hpos >=  205 && Hpos <= 230  && Vpos >= 400 && Vpos <= 445) begin
+				xOffsetSml <= Hpos - 205;
+				yOffsetSml <= Vpos - 400;
+				asciiSml <= 12'd89;
+			end else	if (Hpos >=  240 && Hpos <= 265 && Vpos >= 400 && Vpos <= 445) begin
+				xOffsetSml <= Hpos - 240;
+				yOffsetSml <= Vpos - 400;
+				asciiSml <= 12'd69;	
+			end else	if (Hpos >=  275 && Hpos <= 300 && Vpos >= 400 && Vpos <= 445) begin
+				xOffsetSml <= Hpos - 275;
+				yOffsetSml <= Vpos - 400;
+				asciiSml <= 12'd82;
+			end else	if (Hpos >= 310 && Hpos <= 335 && Vpos >= 400 && Vpos <= 445) begin
+				xOffsetSml <= Hpos - 310;
+				yOffsetSml <= Vpos - 400;
+				asciiSml <= 12'd00;
+			end else	if (Hpos >= 345 && Hpos <= 370 && Vpos >= 400 && Vpos <= 445) begin
+				xOffsetSml <= Hpos - 345;
+				yOffsetSml <= Vpos - 400;
+				
+				// PRINTING 1 OR 2
+				if (scoreOne > scoreTwo) begin
+					asciiSml <= 12'd49;
+				end else begin
+					asciiSml <= 12'd50;
+				end
+			end else	if (Hpos >= 380 && Hpos <= 405 && Vpos >= 400 && Vpos <= 445) begin
+				xOffsetSml <= Hpos - 380;
+				yOffsetSml <= Vpos - 400;
+				asciiSml <= 12'd00;
+			end else	if (Hpos >= 415 && Hpos <= 440 && Vpos >= 400 && Vpos <= 445) begin
+				xOffsetSml <= Hpos - 415;
+				yOffsetSml <= Vpos - 400;
+				asciiSml <= 12'd87;
+			end else	if (Hpos >=  450 && Hpos <= 475 && Vpos >= 400 && Vpos <= 445) begin
+				xOffsetSml <= Hpos - 450;
+				yOffsetSml <= Vpos - 400;
+				asciiSml <= 12'd79;
+			end else	if (Hpos >= 485 && Hpos <= 510 && Vpos >= 400 && Vpos <= 445) begin
+				xOffsetSml <= Hpos - 485;
+				yOffsetSml <= Vpos - 400;
+				asciiSml <= 12'd78;
+			end else begin
+				asciiSml <= 0;
+			end
+			
+			object <= isColorSml;
+		end else begin
+			// PAUSED WORDS
+			if (paused) begin
+				if (Hpos >= 30 && Hpos <= 110 && Vpos >= 50 && Vpos <= 194) begin
+					xOffsetNum <= Hpos - 30;
+					yOffsetNum <= Vpos - 50;
+					asciiNum <= 12'd80;
+				end else if (Hpos >= 130 && Hpos <= 210 && Vpos >= 50 && Vpos <= 194) begin
+					xOffsetNum <= Hpos - 130;
+					yOffsetNum <= Vpos - 50;
+					asciiNum <= 12'd65;
+				end else if (Hpos >= 230 && Hpos <= 310 && Vpos >= 50 && Vpos <= 194) begin
+					xOffsetNum <= Hpos - 230;
+					yOffsetNum <= Vpos - 50;
+					asciiNum <= 12'd85;
+				end else	if (Hpos >= 330 && Hpos <= 410 && Vpos >= 50 && Vpos <= 194) begin
+					xOffsetNum <= Hpos - 330;
+					yOffsetNum <= Vpos - 50;
+					asciiNum <= 12'd83;
+				end else	if (Hpos >= 430 && Hpos <= 510 && Vpos >= 50 && Vpos <= 194) begin
+					xOffsetNum <= Hpos - 430;
+					yOffsetNum <= Vpos - 50;
+					asciiNum <= 12'd69;
+				end else	if (Hpos >= 530 && Hpos <= 610 && Vpos >= 50 && Vpos <= 194) begin
+					xOffsetNum <= Hpos - 530;
+					yOffsetNum <= Vpos - 50;
+					asciiNum <= 12'd68;
+				end else begin
+					asciiNum <= 0;
+				end
 						
-			object <= isColor;
-		end
+				object <= isColorNum;
+			end
+			
 		
-		// BALL
-		if ((Hpos >= (ballX - BALL_SIZE)) && (Hpos <= (ballX + BALL_SIZE)) && (Vpos >= (ballY - BALL_SIZE)) && (Vpos <= (ballY + BALL_SIZE))) begin
-			object <= 1;
+			// PLAYER ONE SCORE
+			scoreOneDigitOne = scoreOne % 10;
+			scoreOneDigitTwo = ((scoreOne - scoreOneDigitOne) % 100) / 10;
+			
+			if ((Hpos >= 93 && Hpos <= 173 & Vpos >= 50 && Vpos <= 194)) begin
+				if (scoreOneDigitTwo > 0) begin
+					xOffsetNum <= Hpos - 93;
+					yOffsetNum <= Vpos - 50;
+					asciiNum <= 48 + scoreOneDigitTwo;
+				end else begin
+					asciiNum <= 0;
+				end
+			end else if ((Hpos >= 193 && Hpos <= 273 & Vpos >= 50 && Vpos <= 194)) begin
+				xOffsetNum <= Hpos - 193;
+				yOffsetNum <= Vpos - 50;
+				asciiNum <= 48 + scoreOneDigitOne;
+			end else begin
+				asciiNum <= 0;
+			end
+			
+			// PLAYER TWO SCORE
+			scoreTwoDigitOne = scoreTwo % 10;
+			scoreTwoDigitTwo = ((scoreTwo - scoreTwoDigitOne) % 100) / 10;
+			
+			if ((Hpos >= 357 && Hpos <= 437 & Vpos >= 50 && Vpos <= 194)) begin
+				if (scoreTwoDigitTwo > 0) begin
+					xOffsetNum <= Hpos - 357;
+					yOffsetNum <= Vpos - 50;
+					asciiNum <= 48 + scoreTwoDigitTwo;
+				end else begin
+					asciiNum <= 0;
+				end
+			end else if ((Hpos >= 457 && Hpos <= 537 & Vpos >= 50 && Vpos <= 194)) begin
+				xOffsetNum <= Hpos - 457;
+				yOffsetNum <= Vpos - 50;
+				asciiNum <= 48 + scoreTwoDigitOne;
+			end else begin
+				asciiNum <= 0;
+			end
+			
+			if (isColorNum == 1) begin
+				object <= 1;
+			end
+			
+			// BALL
+			if ((Hpos >= (ballX - BALL_SIZE)) && (Hpos <= (ballX + BALL_SIZE)) && (Vpos >= (ballY - BALL_SIZE)) && (Vpos <= (ballY + BALL_SIZE))) begin
+				object <= 1;
+			end
+			
+			// P1 BLOCKER
+			if ((Hpos >= (BLOCKER_PADDING - BLOCKER_WIDTH)) && (Hpos <= BLOCKER_PADDING) 
+					&& (Vpos >= (blockerOneY - BLOCKER_SIZE)) && (Vpos <= blockerOneY + BLOCKER_SIZE)) begin
+				object <= 1;
+			end
+			
+			// P2 BLOCKER
+			if ((Hpos >= (H_ACTIVE - BLOCKER_PADDING)) && (Hpos <= (H_ACTIVE - BLOCKER_PADDING + BLOCKER_WIDTH)) 
+					&& (Vpos >= (blockerTwoY - BLOCKER_SIZE)) && (Vpos <= blockerTwoY + BLOCKER_SIZE)) begin
+				object <= 1;
+			end
+			
+			// CENTRE LINE
+			if ((Hpos >= ((H_ACTIVE/2) - CENTRE_WIDTH)) && (Hpos <= ((H_ACTIVE/2) + CENTRE_WIDTH)) && centreCol) begin
+				object <= 1;
+			end
 		end
-		
-		// P1 BLOCKER
-		if ((Hpos >= (BLOCKER_PADDING - BLOCKER_WIDTH)) && (Hpos <= BLOCKER_PADDING) 
-				&& (Vpos >= (blockerOneY - BLOCKER_SIZE)) && (Vpos <= blockerOneY + BLOCKER_SIZE)) begin
-			object <= 1;
-		end
-		
-		// P2 BLOCKER
-		if ((Hpos >= (H_ACTIVE - BLOCKER_PADDING)) && (Hpos <= (H_ACTIVE - BLOCKER_PADDING + BLOCKER_WIDTH)) 
-				&& (Vpos >= (blockerTwoY - BLOCKER_SIZE)) && (Vpos <= blockerTwoY + BLOCKER_SIZE)) begin
-			object <= 1;
-		end
-		
-		// CENTRE LINE
-		if ((Hpos >= ((H_ACTIVE/2) - CENTRE_WIDTH)) && (Hpos <= ((H_ACTIVE/2) + CENTRE_WIDTH)) && centreCol) begin
-			object <= 1;
-		end
-		
 		
 		// ADDING COLOR
 		if (videoActive) begin

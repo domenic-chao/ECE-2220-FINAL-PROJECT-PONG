@@ -1,1 +1,1 @@
-Warning (10268): Verilog HDL information at VGA_OUTPUT.v(72): always construct contains both blocking and non-blocking assignments File: C:/Users/chaod/OneDrive - University of Manitoba/ECE 2220/FINAL PROJECT (1)/PONG/VGA_OUTPUT.v Line: 72
+Warning (10268): Verilog HDL information at VGA_OUTPUT.v(164): always construct contains both blocking and non-blocking assignments File: C:/Users/domen/Desktop/ECE 2220 LABS/FINAL PROJECT/PONG/VGA_OUTPUT.v Line: 164

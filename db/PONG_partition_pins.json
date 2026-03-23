@@ -280,15 +280,11 @@
 					"strict" : false
 				},
 				{
-					"name" : "led_up",
-					"strict" : false
-				},
-				{
-					"name" : "led_down",
-					"strict" : false
-				},
-				{
 					"name" : "rst",
+					"strict" : false
+				},
+				{
+					"name" : "pause",
 					"strict" : false
 				},
 				{
@@ -297,10 +293,6 @@
 				},
 				{
 					"name" : "playerOneDown",
-					"strict" : false
-				},
-				{
-					"name" : "pause",
 					"strict" : false
 				},
 				{
